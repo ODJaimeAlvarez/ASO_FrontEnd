@@ -1,0 +1,19 @@
+<mat-toolbar class="header">
+  <mat-toolbar-row>
+    <div class="start">
+        <div class="logo">
+        <!--<img src="./assets/logo_aso.png" alt="logo" style="width: 35px;">!-->
+      </div>
+      <h1>Portal ASO</h1>
+    </div>
+    <span class="spacer"></span>
+    <button class="icon" mat-mini-fab aria-hidden="false" [matMenuTriggerFor]="menu" color="basic">
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <li *ngIf="isLogged" (click)="onLogOut()">
+      <button mat-menu-item><mat-icon>exit_to_app</mat-icon> Cerrar Sesión</button>
+      </li>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

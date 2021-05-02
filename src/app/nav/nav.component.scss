@@ -1,0 +1,40 @@
+@import "src/styles.scss";
+
+h1 {
+  color: whitesmoke;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 8px;
+}
+
+.header {
+  background-color: $corporate-color-blue-magenta;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.username,
+.icon {
+  margin: 0 5px;
+}
+
+.username {
+  color: whitesmoke;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+.logo {
+  margin-top: 10px;
+}
+
+.icon {
+  background-color: whitesmoke;
+}
+
+.start {
+  display: contents;
+  cursor: pointer;
+}

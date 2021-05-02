@@ -1,0 +1,40 @@
+<div class="fondo">
+    <img src="./assets/fondo.jpg" class="imagen">
+</div>
+
+<app-nav></app-nav>
+
+<div class="container d-flex justify-content-center">
+  <div class="card">
+      <div class="card-header">
+          <ul class="nav nav-tabs">
+              <li class="nav-item">
+                  <a class="nav-link active" routerLink="">Iniciar Sesión</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="">Crear Cuenta</a>
+              </li>
+          </ul>
+      </div>
+      <div class="card-body">
+          <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+              <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" id="email" class="form-control"
+                  [(ngModel)]="email" required>
+              </div>
+              <div class="form-group">
+                  <label for="password">Contraseña</label>
+                  <input type="password" name="password" id="password" class="form-control"
+                  [(ngModel)]="password" required>
+              </div>
+              <div class="form-group">
+                  <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Iniciar Sesión</button>
+              </div>
+          </form>
+          <div *ngIf= "f.submitted && isLoginFail" class="alert alert-danger mt-3">Error: {{errMsj}}</div>
+      </div>
+  </div>
+</div>
+
+

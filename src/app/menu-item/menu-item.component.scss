@@ -1,0 +1,60 @@
+@import "src/styles.scss";
+
+:host {
+  display: block;
+  outline: none;
+
+  .mat-list-item.active {
+    background-color: #422774;
+    color: white;
+  }
+
+  .mat-list-item.active .o {
+    color: white !important;
+  }
+
+  .mat-list-item.active:hover .o, .mat-list-item.active:hover .routeIcon {
+    color: black !important;
+  }
+
+}
+
+app-menu-item .mat-list-item{
+  background-color: white;
+}
+
+app-menu-item .mat-list-item:hover{
+  background-color: #f5eef8;
+}
+
+.mat-list-item {
+
+  .routeIcon {
+    margin-right: 15px;
+    font-size: 22px;
+  }
+}
+
+.item {
+  overflow-x: hidden;
+
+}
+
+.o{
+  font-size: 15px;
+}
+
+
+app-menu-item .mat-list-item .o{
+  font-size: 13px;
+}
+
+app-menu-item .mat-list-item .routeIcon{
+  margin-right: 15px;
+  margin-left: 12px;
+  font-size: 19px;
+}
+
+.ejem{
+  height: 45px;
+}
