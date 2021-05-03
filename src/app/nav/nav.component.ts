@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from '../service/token.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -11,7 +11,10 @@ export class NavComponent implements OnInit {
 
   isLogged= false;
 
-  constructor(private tokenService: TokenService) { }
+  constructor(
+    private tokenService: TokenService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     if(this.tokenService.getToken()) {

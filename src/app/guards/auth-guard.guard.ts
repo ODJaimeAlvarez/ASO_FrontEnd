@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import {AuthService} from './service/auth.service';
-import { LoginUsuario } from './login-usuario';
+import {AuthService} from '../service/auth.service';
+import { LoginUsuario } from '../models/login-usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,9 @@ export class AuthGuardGuard implements CanActivate, CanActivateChild, CanDeactiv
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(!this.auth.login(this.loginUsuario)) {
+      if(window.sessionStorage.getItem("AuthToken")==null) {
         console.log('No estás logueado');
-        this.router.navigate(['/login']);
+        this.router.navigate(['']);
         return false;
       }
     return true;

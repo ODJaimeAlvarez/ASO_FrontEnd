@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-import { routing } from './app.routing';
+import { routing } from './routing/app.routing';
 
 import { FontAwesomeModule, FaIconLibrary  } from '@fortawesome/angular-fontawesome'
 import { faCircle,faSquare } from '@fortawesome/free-solid-svg-icons';
@@ -15,15 +15,11 @@ import { LoginComponent } from './auth/login.component';
 import { NavComponent } from './nav/nav.component';
 
 
-import {DataService } from './data.service';
-
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ListaProyectosComponent } from './lista-proyectos/lista-proyectos.component';
 import { PagInicioComponent } from './pag-inicio/pag-inicio.component';
-import { interceptorProvider } from './proyectos-interceptor.service';
-import { MenuComponent } from './menu/menu.component';
-import { MenuItemComponent } from './menu-item/menu-item.component';
+import { interceptorProvider } from './interceptors/proyectos-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from "@angular/material/slider";
 import {  MatListModule } from "@angular/material/list";
@@ -43,6 +39,7 @@ import {  MatSortModule } from "@angular/material/sort";
 import {  MatPaginatorModule } from "@angular/material/paginator";
 import {  MatSelectModule } from "@angular/material/select";
 import {  MatPaginatorIntl } from "@angular/material/paginator";
+import { MenuhamburguerComponent } from './menuhamburguer/menuhamburguer.component';
 
 
 @NgModule({
@@ -54,8 +51,7 @@ import {  MatPaginatorIntl } from "@angular/material/paginator";
     ProyectosComponent,
     ListaProyectosComponent,
     PagInicioComponent,
-    MenuComponent,
-    MenuItemComponent
+    MenuhamburguerComponent
   ],
   imports: [
     BrowserModule,

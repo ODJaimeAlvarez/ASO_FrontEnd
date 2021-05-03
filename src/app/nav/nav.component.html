@@ -11,9 +11,7 @@
       <mat-icon>person</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <li *ngIf="isLogged" (click)="onLogOut()">
-      <button mat-menu-item><mat-icon>exit_to_app</mat-icon> Cerrar Sesión</button>
-      </li>
+      <button mat-menu-item (click)="onLogOut()"><mat-icon>exit_to_app</mat-icon> Cerrar Sesión</button>
     </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>

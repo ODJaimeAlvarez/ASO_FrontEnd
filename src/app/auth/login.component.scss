@@ -1,18 +1,23 @@
 .container {
-  margin-top:230px;
   width: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  
 }
 
-.imagen {
-  width: 100%;
-  position: absolute;
-  filter: blur(2px);
+.login {
+  margin-top: 230px;
   
 }
 
 .fondo{
-  position: fixed;
-    top: 0;
+    position: fixed;
     width: 100%;
-    left:0;
+    height: 100%;
+    background-image: url("../../assets/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
 }
