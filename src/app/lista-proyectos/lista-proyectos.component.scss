@@ -1,0 +1,36 @@
+@import "src/styles.scss";
+h5 {
+    width:200px;
+    font-size: 14px;
+}
+
+.progress-bar {
+    background-color: rgb(8, 197, 8);
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.buscador {
+    width: 1040px;
+}
+
+h1 {
+    font-size: 30px;
+    color: $corporate-color-blue-magenta;
+    font-weight: bold;
+}
+
+.iconoProyecto {
+    color:  $corporate-color-blue-magenta;
+    font-weight: bold;
+}
+
+.let p{
+    text-transform: lowercase;
+}
+
+.let p::first-letter {
+    text-transform: uppercase;
+}

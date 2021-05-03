@@ -22,7 +22,7 @@ export class ListaProyectosComponent implements OnInit {
 
 
   constructor(
-    private listaService: ListaProyectosService,
+    private listaService: ListaProyectosService
     ) { }
 
   ngOnInit() {

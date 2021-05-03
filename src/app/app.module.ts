@@ -40,6 +40,7 @@ import {  MatPaginatorModule } from "@angular/material/paginator";
 import {  MatSelectModule } from "@angular/material/select";
 import {  MatPaginatorIntl } from "@angular/material/paginator";
 import { MenuhamburguerComponent } from './menuhamburguer/menuhamburguer.component';
+import { FicherosComponent } from './ficheros/ficheros.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { MenuhamburguerComponent } from './menuhamburguer/menuhamburguer.compone
     ProyectosComponent,
     ListaProyectosComponent,
     PagInicioComponent,
-    MenuhamburguerComponent
+    MenuhamburguerComponent,
+    FicherosComponent
   ],
   imports: [
     BrowserModule,
