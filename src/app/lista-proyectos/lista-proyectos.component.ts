@@ -26,15 +26,12 @@ export class ListaProyectosComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-  
       this.listaProyectos();
-      
-    
   }
 
-  /*prueba(proyecto: Proyectos){
+  prueba(proyecto: Proyectos){
       this.router.navigate(["/ficheros", proyecto.id]);
-  }*/
+  }
   
   listaProyectos(): void {
     this.listaService.proyectos().subscribe(

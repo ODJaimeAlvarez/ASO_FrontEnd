@@ -1,8 +1,47 @@
-* {
-    /* Elimina valores de propiedades establecidas por defecto */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+.contenedor {
+  margin-top: 50px;
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+  
+}
 
- 
+.card-title {
+  font-size: 20px;
+  text-align: right;
+}
+
+.card {
+  margin-right: 30px;
+}
+
+.titulo {
+  margin-left:175px;
+  color: rgb(189, 184, 184);
+}
+
+.numero {
+  margin-top: -8px;
+  margin-left:274px;
+  font-size: 30px;
+}
+
+.hr {
+  margin-top: 10px;
+}
+
+.status {
+  margin-left: 5px;
+  color: rgb(189, 184, 184);
+}
+
+.iconoStatus {
+  color: rgb(189, 184, 184);
+}
+
+.iconoUsuario {
+  color: pink;
+}
+

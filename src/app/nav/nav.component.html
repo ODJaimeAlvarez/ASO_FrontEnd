@@ -7,11 +7,20 @@
       <h1>Portal ASO</h1>
     </div>
     <span class="spacer"></span>
+    <button mat-icon-button  [matMenuTriggerFor]="more" color="basic" class="botonMore icon-display">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #more="matMenu">
+      <button mat-menu-item (click)="onLogOut()"><mat-icon>exit_to_app</mat-icon> Iniciar Jornada</button>
+      <button mat-menu-item (click)="onLogOut()"><mat-icon>close</mat-icon> Finalizar Jornada</button>
+    </mat-menu>
     <button class="icon" mat-mini-fab aria-hidden="false" [matMenuTriggerFor]="menu" color="basic">
       <mat-icon>person</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="onLogOut()"><mat-icon>exit_to_app</mat-icon> Cerrar Sesión</button>
+      <button mat-menu-item (click)="onLogOut()"><mat-icon>logout</mat-icon> Cerrar Sesión</button>
     </mat-menu>
+    
+
   </mat-toolbar-row>
 </mat-toolbar>

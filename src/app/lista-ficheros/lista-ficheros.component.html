@@ -14,12 +14,12 @@
     </mat-form-field>
   
   
-  <div class="list-group mb-2">
+  <div class="list-group mb-2" *ngFor="let fichero of ficheros">
     <a class="list-group-item list-group-item-action" aria-current="true">
       <div class="d-flex w-100 justify-content-between listado">
-        <h5 class="mb-1">ARCHIVO 1</h5>
+        <h5 class="mb-1">{{fichero.nombre}}</h5>
         <div class="d-flex listado">
-          <h5 class="mb-1 fechaModificacion">Fecha de modificacion</h5>
+          <h5 class="mb-1 fechaModificacion">Fecha de modificación: {{fichero.formato}}</h5>
           <button href="#" routerLink="/seguimiento" class="botonEditarDescargar iconoEditarDescargar"><i class="fas fa-edit fa-2x"></i></button>
           <button href="#" routerLink="/catalogo" class="botonEditarDescargar iconoEditarDescargar"><i class="fas fa-download fa-2x"></i></button>
         </div>

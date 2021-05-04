@@ -18,7 +18,7 @@ const appRoutes = [
     { path: 'catalogo', canActivate: [AuthGuardGuard], component: CatalogoComponent},
     { path: 'proyectos', canActivate: [AuthGuardGuard], component: ProyectosComponent},
     { path: 'proyectos', canActivate: [AuthGuardGuard], component: ListaProyectosComponent},
-    { path: 'ficheros', canActivate: [AuthGuardGuard], component: ListaFicherosComponent},
+    { path: 'ficheros/:id', canActivate: [AuthGuardGuard], component: ListaFicherosComponent},
     { path: 'seguimiento', canActivate: [AuthGuardGuard], component: TablaEmpleadosComponent},
     { path: 'seguimiento/empleado', canActivate: [AuthGuardGuard], component: SeguimientoEmpleadoComponent}
 ];

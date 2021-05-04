@@ -22,5 +22,4 @@ export class ListaProyectosService {
     return this.httpClient.get<any[]>(this.listaURL + 'api/proyecto', );
   }
 
-
 }

@@ -14,7 +14,7 @@
     </mat-form-field>
 
 <div class="list-group mb-2" *ngFor="let proyecto of proyectos | filter: filterProyectos">
-  <a href="#" routerLink='/ficheros' class="list-group-item list-group-item-action" aria-current="true" (click)="prueba(proyecto)">
+  <a href="#" routerLink="/ficheros/:id" class="list-group-item list-group-item-action" aria-current="true" (click)="prueba(proyecto)">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{proyecto.nombre}}</h5>
       <h5 class="mb-1 let"><p>{{proyecto.formato}}</p>

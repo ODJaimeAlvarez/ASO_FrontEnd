@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { routing } from './routing/app.routing';
+import { DatePipe } from '@angular/common';
 
 import { FontAwesomeModule, FaIconLibrary  } from '@fortawesome/angular-fontawesome'
 import { faCircle,faSquare } from '@fortawesome/free-solid-svg-icons';
@@ -89,7 +90,7 @@ import { SeguimientoEmpleadoComponent } from './seguimiento-empleado/seguimiento
     MatSelectModule,
     NgbModule
   ],
-  providers: [ CookieService, interceptorProvider],
+  providers: [ CookieService, interceptorProvider, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
