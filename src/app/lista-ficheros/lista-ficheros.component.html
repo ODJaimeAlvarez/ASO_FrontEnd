@@ -1,0 +1,29 @@
+<app-nav class="nav"></app-nav>
+<app-menuhamburguer></app-menuhamburguer>
+<div class="container border rounded">
+    <div class="d-flex mt-3">
+      <h1><i class="far fa-file-code iconoProyecto"></i> Ficheros</h1>
+  </div>
+    <h3 class="text-muted">Listado de ficheros</h3>
+    <button type="button" class="btn btn-primary botonAnadir">Añadir  <i class="fas fa-plus-circle"></i></button>
+    <mat-form-field class="example-full-width buscador">
+      <form class="d-flex">
+      <textarea matInput placeholder="Ex. Planificación"></textarea>
+      <button href='#' class="botonBuscar"><i class="fas fa-search"></i></button>
+  </form>
+    </mat-form-field>
+  
+  
+  <div class="list-group mb-2">
+    <a class="list-group-item list-group-item-action" aria-current="true">
+      <div class="d-flex w-100 justify-content-between listado">
+        <h5 class="mb-1">ARCHIVO 1</h5>
+        <div class="d-flex listado">
+          <h5 class="mb-1 fechaModificacion">Fecha de modificacion</h5>
+          <button href="#" routerLink="/seguimiento" class="botonEditarDescargar iconoEditarDescargar"><i class="fas fa-edit fa-2x"></i></button>
+          <button href="#" routerLink="/catalogo" class="botonEditarDescargar iconoEditarDescargar"><i class="fas fa-download fa-2x"></i></button>
+        </div>
+      </div>
+    </a>
+</div>
+  </div>

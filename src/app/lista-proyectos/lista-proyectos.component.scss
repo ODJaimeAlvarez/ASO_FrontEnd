@@ -27,10 +27,7 @@ h1 {
     font-weight: bold;
 }
 
-.let p{
-    text-transform: lowercase;
-}
-
-.let p::first-letter {
-    text-transform: uppercase;
+.botonBuscar {
+    background-color: transparent;
+    border:none;
 }

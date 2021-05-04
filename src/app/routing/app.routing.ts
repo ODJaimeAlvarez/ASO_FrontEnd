@@ -6,6 +6,10 @@ import { ProyectosComponent } from '../proyectos/proyectos.component';
 import { ListaProyectosComponent } from '../lista-proyectos/lista-proyectos.component';
 import { PagInicioComponent } from '../pag-inicio/pag-inicio.component';
 import { AuthGuardGuard } from '../guards/auth-guard.guard';
+import { ListaFicherosComponent } from '../lista-ficheros/lista-ficheros.component';
+import { TablaEmpleadosComponent } from '../tabla-empleados/tabla-empleados.component';
+import { SeguimientoEmpleadoComponent } from '../seguimiento-empleado/seguimiento-empleado.component';
+
 
 
 const appRoutes = [
@@ -13,7 +17,10 @@ const appRoutes = [
     { path: 'login', component: LoginComponent},
     { path: 'catalogo', canActivate: [AuthGuardGuard], component: CatalogoComponent},
     { path: 'proyectos', canActivate: [AuthGuardGuard], component: ProyectosComponent},
-    { path: 'proyectos', component: ListaProyectosComponent}
+    { path: 'proyectos', canActivate: [AuthGuardGuard], component: ListaProyectosComponent},
+    { path: 'ficheros', canActivate: [AuthGuardGuard], component: ListaFicherosComponent},
+    { path: 'seguimiento', canActivate: [AuthGuardGuard], component: TablaEmpleadosComponent},
+    { path: 'seguimiento/empleado', canActivate: [AuthGuardGuard], component: SeguimientoEmpleadoComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

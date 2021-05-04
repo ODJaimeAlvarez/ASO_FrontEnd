@@ -1,0 +1,55 @@
+<app-nav class="nav"></app-nav>
+<app-menuhamburguer></app-menuhamburguer>
+<div class="container border rounded table-responsive">
+    <div class="d-flex mt-3">
+        <h1><i class="fas fa-user-tie iconoProyecto"></i> ID: ID del empleado</h1>
+    </div>
+    <h3 class="text-muted">Listado de empleados</h3>
+    
+    
+
+<table class="table border table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hora de entrada</th>
+        <th scope="col">Hora de salida</th>
+        <th scope="col">Total horas/día</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td >Larry the Bird</td>
+        <td>@twitter</td>
+        <td>@twitter</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+    </tbody>
+  </table>
+   <!--ARREGLAR PAGINATOR-->
+   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

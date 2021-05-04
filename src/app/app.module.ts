@@ -40,7 +40,12 @@ import {  MatPaginatorModule } from "@angular/material/paginator";
 import {  MatSelectModule } from "@angular/material/select";
 import {  MatPaginatorIntl } from "@angular/material/paginator";
 import { MenuhamburguerComponent } from './menuhamburguer/menuhamburguer.component';
-import { FicherosComponent } from './ficheros/ficheros.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FilterPipe } from './pipe/filter.pipe';
+import { ListaFicherosComponent } from './lista-ficheros/lista-ficheros.component';
+import { TablaEmpleadosComponent } from './tabla-empleados/tabla-empleados.component';
+import { SeguimientoEmpleadoComponent } from './seguimiento-empleado/seguimiento-empleado.component';
+
 
 
 @NgModule({
@@ -53,7 +58,10 @@ import { FicherosComponent } from './ficheros/ficheros.component';
     ListaProyectosComponent,
     PagInicioComponent,
     MenuhamburguerComponent,
-    FicherosComponent
+    FilterPipe,
+    ListaFicherosComponent,
+    TablaEmpleadosComponent,
+    SeguimientoEmpleadoComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +86,8 @@ import { FicherosComponent } from './ficheros/ficheros.component';
     MatCheckboxModule,
     MatSortModule,
     MatPaginatorModule,
-    MatSelectModule
+    MatSelectModule,
+    NgbModule
   ],
   providers: [ CookieService, interceptorProvider],
   bootstrap: [AppComponent]
