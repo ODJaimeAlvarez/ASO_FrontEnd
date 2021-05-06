@@ -1,29 +1,80 @@
 <app-nav class="nav"></app-nav>
 <app-menuhamburguer></app-menuhamburguer>
-<div class="container border rounded">
+<div class="container">
+  <div class="container border rounded">
     <div class="d-flex mt-3">
       <h1><i class="far fa-file-code iconoProyecto"></i> Ficheros</h1>
-  </div>
+    </div>
     <h3 class="text-muted">Listado de ficheros</h3>
-    <button type="button" class="btn btn-primary botonAnadir">Añadir  <i class="fas fa-plus-circle"></i></button>
-    <mat-form-field class="example-full-width buscador">
+   
+      <button type="button" class="btn btn-primary botonAnadir">
+      <label for="file-upload" (click)="show=true">
+        Añadir <i class="fas fa-cloud-upload-alt"></i>
+        <input id="file-upload" (change)="uploadFile($event)" onchange="this.form.submit()" type="file"
+        style='display: none;' />
+      </label>
+      
+     </button>
+
+    <mat-form-field class="example-full-width">
       <form class="d-flex">
-      <textarea matInput placeholder="Ex. Planificación"></textarea>
-      <button href='#' class="botonBuscar"><i class="fas fa-search"></i></button>
-  </form>
+        <textarea matInput placeholder="Ex. Planificación" [(ngModel)]="filterPosts" class="form-control"
+          name="filterPosts"></textarea>
+        <button href='#' class="botonBuscar"><i class="fas fa-search"></i></button>
+      </form>
     </mat-form-field>
-  
-  
-  <div class="list-group mb-2" *ngFor="let fichero of ficheros">
-    <a class="list-group-item list-group-item-action" aria-current="true">
-      <div class="d-flex w-100 justify-content-between listado">
-        <h5 class="mb-1">{{fichero.nombre}}</h5>
-        <div class="d-flex listado">
-          <h5 class="mb-1 fechaModificacion">Fecha de modificación: {{fichero.formato}}</h5>
-          <button href="#" routerLink="/seguimiento" class="botonEditarDescargar iconoEditarDescargar"><i class="fas fa-edit fa-2x"></i></button>
-          <button href="#" routerLink="/catalogo" class="botonEditarDescargar iconoEditarDescargar"><i class="fas fa-download fa-2x"></i></button>
+
+
+    <div class="list-group mb-2" *ngFor="let fichero of ficheros | filter: filterPosts">
+      <a class="list-group-item list-group-item-action" aria-current="true">
+        <div class="item d-flex w-100 justify-content-between listado">
+          <h5 class="mb-1">{{fichero.nombre}}</h5>
+          <div class="d-flex listado">
+            <h5 class="mb-1 fechaModificacion">Fecha de modificación: {{fichero.formato}}</h5>
+            <div class="botones">
+
+              <label for="file-upload" (click)="show=true" class="botonEditarDescargar iconoEditarDescargar">
+                <i class="fas fa-edit fa-2x"></i>
+              </label>
+
+              <input id="file-upload" (change)="selectFile(fichero.id, $event)" onchange="this.form.submit()"
+                type="file" style='display: none;' />
+
+
+
+              <button href="#" (click)="descargarArchivo(fichero)" class="botonEditarDescargar iconoEditarDescargar"><i
+                  class="fas fa-download fa-2x"></i></button>
+            </div>
+          </div>
+        </div>
+      </a>
+
+
+
+      <!-- Modal / Ventana / Overlay en HTML -->
+      <div id="victorModal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Subir archivo</h4>
+            </div>
+            <div class="modal-body">
+              <input type="file" (change)="selectFile($event)" class="botonEditarDescargar iconoEditarDescargar">
+              <p class="text-warning"><small>Si lo borras, nunca podrás recuperarlo.</small></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button type="button" (click)="editarArchivos(fichero.id)" class="btn btn-success">Subir</button>
+            </div>
+          </div>
         </div>
       </div>
-    </a>
-</div>
+
+
+    </div>
+
+
+
   </div>
+</div>

@@ -1,47 +1,55 @@
-.contenedor {
-  margin-top: 50px;
-  
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  
-  
+@import "src/styles.scss";
+.content {
+  width: 80%;
+  margin: auto;
+  margin-top: 120px;
 }
+
 
 .card-title {
-  font-size: 20px;
+  font-size: 25px;
   text-align: right;
-}
-
-.card {
-  margin-right: 30px;
-}
-
-.titulo {
-  margin-left:175px;
-  color: rgb(189, 184, 184);
-}
-
-.numero {
-  margin-top: -8px;
-  margin-left:274px;
-  font-size: 30px;
-}
-
-.hr {
-  margin-top: 10px;
-}
-
-.status {
-  margin-left: 5px;
-  color: rgb(189, 184, 184);
-}
-
-.iconoStatus {
-  color: rgb(189, 184, 184);
+  color: black;
 }
 
 .iconoUsuario {
   color: pink;
 }
+
+
+.card{
+  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+  background-color: #FFFFFF;
+  margin-bottom: 20px;
+  position: relative;
+  border: 0 none;
+
+ 
+
+    .card-body{
+        padding: 5px 15px 0px 25px;
+    }
+
+    .numbers {
+      font-size: 1.5em;
+      text-align: right;
+      color:	#a9a9a9;
+    }
+
+    .card-footer{
+        background-color: transparent;
+        border: 0;
+        color:	#a9a9a9;
+        .stats{
+            i{
+                margin-right: 5px;
+                position: relative;
+                top: 0px;
+                
+            }
+        }
+    }
+}
+
+
 

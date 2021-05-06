@@ -4,6 +4,9 @@ import { Ficheros } from '../models/ficheros';
 import { DatePipe } from '@angular/common';
 
 import { ActivatedRoute } from '@angular/router';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { saveAs } from 'file-saver';
+
 
 
 @Component({
@@ -14,7 +17,12 @@ import { ActivatedRoute } from '@angular/router';
 export class ListaFicherosComponent implements OnInit {
 
   ficheros: Ficheros[];
-  
+  filterPosts='';
+  show: boolean=false;
+  mostrarMorado: boolean=false;
+
+  selectedFiles: FileList;
+  currentFileUpload: File;
 
   constructor(
     private listaService: ListaFicherosService,
@@ -22,7 +30,7 @@ export class ListaFicherosComponent implements OnInit {
     public datepipe: DatePipe
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.listaFicheros();
   }
 
@@ -42,5 +50,65 @@ export class ListaFicherosComponent implements OnInit {
       }
     );
   }//listaProyectos
+
+  selectFile(id:string, event) {
+    console.log(event.target.files);
+    this.selectedFiles = event.target.files;
+    this.editarArchivos(id);
+  }
+  
+  uploadFile(event) {
+    console.log(event.target.files);
+    this.selectedFiles = event.target.files;
+    this.subirArchivo();
+  }
+
+
+  subirArchivo() {
+    this.currentFileUpload = this.selectedFiles.item(0);
+    let id = this.route.snapshot.paramMap.get("id");
+
+    this.listaService.subir(id, this.currentFileUpload).subscribe(event => {
+        console.log('Fichero subido correctamente');
+        window.location.reload();
+    });
+
+    this.selectedFiles= undefined;
+  }//upload
+
+  descargarArchivo(fichero: Ficheros): void {
+    this.listaService.descargar(fichero.id).subscribe(
+      event => {
+        saveAs(event, fichero.nombre);
+        console.log('se ha descargado');
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    );
+  }
+
+  /*editarArchivos(id: number, fichero: File): void {
+    this.listaService.editar(id, fichero).subscribe(
+      event => {
+        console.log('se ha editado');
+        window.location.reload();
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    );
+  }*/
+
+  editarArchivos(id: string) {
+    this.currentFileUpload = this.selectedFiles.item(0);
+
+    this.listaService.editar(id, this.currentFileUpload).subscribe(event => {
+        console.log('Fichero subido correctamente');
+        window.location.reload();
+    });
+
+    this.selectedFiles= undefined;
+  }
 
 }

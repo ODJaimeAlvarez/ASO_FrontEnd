@@ -10,6 +10,8 @@ h1 {
 .header {
   background-color: $corporate-color-blue-magenta;
   z-index: 200;
+  width: 100%;
+  position: fixed;
 }
 
 .spacer {
@@ -19,6 +21,7 @@ h1 {
 .username,
 .icon {
   margin: 0 5px;
+  
 }
 
 .logo {
@@ -26,7 +29,7 @@ h1 {
 }
 
 .icon {
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 .start {

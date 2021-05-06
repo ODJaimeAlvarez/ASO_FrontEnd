@@ -1,10 +1,11 @@
 @import "src/styles.scss";
-.container {
-    margin-top: 50px;
+@import url('http://font.googleapis.com/css?family=Open+Sans&display=swap');
+.contenedorPrincipal {
+    margin-top: 120px;
 }
 
-.buscador {
-    width: 1100px;
+.mat-form-field {
+    width: 100%;
 }
 
 h1 {

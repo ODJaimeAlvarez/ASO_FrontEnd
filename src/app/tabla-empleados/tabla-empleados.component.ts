@@ -10,6 +10,7 @@ import { TablaEmpleadosService } from './tabla-empleados.service';
 export class TablaEmpleadosComponent implements OnInit {
 
   empleados: Empleados[];
+  filterPosts='';
 
   constructor(private listaService: TablaEmpleadosService) { }
 

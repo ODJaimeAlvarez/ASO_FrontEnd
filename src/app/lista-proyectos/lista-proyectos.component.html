@@ -6,14 +6,14 @@
 
   
 
-    <mat-form-field class="example-full-width buscador">
+    <mat-form-field class="example-full-width">
       <form class="d-flex">
-      <textarea matInput placeholder="Ex. Adrián Martos" [(ngModel)]="filterProyectos" class="form-control" name="filterProyectos"></textarea>
+      <textarea matInput placeholder="Ex. Adrián Martos" [(ngModel)]="filterPosts" class="form-control" name="filterPosts"></textarea>
       <button href='#' class="botonBuscar"><i class="fas fa-search"></i></button>
   </form>
     </mat-form-field>
 
-<div class="list-group mb-2" *ngFor="let proyecto of proyectos | filter: filterProyectos">
+<div class="list-group mb-2" *ngFor="let proyecto of proyectos | filter: filterPosts">
   <a href="#" routerLink="/ficheros/:id" class="list-group-item list-group-item-action" aria-current="true" (click)="prueba(proyecto)">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{proyecto.nombre}}</h5>

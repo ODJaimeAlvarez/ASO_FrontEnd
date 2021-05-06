@@ -7,14 +7,14 @@ export class FilterPipe implements PipeTransform {
 
   transform(value: any, arg: any): any { //value es filter:filterProyectos, pasa por parametro todos los datos del proyecto
     if(arg == '' || arg.length < 3) return value;
-    const resultProyectos=[];
-    for(const proyecto of value) {
-      if(proyecto.nombre.toLowerCase().indexOf(arg.toLowerCase()) > -1) { //indexOf devuelve un objeto con el primer match, en caso de que no, devuelve un -1
-        resultProyectos.push(proyecto);
+    const resultPosts=[];
+    for(const valor of value) {
+      if(valor.nombre.toLowerCase().indexOf(arg.toLowerCase()) > -1) { //indexOf devuelve un objeto con el primer match, en caso de que no, devuelve un -1
+        resultPosts.push(valor);
       };
     };
 
-    return resultProyectos;
+    return resultPosts;
   }
 
 }//class

@@ -1,19 +1,21 @@
 <app-nav class="nav"></app-nav>
 <app-menuhamburguer></app-menuhamburguer>
+<div class="container contenedorPrincipal">
 <div class="container border rounded table-responsive">
     <div class="d-flex mt-3">
         <h1><i class="fas fa-user-tie iconoProyecto"></i> Empleados</h1>
     </div>
+
+  
     <h3 class="text-muted">Listado de empleados</h3>
     
-
-      <mat-form-field class="example-full-width buscador">
-        <form class="d-flex">
-        <textarea matInput placeholder="Ex. Adrián Martos"></textarea>
+    <mat-form-field class="example-full-width">
+      <form class="d-flex">
+        <textarea matInput placeholder="Ex. Planificación" [(ngModel)]="filterPosts" class="form-control"
+          name="filterPosts"></textarea>
         <button href='#' class="botonBuscar"><i class="fas fa-search"></i></button>
-    </form>
-      </mat-form-field>
-    
+      </form>
+    </mat-form-field>
 
 <table class="table border table-striped table-hover">
     <thead>
@@ -71,4 +73,6 @@
   </table>
   <!--ARREGLAR PAGINATOR-->
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  
+</div>
 </div>

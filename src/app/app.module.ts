@@ -46,6 +46,8 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { ListaFicherosComponent } from './lista-ficheros/lista-ficheros.component';
 import { TablaEmpleadosComponent } from './tabla-empleados/tabla-empleados.component';
 import { SeguimientoEmpleadoComponent } from './seguimiento-empleado/seguimiento-empleado.component';
+import { JornadaComponent } from './jornada/jornada.component';
+import { FilterFicherosPipe } from './pipe/filter-ficheros.pipe';
 
 
 
@@ -62,7 +64,9 @@ import { SeguimientoEmpleadoComponent } from './seguimiento-empleado/seguimiento
     FilterPipe,
     ListaFicherosComponent,
     TablaEmpleadosComponent,
-    SeguimientoEmpleadoComponent
+    SeguimientoEmpleadoComponent,
+    JornadaComponent,
+    FilterFicherosPipe
   ],
   imports: [
     BrowserModule,
