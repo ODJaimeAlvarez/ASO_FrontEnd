@@ -49,7 +49,6 @@ import { SeguimientoEmpleadoComponent } from './seguimiento-empleado/seguimiento
 import { JornadaComponent } from './jornada/jornada.component';
 import { FilterFicherosPipe } from './pipe/filter-ficheros.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { FinalizarJornadaComponent } from './finalizar-jornada/finalizar-jornada.component';
 import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
 
 
@@ -70,8 +69,7 @@ import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
     TablaEmpleadosComponent,
     SeguimientoEmpleadoComponent,
     JornadaComponent,
-    FilterFicherosPipe,
-    FinalizarJornadaComponent
+    FilterFicherosPipe
   ],
   imports: [
     BrowserModule,

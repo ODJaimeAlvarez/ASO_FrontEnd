@@ -9,9 +9,7 @@ import { AuthGuardGuard } from '../guards/auth-guard.guard';
 import { ListaFicherosComponent } from '../lista-ficheros/lista-ficheros.component';
 import { TablaEmpleadosComponent } from '../tabla-empleados/tabla-empleados.component';
 import { SeguimientoEmpleadoComponent } from '../seguimiento-empleado/seguimiento-empleado.component';
-
 import { JornadaComponent } from '../jornada/jornada.component';
-import { FinalizarJornadaComponent } from '../finalizar-jornada/finalizar-jornada.component';
 
 
 
@@ -24,8 +22,7 @@ const appRoutes = [
     { path: 'ficheros/:id', canActivate: [AuthGuardGuard], component: ListaFicherosComponent},
     { path: 'seguimiento', canActivate: [AuthGuardGuard], component: TablaEmpleadosComponent},
     { path: 'seguimiento/empleado', canActivate: [AuthGuardGuard], component: SeguimientoEmpleadoComponent},
-    { path: 'jornada', canActivate: [AuthGuardGuard], component: JornadaComponent},
-    { path: 'finalizar', canActivate: [AuthGuardGuard], component: FinalizarJornadaComponent}
+    { path: 'jornada', canActivate: [AuthGuardGuard], component: JornadaComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

@@ -9,13 +9,19 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/co
 
 export class JornadaComponent implements OnInit {
 
-  @ViewChild('empezar') empezar: ElementRef;
-  @ViewChild('finalizar') finalizar: ElementRef;
+  visibilidad: boolean;
+
   constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
   }
 
-  
+  iniciarJornada() {
+      this.visibilidad=true;
+  }  
+
+  finalizarJornada() {
+    this.visibilidad=false;
+  }
 
 }
