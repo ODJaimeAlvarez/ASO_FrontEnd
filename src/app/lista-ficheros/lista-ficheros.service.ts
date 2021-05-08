@@ -15,7 +15,7 @@ export class ListaFicherosService {
   ) { }
 
   ficheros(id: string): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.listaURL + 'api/files/proyect/'+id);
+    return this.httpClient.get<any[]>(this.listaURL + 'api/files/project/'+id);
   }//obtenerFicheros
 
   subir(id: string, fichero:File): Observable<any[]> {
