@@ -18,8 +18,7 @@ export class ListaFicherosComponent implements OnInit {
 
   ficheros: Ficheros[];
   filterPosts='';
-  show: boolean=false;
-  mostrarMorado: boolean=false;
+  public page: number;
 
   selectedFiles: FileList;
   currentFileUpload: File;
@@ -51,17 +50,25 @@ export class ListaFicherosComponent implements OnInit {
     );
   }//listaProyectos
 
-  selectFile(id:string, event) {
+  selectFile(event) {
     console.log(event.target.files);
     this.selectedFiles = event.target.files;
+    console.log(event);
+    
+      this.subirArchivo();
+    
+  }
+
+  editaFile(id: string, event) {
+    console.log(event.target.files);
+    this.selectedFiles = event.target.files;
+    console.log(event);
+    
+    
     this.editarArchivos(id);
+    
   }
   
-  uploadFile(event) {
-    console.log(event.target.files);
-    this.selectedFiles = event.target.files;
-    this.subirArchivo();
-  }
 
 
   subirArchivo() {
@@ -88,21 +95,9 @@ export class ListaFicherosComponent implements OnInit {
     );
   }
 
-  /*editarArchivos(id: number, fichero: File): void {
-    this.listaService.editar(id, fichero).subscribe(
-      event => {
-        console.log('se ha editado');
-        window.location.reload();
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-      }
-    );
-  }*/
-
   editarArchivos(id: string) {
     this.currentFileUpload = this.selectedFiles.item(0);
-
+    
     this.listaService.editar(id, this.currentFileUpload).subscribe(event => {
         console.log('Fichero subido correctamente');
         window.location.reload();

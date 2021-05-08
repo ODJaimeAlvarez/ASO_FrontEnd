@@ -1,25 +1,74 @@
-<app-nav class="nav"></app-nav>
-<app-menuhamburguer></app-menuhamburguer>
+<!--Menu-->
+<input type="checkbox" id="menu" />
 
+<label for="menu" class="menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+
+<nav class="nav">
+    <ul>
+        <li><a href="#" routerLink="/catalogo"><i class="fas fa-chart-line"></i> &nbsp;Catálogo</a></li>
+        <li><a href="#" routerLink="/proyectos"><i class="far fa-file-powerpoint"></i> &nbsp;Proyectos</a></li>
+        <li><a href="#" routerLink="/seguimiento"><i class="fas fa-user-tie iconoProyecto"></i> &nbsp;Seguimiento</a>
+        </li>
+        <li><a href="#"><i class="fas fa-book-open"></i> &nbsp;Conoce el Portal</a></li>
+    </ul>
+</nav>
+
+<!--Fondo-->
+<div class="fondo">
+</div>
+
+<!--Card-->
 <div class="container">
     <div class="row">
 
-        <div class="col-md-12">
+        <div class="col-md-5">
             <div class="card profile-card-1">
-                
-                <img src="https://www.10wallpaper.com/wallpaper/1366x768/1607/Google_play_abstract_gradient-Vector_HD_Wallpaper_1366x768.jpg"
-                    alt="profile-sample1" class="background" />
-                <img src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/172681276/original/6606d2d9d4adbc1b51f0812549bfcfb8c790d78e/do-aso-send-you-1000-plus-organic-user-for-app.jpg" alt="profile-image" class="profile" />
-                <div class="card-content">
-                    <h2>Bienvenido<small>Comienza tu jornada con nosotros</small></h2>
-                    <div class="icon-block"><button type="button" class="btn  boton">Iniciar Jornada</button>
-                         <button type="button" class="btn boton">Finalizar Jornada</button>
+
+                <div>
+                    <img src="https://images.alphacoders.com/238/thumb-350-238803.jpg" alt="profile-sample1"
+                        class="background" />
+                    <i class="fas fa-user fa-8x profile"></i>
+                    <div class="card-content">
+                        
+                        <h2>Bienvenido<small>Comienza tu jornada con nosotros</small></h2>
+                        
+                        <div class="icon-block">
+                            <button #empezar  role="button" class="btn boton"><i class="fas fa-sign-in-alt fa-7x"></i></button>
+                            <button #finalizar type="button" class="btn  boton"><i class="fas fa-sign-out-alt fa-7x"></i></button>
+
+                        </div>
                     </div>
+
                 </div>
-                
+
             </div>
-    
+        </div>
+
+    </div>
+
+
+
+    <!-- Modal / Ventana / Overlay en HTML -->
+    <div id="victorModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Subir archivo</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="file" class="botonEditarDescargar iconoEditarDescargar">
+                    <p class="text-warning"><small>Si lo borras, nunca podrás recuperarlo.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" routerLink="/finalizar" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
     </div>
- 
+
 </div>

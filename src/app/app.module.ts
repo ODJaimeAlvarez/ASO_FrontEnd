@@ -48,6 +48,10 @@ import { TablaEmpleadosComponent } from './tabla-empleados/tabla-empleados.compo
 import { SeguimientoEmpleadoComponent } from './seguimiento-empleado/seguimiento-empleado.component';
 import { JornadaComponent } from './jornada/jornada.component';
 import { FilterFicherosPipe } from './pipe/filter-ficheros.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FinalizarJornadaComponent } from './finalizar-jornada/finalizar-jornada.component';
+import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
+
 
 
 
@@ -66,7 +70,8 @@ import { FilterFicherosPipe } from './pipe/filter-ficheros.pipe';
     TablaEmpleadosComponent,
     SeguimientoEmpleadoComponent,
     JornadaComponent,
-    FilterFicherosPipe
+    FilterFicherosPipe,
+    FinalizarJornadaComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +97,9 @@ import { FilterFicherosPipe } from './pipe/filter-ficheros.pipe';
     MatSortModule,
     MatPaginatorModule,
     MatSelectModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule,
+    RouterLinkDelayModule
   ],
   providers: [ CookieService, interceptorProvider, DatePipe],
   bootstrap: [AppComponent]

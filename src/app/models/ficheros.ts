@@ -1,7 +1,7 @@
 import { Proyectos } from './proyectos';
 
 export class Ficheros {
-    id: number;
+    id: string;
     nombre: string;
     fecha_mod: Date;
     proyecto: Proyectos;

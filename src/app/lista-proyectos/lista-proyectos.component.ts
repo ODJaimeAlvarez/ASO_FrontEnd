@@ -19,6 +19,7 @@ export class ListaProyectosComponent implements OnInit {
   proyectos: Proyectos[];
   completado: boolean= false;
   filterPosts='';
+  public page: number;
 
   constructor(
     private listaService: ListaProyectosService,

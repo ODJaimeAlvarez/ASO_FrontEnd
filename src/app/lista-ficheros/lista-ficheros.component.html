@@ -8,9 +8,9 @@
     <h3 class="text-muted">Listado de ficheros</h3>
    
       <button type="button" class="btn btn-primary botonAnadir">
-      <label for="file-upload" (click)="show=true">
+      <label for="file-uploade">
         Añadir <i class="fas fa-cloud-upload-alt"></i>
-        <input id="file-upload" (change)="uploadFile($event)" onchange="this.form.submit()" type="file"
+        <input  id="file-uploade" (change)="selectFile($event)" type="file"
         style='display: none;' />
       </label>
       
@@ -25,7 +25,7 @@
     </mat-form-field>
 
 
-    <div class="list-group mb-2" *ngFor="let fichero of ficheros | filter: filterPosts">
+    <div class="list-group mb-2" *ngFor="let fichero of ficheros | filter: filterPosts | paginate: { itemsPerPage: 6, currentPage: page}">
       <a class="list-group-item list-group-item-action" aria-current="true">
         <div class="item d-flex w-100 justify-content-between listado">
           <h5 class="mb-1">{{fichero.nombre}}</h5>
@@ -33,11 +33,11 @@
             <h5 class="mb-1 fechaModificacion">Fecha de modificación: {{fichero.formato}}</h5>
             <div class="botones">
 
-              <label for="file-upload" (click)="show=true" class="botonEditarDescargar iconoEditarDescargar">
+              <label for="{{fichero.id}}" class="botonEditarDescargar iconoEditarDescargar">
                 <i class="fas fa-edit fa-2x"></i>
               </label>
 
-              <input id="file-upload" (change)="selectFile(fichero.id, $event)" onchange="this.form.submit()"
+              <input id="{{fichero.id}}" (change)="editaFile(fichero.id, $event)"
                 type="file" style='display: none;' />
 
 
@@ -48,7 +48,7 @@
           </div>
         </div>
       </a>
-
+      
 
 
       <!-- Modal / Ventana / Overlay en HTML -->
@@ -74,6 +74,13 @@
 
     </div>
 
+    <pagination-controls
+    (pageChange)= "page= $event"
+      previousLabel="Anterior"
+      nextLabel="Siguiente"
+      ></pagination-controls>
+
+      <!--<mat-paginator [length]="ficheros.length" [pageSize]="5" (page)="getPaginatorData($event)" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>-->
 
 
   </div>

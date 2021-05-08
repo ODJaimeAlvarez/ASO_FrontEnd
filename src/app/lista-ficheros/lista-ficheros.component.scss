@@ -1,7 +1,7 @@
 @import "src/styles.scss";
 
 h5 {
-    width:200px;
+    width:400px;
     font-size: 17px;
     
 }
@@ -14,6 +14,8 @@ h5 {
 
 .fechaModificacion {
     font-size: 12px;
+    text-align: right;
+    margin-right: 4px;
 }
 
 .container {
@@ -28,6 +30,10 @@ h1 {
     font-size: 30px;
     color: $corporate-color-blue-magenta;
     font-weight: bold;
+}
+
+textarea {
+    resize: none;
 }
 
 .iconoProyecto {
@@ -85,6 +91,7 @@ span {
     
     h5 {
         margin-right: 80px;
+        width: 200px;
     }
     .listado {
         align-items: right !important;
@@ -95,6 +102,10 @@ span {
         margin-left: 190px;
         margin-top:-40px;
         
+    }
+    .fechaModificacion {
+        text-align: left;
+        margin-right: 75px;
     }
     
     

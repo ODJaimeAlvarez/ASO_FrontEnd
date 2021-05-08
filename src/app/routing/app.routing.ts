@@ -11,6 +11,7 @@ import { TablaEmpleadosComponent } from '../tabla-empleados/tabla-empleados.comp
 import { SeguimientoEmpleadoComponent } from '../seguimiento-empleado/seguimiento-empleado.component';
 
 import { JornadaComponent } from '../jornada/jornada.component';
+import { FinalizarJornadaComponent } from '../finalizar-jornada/finalizar-jornada.component';
 
 
 
@@ -23,7 +24,8 @@ const appRoutes = [
     { path: 'ficheros/:id', canActivate: [AuthGuardGuard], component: ListaFicherosComponent},
     { path: 'seguimiento', canActivate: [AuthGuardGuard], component: TablaEmpleadosComponent},
     { path: 'seguimiento/empleado', canActivate: [AuthGuardGuard], component: SeguimientoEmpleadoComponent},
-    { path: 'jornada', canActivate: [AuthGuardGuard], component: JornadaComponent}
+    { path: 'jornada', canActivate: [AuthGuardGuard], component: JornadaComponent},
+    { path: 'finalizar', canActivate: [AuthGuardGuard], component: FinalizarJornadaComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

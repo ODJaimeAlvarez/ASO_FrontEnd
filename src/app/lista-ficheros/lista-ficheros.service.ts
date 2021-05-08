@@ -26,7 +26,7 @@ export class ListaFicherosService {
     return this.httpClient.post<any[]>(this.listaURL + 'api/files/'+id, formData);
   }
 
-  descargar(id: number): Observable<Blob> {
+  descargar(id: string): Observable<Blob> {
     return this.httpClient.get(`${this.listaURL}api/files/file/${id}`, {
       
       responseType: 'blob'
