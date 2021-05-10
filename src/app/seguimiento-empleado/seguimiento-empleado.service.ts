@@ -18,8 +18,8 @@ export class SeguimientoEmpleadoService {
     ) { }
 
 
-  empleados(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.listaURL + 'api/', );
+  empleados(id: string): Observable<any> {
+    return this.httpClient.get<any>(this.listaURL + 'api/usuarios/'+id);
   }
 
 }

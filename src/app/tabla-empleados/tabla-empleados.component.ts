@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Empleados } from '../models/empleados';
 import { TablaEmpleadosService } from './tabla-empleados.service';
 
@@ -14,10 +15,13 @@ export class TablaEmpleadosComponent implements OnInit {
 
 
 
-  constructor(private listaService: TablaEmpleadosService) { }
+  constructor(private listaService: 
+    TablaEmpleadosService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.listaEmpleados();
+    
   }
 
  
@@ -33,5 +37,9 @@ export class TablaEmpleadosComponent implements OnInit {
       }
     );
   }//listaEmpleados
+
+  verUnEmpleado(empleado: Empleados){
+    this.router.navigate(["/seguimiento/empleado",empleado.id]);
+  }
 
 }

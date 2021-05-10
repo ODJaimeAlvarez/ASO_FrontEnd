@@ -21,7 +21,7 @@ const appRoutes = [
     { path: 'proyectos', canActivate: [AuthGuardGuard], component: ListaProyectosComponent},
     { path: 'ficheros/:id', canActivate: [AuthGuardGuard], component: ListaFicherosComponent},
     { path: 'seguimiento', canActivate: [AuthGuardGuard], component: TablaEmpleadosComponent},
-    { path: 'seguimiento/empleado', canActivate: [AuthGuardGuard], component: SeguimientoEmpleadoComponent},
+    { path: 'seguimiento/empleado/:id', canActivate: [AuthGuardGuard], component: SeguimientoEmpleadoComponent},
     { path: 'jornada', canActivate: [AuthGuardGuard], component: JornadaComponent}
 ];
 

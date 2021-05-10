@@ -1,7 +1,7 @@
 <app-nav class="nav"></app-nav>
 <app-menuhamburguer></app-menuhamburguer>
 <div class="container border rounded table-responsive">
-  <div class="d-flex mt-3">
+  <div class="d-flex mt-3" >
     <h1><i class="fas fa-user-tie iconoProyecto"></i> ID: ID del empleado</h1>
   </div>
   <h3 class="text-muted">Datos del empleado</h3>
@@ -10,55 +10,59 @@
 
 
   <!--Datos del empleado genérico-->
+  <div *ngIf="empleados">
 
-  <div class="mb-3 d-flex">
+    <div class="mb-3 d-flex">
 
-    <div class="row  hola">
-      <label>Nombre</label>
-      
+      <div class="row  hola">
+        <label>Nombre</label>
+        
+      </div>
+  
+      <div class="uwu"><label>{{empleados.nombre}}</label></div>
+  
+    </div>
+  
+    <div class="mb-3 d-flex">
+  
+      <div class="row  hola">
+        <label>Primer apellido</label>
+      </div>
+  
+      <div class="uwu">{{empleados.apellido1}}</div>
+  
+    </div>
+  
+    <div class="mb-3 d-flex">
+  
+      <div class="row  hola">
+        <label>Segundo apellido</label>
+      </div>
+  
+      <div class="uwu"><label>{{empleados.apellido2}}</label></div>
+  
+    </div>
+  
+    <div class="mb-3 d-flex">
+  
+      <div class="row  hola">
+        <label>Cargo</label>
+      </div>
+      <div class="uwu">{{empleados.cargo}}</div>
+    </div>
+  
+    <div class="mb-3 d-flex">
+  
+      <div class="row  hola">
+        <label>Correo electrónico</label>
+      </div>
+  
+      <div class="uwu">{{empleados.correo}}</div>
+  
     </div>
 
-    <div class="uwu"><label>Este es mi nombre</label></div>
-
   </div>
-
-  <div class="mb-3 d-flex">
-
-    <div class="row  hola">
-      <label>Primer apellido</label>
-    </div>
-
-    <div class="uwu">Este es mi primer apellido</div>
-
-  </div>
-
-  <div class="mb-3 d-flex">
-
-    <div class="row  hola">
-      <label>Segundo apellido</label>
-    </div>
-
-    <div class="uwu"><label>Este es mi segundo apellido</label></div>
-
-  </div>
-
-  <div class="mb-3 d-flex">
-
-    <div class="row  hola">
-      <label>Cargo</label>
-    </div>
-    <div class="uwu">Este es mi cargooooooo</div>
-  </div>
-
-  <div class="mb-3 d-flex">
-
-    <div class="row  hola">
-      <label>Correo electrónico</label>
-    </div>
-
-    <div class="uwu">Este es mi correo electrónico</div>
-
-  </div>
+  
 
   <!--Datos de cada jornada del empleado-->
   <table class="table border table-striped table-hover">
@@ -104,5 +108,5 @@
     </tbody>
   </table>
   <!--ARREGLAR PAGINATOR-->
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-</div>
+ <!--<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+--> </div>
