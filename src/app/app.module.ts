@@ -45,13 +45,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FilterPipe } from './pipe/filter.pipe';
 import { ListaFicherosComponent } from './lista-ficheros/lista-ficheros.component';
 import { TablaEmpleadosComponent } from './tabla-empleados/tabla-empleados.component';
-import { SeguimientoEmpleadoComponent } from './seguimiento-empleado/seguimiento-empleado.component';
+import { SeguimientoEmpleadoComponent } from './ficha-seguimiento-empleado/ficha-seguimiento-empleado.component';
 import { JornadaComponent } from './jornada/jornada.component';
-import { FilterFicherosPipe } from './pipe/filter-ficheros.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
-
-
 
 
 @NgModule({
@@ -68,8 +65,7 @@ import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
     ListaFicherosComponent,
     TablaEmpleadosComponent,
     SeguimientoEmpleadoComponent,
-    JornadaComponent,
-    FilterFicherosPipe
+    JornadaComponent
   ],
   imports: [
     BrowserModule,

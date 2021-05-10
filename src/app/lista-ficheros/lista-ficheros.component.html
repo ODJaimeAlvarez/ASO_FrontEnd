@@ -1,20 +1,20 @@
 <app-nav class="nav"></app-nav>
 <app-menuhamburguer></app-menuhamburguer>
+
 <div class="container">
   <div class="container border rounded">
     <div class="d-flex mt-3">
-      <h1><i class="far fa-file-code iconoProyecto"></i> Ficheros</h1>
+      <h1><i class="far fa-file-code iconoFichero"></i> Ficheros</h1>
     </div>
     <h3 class="text-muted">Listado de ficheros</h3>
-   
-      <button type="button" class="btn btn-primary botonAnadir">
+
+    <button type="button" class="btn btn-primary botonAnadir">
       <label for="file-uploade">
         Añadir <i class="fas fa-cloud-upload-alt"></i>
-        <input  id="file-uploade" (change)="selectFile($event)" type="file"
-        style='display: none;' />
+        <input id="file-uploade" (change)="selectFile($event)" type="file" style='display: none;' />
       </label>
-      
-     </button>
+
+    </button>
 
     <mat-form-field class="example-full-width">
       <form class="d-flex">
@@ -24,64 +24,28 @@
       </form>
     </mat-form-field>
 
-
-    <div class="list-group mb-2" *ngFor="let fichero of ficheros | filter: filterPosts | paginate: { itemsPerPage: 6, currentPage: page}">
+    <div class="list-group mb-2"
+      *ngFor="let fichero of ficheros | filter: filterPosts | paginate: { itemsPerPage: 6, currentPage: page}">
       <a class="list-group-item list-group-item-action" aria-current="true">
         <div class="item d-flex w-100 justify-content-between listado">
           <h5 class="mb-1">{{fichero.nombre}}</h5>
           <div class="d-flex listado">
             <h5 class="mb-1 fechaModificacion">Fecha de modificación: {{fichero.formato}}</h5>
             <div class="botones">
-
               <label for="{{fichero.id}}" class="botonEditarDescargar iconoEditarDescargar">
                 <i class="fas fa-edit fa-2x"></i>
               </label>
-
-              <input id="{{fichero.id}}" (change)="editaFile(fichero.id, $event)"
-                type="file" style='display: none;' />
-
-
-
+              <input id="{{fichero.id}}" (change)="editaFile(fichero.id, $event)" type="file" style='display: none;' />
               <button href="#" (click)="descargarArchivo(fichero)" class="botonEditarDescargar iconoEditarDescargar"><i
                   class="fas fa-download fa-2x"></i></button>
             </div>
           </div>
         </div>
       </a>
-      
-
-
-      <!-- Modal / Ventana / Overlay en HTML -->
-      <div id="victorModal" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Subir archivo</h4>
-            </div>
-            <div class="modal-body">
-              <input type="file" (change)="selectFile($event)" class="botonEditarDescargar iconoEditarDescargar">
-              <p class="text-warning"><small>Si lo borras, nunca podrás recuperarlo.</small></p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-              <button type="button" (click)="editarArchivos(fichero.id)" class="btn btn-success">Subir</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
     </div>
 
-    <pagination-controls
-    (pageChange)= "page= $event"
-      previousLabel="Anterior"
-      nextLabel="Siguiente"
-      ></pagination-controls>
-
-      <!--<mat-paginator [length]="ficheros.length" [pageSize]="5" (page)="getPaginatorData($event)" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>-->
-
+    <pagination-controls (pageChange)="page= $event" previousLabel="Anterior" nextLabel="Siguiente">
+    </pagination-controls>
 
   </div>
 </div>

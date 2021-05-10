@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListaFicherosService } from './lista-ficheros.service';
+import { ListaFicherosService } from '../service/lista-ficheros.service';
 import { Ficheros } from '../models/ficheros';
 import { DatePipe } from '@angular/common';
 
@@ -7,13 +7,12 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { saveAs } from 'file-saver';
 
-
-
 @Component({
   selector: 'app-lista-ficheros',
   templateUrl: './lista-ficheros.component.html',
   styleUrls: ['./lista-ficheros.component.scss']
 })
+
 export class ListaFicherosComponent implements OnInit {
 
   ficheros: Ficheros[];

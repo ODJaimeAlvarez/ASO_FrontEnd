@@ -8,8 +8,9 @@ import { PagInicioComponent } from '../pag-inicio/pag-inicio.component';
 import { AuthGuardGuard } from '../guards/auth-guard.guard';
 import { ListaFicherosComponent } from '../lista-ficheros/lista-ficheros.component';
 import { TablaEmpleadosComponent } from '../tabla-empleados/tabla-empleados.component';
-import { SeguimientoEmpleadoComponent } from '../seguimiento-empleado/seguimiento-empleado.component';
+import { SeguimientoEmpleadoComponent } from '../ficha-seguimiento-empleado/ficha-seguimiento-empleado.component';
 import { JornadaComponent } from '../jornada/jornada.component';
+import { RolesGuardGuard as guard} from '../guards/roles-guard.guard';
 
 
 
@@ -17,10 +18,10 @@ const appRoutes = [
     { path: '', component: PagInicioComponent},
     { path: 'login', component: LoginComponent},
     { path: 'catalogo', canActivate: [AuthGuardGuard], component: CatalogoComponent},
-    { path: 'proyectos', canActivate: [AuthGuardGuard], component: ProyectosComponent},
+    { path: 'proyectos', canActivate: [AuthGuardGuard],  component: ProyectosComponent},
     { path: 'proyectos', canActivate: [AuthGuardGuard], component: ListaProyectosComponent},
-    { path: 'ficheros/:id', canActivate: [AuthGuardGuard], component: ListaFicherosComponent},
-    { path: 'seguimiento', canActivate: [AuthGuardGuard], component: TablaEmpleadosComponent},
+    { path: 'ficheros/:id', canActivate: [AuthGuardGuard, guard], component: ListaFicherosComponent, data: {expectedRol: ['empleado']}},
+    { path: 'seguimiento', canActivate: [AuthGuardGuard, guard], component: TablaEmpleadosComponent, data: {expectedRol: ['director']}},
     { path: 'seguimiento/empleado', canActivate: [AuthGuardGuard], component: SeguimientoEmpleadoComponent},
     { path: 'jornada', canActivate: [AuthGuardGuard], component: JornadaComponent}
 ];

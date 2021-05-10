@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Empleados } from '../models/empleados';
-import { SeguimientoEmpleadoService } from './seguimiento-empleado.service';
+import { SeguimientoEmpleadoService } from '../service/seguimiento-empleado.service';
 
 @Component({
   selector: 'app-seguimiento-empleado',
-  templateUrl: './seguimiento-empleado.component.html',
-  styleUrls: ['./seguimiento-empleado.component.scss']
+  templateUrl: './ficha-seguimiento-empleado.component.html',
+  styleUrls: ['./ficha-seguimiento-empleado.component.scss']
 })
 export class SeguimientoEmpleadoComponent implements OnInit {
 

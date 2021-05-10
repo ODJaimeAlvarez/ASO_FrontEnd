@@ -1,6 +1,5 @@
 <!--Menu-->
 <input type="checkbox" id="menu" />
-
 <label for="menu" class="menu">
     <span></span>
     <span></span>
@@ -11,7 +10,7 @@
     <ul>
         <li><a href="#" routerLink="/catalogo"><i class="fas fa-chart-line"></i> &nbsp;Catálogo</a></li>
         <li><a href="#" routerLink="/proyectos"><i class="far fa-file-powerpoint"></i> &nbsp;Proyectos</a></li>
-        <li><a href="#" routerLink="/seguimiento"><i class="fas fa-user-tie iconoProyecto"></i> &nbsp;Seguimiento</a>
+        <li><a href="#" *ngIf="verSeguimiento" routerLink="/seguimiento"><i class="fas fa-user-tie iconoProyecto"></i> &nbsp;Seguimiento</a>
         </li>
         <li><a href="#"><i class="fas fa-book-open"></i> &nbsp;Conoce el Portal</a></li>
     </ul>
@@ -24,35 +23,30 @@
 <!--Card-->
 <div class="container">
     <div class="row">
-
         <div class="col-md-5">
             <div class="card profile-card-1">
-
                 <div>
-                    <img src="https://images.alphacoders.com/238/thumb-350-238803.jpg" alt="profile-sample1"
-                        class="background" />
+                    <img src="https://i.pinimg.com/originals/3c/24/46/3c24462450c2a902bf7e18f3d9aada81.jpg"
+                        alt="profile-sample1" class="background" />
                     <i class="fas fa-user fa-8x profile"></i>
                     <div class="card-content">
-                        
                         <h2>Bienvenido<small>Comienza tu jornada con nosotros</small></h2>
-                        
                         <div class="icon-block">
-                            <button #empezar (click)="iniciarJornada()" *ngIf="!visibilidad" [style.visibility]="hidden" role="button" class="btn boton"><i class="fas fa-sign-in-alt fa-7x"></i></button>
-                            <button #finalizar (click)="finalizarJornada()" *ngIf="visibilidad" [style.visibility]="visible" type="button" class="btn  boton"><i class="fas fa-sign-out-alt fa-7x"></i></button>
-
+                            <button (click)="iniciarJornada()" *ngIf="!visibilidad" [style.visibility]="hidden"
+                                role="button" class="btn boton">
+                                <i class="fas fa-sign-in-alt fa-7x"></i></button>
+                            <button (click)="finalizarJornada()" *ngIf="visibilidad" [style.visibility]="visible"
+                                type="button" class="btn  boton"><i class="fas fa-sign-out-alt fa-7x"></i></button>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
-
     </div>
 
 
-
     <!-- Modal / Ventana / Overlay en HTML -->
+
     <div id="victorModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -65,10 +59,9 @@
                     <p class="text-warning"><small>Si lo borras, nunca podrás recuperarlo.</small></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" routerLink="/finalizar" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>
-
 </div>

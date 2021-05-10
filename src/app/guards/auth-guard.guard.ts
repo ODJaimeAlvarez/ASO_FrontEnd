@@ -11,7 +11,6 @@ import { LoginUsuario } from '../models/login-usuario';
 export class AuthGuardGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
   loginUsuario: LoginUsuario;
   constructor(private auth: AuthService, private router: Router) { //o RouterModule
-
   }
 
   canActivate(
@@ -24,11 +23,13 @@ export class AuthGuardGuard implements CanActivate, CanActivateChild, CanDeactiv
       }
     return true;
   }
+
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
+
   canDeactivate(
     component: unknown,
     currentRoute: ActivatedRouteSnapshot,
@@ -36,6 +37,7 @@ export class AuthGuardGuard implements CanActivate, CanActivateChild, CanDeactiv
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
+
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

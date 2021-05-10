@@ -10,8 +10,8 @@ import { TablaEmpleadosService } from './tabla-empleados.service';
 export class TablaEmpleadosComponent implements OnInit {
 
   empleados: Empleados[];
-  filterPosts='';
-
+  filterPosts = '';
+  activo: boolean;
 
 
   constructor(private listaService: TablaEmpleadosService) { }
@@ -20,13 +20,23 @@ export class TablaEmpleadosComponent implements OnInit {
     this.listaEmpleados();
   }
 
- 
+
 
   listaEmpleados(): void {
     this.listaService.empleados().subscribe(
       data => {
         this.empleados = data;
-       
+        for (let i = 0; i < this.empleados.length; i++) {
+          switch (this.empleados[i].activo) {
+            case true:
+              this.activo=true;
+              break;
+            case false:
+              this.activo=false;
+              break;
+          }
+        }
+
       },
       err => {
         console.log(err);

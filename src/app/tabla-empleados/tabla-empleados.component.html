@@ -17,7 +17,7 @@
       </form>
     </mat-form-field>
 
-<table class="table border table-striped table-hover">
+<table class="table border  table-hover">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -29,14 +29,15 @@
       </tr>
     </thead>
     <tbody *ngFor="let empleado of empleados | filter: filterPosts">
-      <tr>
+      <tr class="fila">
         <th scope="row">{{empleado.id}}</th>
         <td>{{empleado.nombre}}</td>
         <td>{{empleado.apellido1}}</td>
         <td>{{empleado.apellido2}}</td>
         <td>{{empleado.correo}}</td>
-        <td>{{empleado.activo}}</td>
+        <td><i *ngIf="activo" class="far fa-check-circle activo" style="color:#00b347;"></i><i *ngIf="!activo" class="far fa-times-circle activo" style="color: red;"></i></td>
       </tr>
+   
     </tbody>
   </table>
   <!--ARREGLAR PAGINATOR-->

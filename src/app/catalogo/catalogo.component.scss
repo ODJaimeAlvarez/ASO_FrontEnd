@@ -1,10 +1,11 @@
 @import "src/styles.scss";
+
+//CARDS DE INFORMACIÓN
 .content {
   width: 80%;
   margin: auto;
   margin-top: 120px;
 }
-
 
 .card-title {
   font-size: 25px;
@@ -16,15 +17,12 @@
   color: pink;
 }
 
-
 .card{
   box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
   background-color: #FFFFFF;
   margin-bottom: 20px;
   position: relative;
   border: 0 none;
-
- 
 
     .card-body{
         padding: 5px 15px 0px 25px;
@@ -50,6 +48,3 @@
         }
     }
 }
-
-
-
