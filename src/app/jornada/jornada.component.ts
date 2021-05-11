@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Jornadas } from '../models/jornadas';
+import { ListaJornadaService } from './jornada.service';
 
 @Component({
   selector: 'app-jornada',
@@ -10,18 +12,45 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/co
 export class JornadaComponent implements OnInit {
 
   visibilidad: boolean;
-
-  constructor(private renderer: Renderer2) { }
+  jornada :string;
+  isIniciada: Jornadas;
+  constructor(private renderer: Renderer2,
+    private listaService: ListaJornadaService) { }
 
   ngOnInit(): void {
+    this.jornadainiciada();
   }
 
-  iniciarJornada() {
-      this.visibilidad=true;
+  jornadainiciada() {
+
+    this.listaService.isIniciada().subscribe(data => {
+      this.isIniciada = data;
+      if(this.isIniciada){
+        this.visibilidad=true;
+      }else{
+        this.visibilidad=false;
+      }
+     console.log(data);
+           
+    },
+    err => {
+      console.log(err);
+    });
+  }
+
+  jornadaManager() {
+
+      this.visibilidad=!this.visibilidad;
+      this.listaService.jornadas().subscribe(
+        data => {
+          this.jornada = data;
+         console.log(data);
+               
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }  
-
-  finalizarJornada() {
-    this.visibilidad=false;
-  }
 
 }

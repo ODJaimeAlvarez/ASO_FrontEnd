@@ -22,4 +22,8 @@ export class SeguimientoEmpleadoService {
     return this.httpClient.get<any>(this.listaURL + 'api/usuarios/'+id);
   }
 
+  jornadas(id:string): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.listaURL + 'api/jornada/'+id);
+  }
+
 }

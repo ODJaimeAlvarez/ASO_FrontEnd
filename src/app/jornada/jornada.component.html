@@ -37,8 +37,8 @@
                         <h2>Bienvenido<small>Comienza tu jornada con nosotros</small></h2>
                         
                         <div class="icon-block">
-                            <button #empezar (click)="iniciarJornada()" *ngIf="!visibilidad" [style.visibility]="hidden" role="button" class="btn boton"><i class="fas fa-sign-in-alt fa-7x"></i></button>
-                            <button #finalizar (click)="finalizarJornada()" *ngIf="visibilidad" [style.visibility]="visible" type="button" class="btn  boton"><i class="fas fa-sign-out-alt fa-7x"></i></button>
+                            <button #empezar (click)="jornadaManager()" *ngIf="!visibilidad" [style.visibility]="hidden" role="button" class="btn boton"><i class="fas fa-sign-in-alt fa-7x"></i></button>
+                            <button #finalizar (click)="jornadaManager()" *ngIf="visibilidad" [style.visibility]="visible" type="button" class="btn  boton"><i class="fas fa-sign-out-alt fa-7x"></i></button>
 
                         </div>
                     </div>

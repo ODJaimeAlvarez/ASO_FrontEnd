@@ -5,4 +5,5 @@ export class Empleados {
     apellido2: string;
     correo: string;
     activo: boolean;
+    cargo: string;
 }
