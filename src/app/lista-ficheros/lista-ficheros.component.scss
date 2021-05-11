@@ -1,16 +1,11 @@
-@import "src/styles.scss";
-
 h5 {
     width:400px;
     font-size: 17px;
-    
 }
 
 .listado {
     align-items: center;
-    
 }
-
 
 .fechaModificacion {
     font-size: 12px;
@@ -28,25 +23,24 @@ h5 {
 
 h1 {
     font-size: 30px;
-    color: $corporate-color-blue-magenta;
+    color: #245380;
     font-weight: bold;
 }
 
-textarea {
+.form-control {
     resize: none;
 }
 
-.iconoProyecto {
-    color:  $corporate-color-blue-magenta;
+.iconoFichero {
+    color:  #245380;
     font-weight: bold;
 }
 
 .botonAnadir {
-    background-color: $corporate-color-blue-magenta;
+    background-color: #245380;
     border: none;
     margin-bottom: 6px;
     height: 35px;
-    
 }
 
 span {
@@ -63,14 +57,14 @@ span {
 .botonEditarDescargar {
     background-color: transparent;
     border:none;
-   
 }
 
 .iconoEditarDescargar {
-    color:  $corporate-color-blue-magenta;
+    color:  #245380;
     font-weight: bold;
 }
 
+//MEDIAQUERIES
 @media screen and (max-width: 280px) {
     h5 {
         font-size: 14px;

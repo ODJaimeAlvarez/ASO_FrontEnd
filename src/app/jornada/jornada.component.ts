@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Jornadas } from '../models/jornadas';
 import { ListaJornadaService } from './jornada.service';
+import { TokenService } from '../service/token.service';
 
 @Component({
   selector: 'app-jornada',
@@ -12,12 +13,22 @@ import { ListaJornadaService } from './jornada.service';
 export class JornadaComponent implements OnInit {
 
   visibilidad: boolean;
+
   jornada :string;
+  roles: string[];
+  verSeguimiento: boolean;
   isIniciada: Jornadas;
   constructor(private renderer: Renderer2,
-    private listaService: ListaJornadaService) { }
+    private listaService: ListaJornadaService,private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    
+    this.roles= this.tokenService.getAuthorities();
+    this.roles.forEach(rol=> {
+      if(rol === 'DIRECTOR') {
+        this.verSeguimiento= true;
+      }
+    });
     this.jornadainiciada();
   }
 
@@ -36,6 +47,8 @@ export class JornadaComponent implements OnInit {
     err => {
       console.log(err);
     });
+
+
   }
 
   jornadaManager() {

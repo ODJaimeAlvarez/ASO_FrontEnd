@@ -1,15 +1,21 @@
-@import "src/styles.scss";
 .boton {
     width:200px;
-    
     margin-top: 400px;
     
 }
 
 .btn {
     height: 60px;
-    
+    color:white;
+    background-color:  #4D8FCC;
+    border-color:#4D8FCC;
 }
+
+.btn:hover{
+    background-color:#4D8FCC;
+    opacity: .9;
+}
+
 .pag{
     position: fixed;
     top:0;
@@ -24,7 +30,6 @@
     position: fixed;
     display: flex;
     justify-content: center;
-    
 }
 
 .fondo {
@@ -45,16 +50,17 @@
     justify-content: center;
     font-size: 4.5em;
     text-align: center;
-  }
+}
+
 p {
     text-transform: uppercase;
 	letter-spacing: .5em;
 	text-align: center;
 	position: fixed;
     top: 18%;
-
 }
 
+//MEDIAQUERIES
 @media screen and (max-width: 1449px) {
     .titulo {
         font-size: 30px;

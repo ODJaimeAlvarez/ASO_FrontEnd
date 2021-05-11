@@ -1,5 +1,3 @@
-@import "src/styles.scss";
-
 h1 {
   color: whitesmoke;
   font-size: 30px;
@@ -8,7 +6,7 @@ h1 {
 }
 
 .header {
-  background-color: $corporate-color-blue-magenta;
+  background-color:#245380;
   z-index: 200;
   width: 100%;
   position: fixed;
@@ -21,7 +19,6 @@ h1 {
 .username,
 .icon {
   margin: 0 5px;
-  
 }
 
 .logo {
@@ -39,8 +36,6 @@ h1 {
 
 .botonMore {
   color:white;
-  
-  
 }
 
 .icon-display {

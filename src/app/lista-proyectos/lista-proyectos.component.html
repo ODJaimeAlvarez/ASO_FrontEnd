@@ -3,20 +3,18 @@
     <h1><i class="far fa-file-powerpoint iconoProyecto"></i> Proyectos</h1>
 </div>
   <h3 class="text-muted">Listado de proyectos</h3>
-
-  
-
+ 
     <mat-form-field class="example-full-width">
       <form class="d-flex">
       <textarea matInput placeholder="Ex. Adrián Martos" [(ngModel)]="filterPosts" class="form-control" name="filterPosts"></textarea>
-      <button href='#' class="botonBuscar"><i class="fas fa-search"></i></button>
+      <button style="cursor:pointer;" class="botonBuscar"><i class="fas fa-search"></i></button>
   </form>
     </mat-form-field>
 
-<div class="list-group mb-2" *ngFor="let proyecto of proyectos | filter: filterPosts | paginate: { itemsPerPage: 6, currentPage: page}">
-  <a href="#" routerLink="/ficheros/:id" class="list-group-item list-group-item-action" aria-current="true" (click)="prueba(proyecto)">
+<div class="list-group mb-2" *ngFor="let proyecto of proyectos | filter: filterPosts | paginate:page_size:page_number">
+  <a style="cursor:pointer;" routerLink="/ficheros/:id" class="list-group-item list-group-item-action" aria-current="true" (click)="prueba(proyecto)">
     <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{proyecto.nombre}}</h5>
+      <h5 class="mt-3 nombreProyecto">{{proyecto.nombre}}</h5>
       <h5 class="mb-1 let"><p>{{proyecto.formato}}</p>
         <ngb-progressbar [value]="proyecto.valor" type="success" *ngIf="proyecto.completado">{{proyecto.valor}}%</ngb-progressbar>
         <ngb-progressbar [value]="proyecto.valor" *ngIf="!proyecto.completado">{{proyecto.valor}}%</ngb-progressbar></h5>
@@ -24,11 +22,9 @@
   </a>
 </div>
 
-<pagination-controls
-(pageChange)= "page= $event"
-  previousLabel="Anterior"
-  nextLabel="Siguiente"
-  ></pagination-controls>
+<mat-paginator [length]="proyectos.length" [pageSize]="page_size" [pageSizeOptions]="pageSizeOptions" 
+    showFirstLastButtons (page)="handlePage($event)"></mat-paginator>
   
 </div>
+
 

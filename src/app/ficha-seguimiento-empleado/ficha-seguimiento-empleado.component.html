@@ -1,0 +1,60 @@
+<app-nav class="nav"></app-nav>
+<app-menuhamburguer></app-menuhamburguer>
+<div class="container border rounded table-responsive">
+  <div class="d-flex mt-3">
+    <h1><i class="fas fa-user-tie iconoEmpleado"></i> ID: ID del empleado</h1>
+  </div>
+  <h3 class="text-muted">Datos del empleado</h3>
+
+  <!--Datos del empleado genérico-->
+  <div *ngIf="empleados" class="col-md-8 table-responsive datosEmpleado">
+    <table class="table tablaEmpleado">
+      <tbody>
+        <tr>
+          <td>Nombre:</td>
+          <td>{{empleados.nombre}}</td>
+        </tr>
+        <tr>
+          <td>Primer apellido:</td>
+          <td>{{empleados.apellido1}}</td>
+        </tr>
+        <tr>
+          <td>Segundo apellido:</td>
+          <td>{{empleados.apellido2}}</td>
+        </tr>
+        <tr>
+          <td>Cargo:</td>
+          <td>{{empleados.cargo}}</td>
+        </tr>
+        <tr>
+          <td>Correo electrónico:</td>
+          <td>{{empleados.correo}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!--Datos de cada jornada del empleado-->
+  <table class="table border table-striped table-hover" >
+    <thead>
+      <tr>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hora de entrada</th>
+        <th scope="col">Hora de salida</th>
+        <th scope="col">Total horas/día</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let jornada of jornadas">
+        <th scope="row">{{jornada.formato}}</th>
+        <td>{{jornada.hora_inicio}}</td>
+        <td>{{jornada.hora_fin}}</td>
+        <td>{{jornada.total}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <!--ARREGLAR PAGINATOR-->
+  <!--<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+-->
+</div>

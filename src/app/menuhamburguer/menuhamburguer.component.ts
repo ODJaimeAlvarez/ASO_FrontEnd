@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from '../service/token.service';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-menuhamburguer',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuhamburguerComponent implements OnInit {
 
-  constructor() { }
+  roles: string[];
+  verSeguimiento: boolean;
+
+  constructor(
+    private tokenService: TokenService
+  ) { }
 
   ngOnInit(): void {
+    this.roles= this.tokenService.getAuthorities();
+    this.roles.forEach(rol=> {
+      if(rol === 'DIRECTOR') {
+        this.verSeguimiento= true;
+      }
+    });
   }
 
 }

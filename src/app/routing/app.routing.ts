@@ -8,8 +8,10 @@ import { PagInicioComponent } from '../pag-inicio/pag-inicio.component';
 import { AuthGuardGuard } from '../guards/auth-guard.guard';
 import { ListaFicherosComponent } from '../lista-ficheros/lista-ficheros.component';
 import { TablaEmpleadosComponent } from '../tabla-empleados/tabla-empleados.component';
-import { SeguimientoEmpleadoComponent } from '../seguimiento-empleado/seguimiento-empleado.component';
+import { SeguimientoEmpleadoComponent } from '../ficha-seguimiento-empleado/ficha-seguimiento-empleado.component';
 import { JornadaComponent } from '../jornada/jornada.component';
+import { RolesGuardGuard as guardRoles} from '../guards/roles-guard.guard';
+import { GuiaPortalComponent } from '../guia-portal/guia-portal.component';
 
 
 
@@ -17,12 +19,13 @@ const appRoutes = [
     { path: '', component: PagInicioComponent},
     { path: 'login', component: LoginComponent},
     { path: 'catalogo', canActivate: [AuthGuardGuard], component: CatalogoComponent},
-    { path: 'proyectos', canActivate: [AuthGuardGuard], component: ProyectosComponent},
+    { path: 'proyectos', canActivate: [AuthGuardGuard],  component: ProyectosComponent},
     { path: 'proyectos', canActivate: [AuthGuardGuard], component: ListaProyectosComponent},
-    { path: 'ficheros/:id', canActivate: [AuthGuardGuard], component: ListaFicherosComponent},
-    { path: 'seguimiento', canActivate: [AuthGuardGuard], component: TablaEmpleadosComponent},
-    { path: 'seguimiento/empleado/:id', canActivate: [AuthGuardGuard], component: SeguimientoEmpleadoComponent},
-    { path: 'jornada', canActivate: [AuthGuardGuard], component: JornadaComponent}
+    { path: 'ficheros/:id', canActivate: [AuthGuardGuard, guardRoles], component: ListaFicherosComponent, data: {expectedRol: ['empleado']}},
+    { path: 'seguimiento', canActivate: [AuthGuardGuard, guardRoles], component: TablaEmpleadosComponent, data: {expectedRol: ['director']}},
+    { path: 'seguimiento/empleado/:id', canActivate: [AuthGuardGuard, guardRoles], component: SeguimientoEmpleadoComponent, data: {expectedRol: ['director']}},
+    { path: 'jornada', canActivate: [AuthGuardGuard, guardRoles], component: JornadaComponent, data: {expectedRol: ['empleado', 'director']}},
+    { path: 'conoce-el-portal', canActivate: [AuthGuardGuard], component: GuiaPortalComponent},
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

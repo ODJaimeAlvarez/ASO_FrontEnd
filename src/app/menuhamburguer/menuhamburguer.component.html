@@ -7,10 +7,12 @@
 </label>
 
 <nav class="nav">
+	<div class="fondo"></div>
+	<div class="color"></div>
 	<ul>
-		<li><a href="#" routerLink="/catalogo"><i class="fas fa-chart-line"></i> &nbsp;Catálogo</a></li>
-		<li><a href="#" routerLink="/proyectos"><i class="far fa-file-powerpoint"></i> &nbsp;Proyectos</a></li>
-		<li><a href="#" routerLink="/seguimiento"><i class="fas fa-user-tie iconoProyecto"></i> &nbsp;Seguimiento</a></li>
-		<li><a href="#"><i class="fas fa-book-open"></i> &nbsp;Conoce el Portal</a></li>
+		<li><a style="cursor:pointer;" routerLink="/catalogo"><i class="fas fa-chart-line"></i> &nbsp;Catálogo</a></li>
+		<li><a style="cursor:pointer;" routerLink="/proyectos"><i class="far fa-file-powerpoint"></i> &nbsp;Proyectos</a></li>
+		<li><a style="cursor:pointer;" *ngIf="verSeguimiento" routerLink="/seguimiento"><i class="fas fa-user-tie iconoProyecto"></i> &nbsp;Seguimiento</a></li>
+		<li><a style="cursor:pointer;" routerLink="/conoce-el-portal"><i class="fas fa-book-open"></i> &nbsp;Conoce el Portal</a></li>
 	</ul>
 </nav>
