@@ -6,6 +6,7 @@ import { DatePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { saveAs } from 'file-saver';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-lista-ficheros',
@@ -17,7 +18,9 @@ export class ListaFicherosComponent implements OnInit {
 
   ficheros: Ficheros[];
   filterPosts='';
-  public page: number;
+  page_size: number = 5;
+  page_number: number =1;
+  pageSizeOptions = [5, 10, 20];
 
   selectedFiles: FileList;
   currentFileUpload: File;
@@ -30,6 +33,11 @@ export class ListaFicherosComponent implements OnInit {
 
   ngOnInit() {
     this.listaFicheros();
+  }
+
+  handlePage(e: PageEvent) {
+    this.page_size =e.pageSize;
+    this.page_number =e.pageIndex+1; //paginator empieza por 0
   }
 
   listaFicheros(): void {

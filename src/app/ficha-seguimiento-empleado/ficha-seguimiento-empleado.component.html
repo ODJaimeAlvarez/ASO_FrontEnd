@@ -2,66 +2,40 @@
 <app-menuhamburguer></app-menuhamburguer>
 <div class="container border rounded table-responsive">
   <div class="d-flex mt-3">
-    <h1><i class="fas fa-user-tie iconoProyecto"></i> ID: ID del empleado</h1>
+    <h1><i class="fas fa-user-tie iconoEmpleado"></i> ID: ID del empleado</h1>
   </div>
   <h3 class="text-muted">Datos del empleado</h3>
 
-
-
-
   <!--Datos del empleado genérico-->
-
-  <div class="mb-3 d-flex">
-
-    <div class="row  hola">
-      <label>Nombre</label>
-      
-    </div>
-
-    <div class="uwu"><label>Este es mi nombre</label></div>
-
-  </div>
-
-  <div class="mb-3 d-flex">
-
-    <div class="row  hola">
-      <label>Primer apellido</label>
-    </div>
-
-    <div class="uwu">Este es mi primer apellido</div>
-
-  </div>
-
-  <div class="mb-3 d-flex">
-
-    <div class="row  hola">
-      <label>Segundo apellido</label>
-    </div>
-
-    <div class="uwu"><label>Este es mi segundo apellido</label></div>
-
-  </div>
-
-  <div class="mb-3 d-flex">
-
-    <div class="row  hola">
-      <label>Cargo</label>
-    </div>
-    <div class="uwu">Este es mi cargooooooo</div>
-  </div>
-
-  <div class="mb-3 d-flex">
-
-    <div class="row  hola">
-      <label>Correo electrónico</label>
-    </div>
-
-    <div class="uwu">Este es mi correo electrónico</div>
-
+  <div *ngIf="empleados" class="col-md-8 table-responsive datosEmpleado">
+    <table class="table tablaEmpleado">
+      <tbody>
+        <tr>
+          <td>Nombre:</td>
+          <td>{{empleados.nombre}}</td>
+        </tr>
+        <tr>
+          <td>Primer apellido:</td>
+          <td>{{empleados.apellido1}}</td>
+        </tr>
+        <tr>
+          <td>Segundo apellido:</td>
+          <td>{{empleados.apellido2}}</td>
+        </tr>
+        <tr>
+          <td>Cargo:</td>
+          <td>{{empleados.cargo}}</td>
+        </tr>
+        <tr>
+          <td>Correo electrónico:</td>
+          <td>{{empleados.correo}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <!--Datos de cada jornada del empleado-->
-  <table class="table border table-striped table-hover">
+  <table class="table border table-striped  table-hover">
     <thead>
       <tr>
         <th scope="col">Fecha</th>
@@ -104,5 +78,6 @@
     </tbody>
   </table>
   <!--ARREGLAR PAGINATOR-->
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <!--<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+-->
 </div>

@@ -19,7 +19,7 @@ export class ListaProyectosService {
 
 
   proyectos(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.listaURL + 'api/proyecto', );
+    return this.httpClient.get<any[]>(this.listaURL + 'api/proyecto');
   }
 
 }

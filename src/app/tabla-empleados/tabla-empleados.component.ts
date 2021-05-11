@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Empleados } from '../models/empleados';
 import { TablaEmpleadosService } from './tabla-empleados.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-tabla-empleados',
@@ -12,15 +14,22 @@ export class TablaEmpleadosComponent implements OnInit {
   empleados: Empleados[];
   filterPosts = '';
   activo: boolean;
+  page_size: number = 5;
+  page_number: number =1;
+  pageSizeOptions = [5, 10, 20];
 
-
-  constructor(private listaService: TablaEmpleadosService) { }
+  constructor(private listaService: 
+    TablaEmpleadosService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.listaEmpleados();
   }
 
-
+  handlePage(e: PageEvent) {
+    this.page_size =e.pageSize;
+    this.page_number =e.pageIndex+1; //paginator empieza por 0
+  }
 
   listaEmpleados(): void {
     this.listaService.empleados().subscribe(
@@ -43,5 +52,9 @@ export class TablaEmpleadosComponent implements OnInit {
       }
     );
   }//listaEmpleados
+
+  verUnEmpleado(empleado: Empleados){
+    this.router.navigate(["/seguimiento/empleado",empleado.id]);
+  }
 
 }

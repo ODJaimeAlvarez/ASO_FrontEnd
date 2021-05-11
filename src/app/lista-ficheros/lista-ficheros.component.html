@@ -9,7 +9,7 @@
     <h3 class="text-muted">Listado de ficheros</h3>
 
     <button type="button" class="btn btn-primary botonAnadir">
-      <label for="file-uploade">
+      <label style="cursor:pointer;" for="file-uploade">
         Añadir <i class="fas fa-cloud-upload-alt"></i>
         <input id="file-uploade" (change)="selectFile($event)" type="file" style='display: none;' />
       </label>
@@ -20,23 +20,23 @@
       <form class="d-flex">
         <textarea matInput placeholder="Ex. Planificación" [(ngModel)]="filterPosts" class="form-control"
           name="filterPosts"></textarea>
-        <button href='#' class="botonBuscar"><i class="fas fa-search"></i></button>
+        <button style="cursor:pointer;" class="botonBuscar"><i class="fas fa-search"></i></button>
       </form>
     </mat-form-field>
 
     <div class="list-group mb-2"
-      *ngFor="let fichero of ficheros | filter: filterPosts | paginate: { itemsPerPage: 6, currentPage: page}">
+      *ngFor="let fichero of ficheros | filter: filterPosts | paginate:page_size:page_number">
       <a class="list-group-item list-group-item-action" aria-current="true">
         <div class="item d-flex w-100 justify-content-between listado">
           <h5 class="mb-1">{{fichero.nombre}}</h5>
           <div class="d-flex listado">
             <h5 class="mb-1 fechaModificacion">Fecha de modificación: {{fichero.formato}}</h5>
             <div class="botones">
-              <label for="{{fichero.id}}" class="botonEditarDescargar iconoEditarDescargar">
+              <label style="cursor:pointer;" for="{{fichero.id}}" class="botonEditarDescargar iconoEditarDescargar">
                 <i class="fas fa-edit fa-2x"></i>
               </label>
               <input id="{{fichero.id}}" (change)="editaFile(fichero.id, $event)" type="file" style='display: none;' />
-              <button href="#" (click)="descargarArchivo(fichero)" class="botonEditarDescargar iconoEditarDescargar"><i
+              <button style="cursor:pointer;" (click)="descargarArchivo(fichero)" class="botonEditarDescargar iconoEditarDescargar"><i
                   class="fas fa-download fa-2x"></i></button>
             </div>
           </div>
@@ -44,8 +44,8 @@
       </a>
     </div>
 
-    <pagination-controls (pageChange)="page= $event" previousLabel="Anterior" nextLabel="Siguiente">
-    </pagination-controls>
+    <mat-paginator [length]="ficheros.length" [pageSize]="page_size" [pageSizeOptions]="pageSizeOptions" 
+    showFirstLastButtons (page)="handlePage($event)"></mat-paginator>
 
   </div>
 </div>

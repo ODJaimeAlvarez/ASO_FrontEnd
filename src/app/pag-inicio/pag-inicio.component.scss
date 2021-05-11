@@ -1,12 +1,19 @@
-@import "src/styles.scss";
-
 .boton {
     width:200px;
     margin-top: 400px;
+    
 }
 
 .btn {
     height: 60px;
+    color:white;
+    background-color:  #4D8FCC;
+    border-color:#4D8FCC;
+}
+
+.btn:hover{
+    background-color:#4D8FCC;
+    opacity: .9;
 }
 
 .pag{

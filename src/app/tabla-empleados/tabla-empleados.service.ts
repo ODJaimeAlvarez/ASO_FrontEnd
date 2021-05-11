@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Empleados } from '../models/empleados';
 
 @Injectable({
   providedIn: 'root'
@@ -14,4 +15,6 @@ export class TablaEmpleadosService {
   empleados(): Observable<any[]> {
     return this.httpClient.get<any[]>(this.listaURL + 'api/usuarios');
   }
+
+  
 }

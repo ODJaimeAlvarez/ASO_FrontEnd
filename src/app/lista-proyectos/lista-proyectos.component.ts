@@ -7,6 +7,7 @@ import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Proyectos } from '../models/proyectos';
 import { convertActionBinding } from '@angular/compiler/src/compiler_util/expression_converter';
 import { Router } from '@angular/router';
+import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
@@ -19,7 +20,9 @@ export class ListaProyectosComponent implements OnInit {
   proyectos: Proyectos[];
   completado: boolean = false;
   filterPosts = '';
-  public page: number;
+  page_size: number = 5;
+  page_number: number =1;
+  pageSizeOptions = [5, 10, 20];
 
   constructor(
     private listaService: ListaProyectosService,
@@ -30,6 +33,11 @@ export class ListaProyectosComponent implements OnInit {
     this.listaProyectos();
   }
 
+  handlePage(e: PageEvent) {
+    this.page_size =e.pageSize;
+    this.page_number =e.pageIndex+1; //paginator empieza por 0
+  }
+  
   prueba(proyecto: Proyectos) {
     this.router.navigate(["/ficheros", proyecto.id]);
   }
