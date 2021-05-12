@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
   isLogged= false;
+  roles: string[];
+  verJornada: boolean;
 
   constructor(
     private tokenService: TokenService,
@@ -22,6 +24,15 @@ export class NavComponent implements OnInit {
     } else {
       this.isLogged=false;
     }
+    this.roles= this.tokenService.getAuthorities();
+    this.roles.forEach(rol=> {
+      if(rol === 'DIRECTOR') {
+        this.verJornada= true;
+      }
+      if(rol === 'EMPLEADO') {
+        this.verJornada= true;
+      }
+    });
   }
 
   onLogOut(): void {

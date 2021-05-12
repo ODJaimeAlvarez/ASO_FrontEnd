@@ -14,6 +14,7 @@ export class TablaEmpleadosComponent implements OnInit {
   empleados: Empleados[];
   filterPosts = '';
   activo: boolean;
+
   page_size: number = 5;
   page_number: number =1;
   pageSizeOptions = [5, 10, 20];
@@ -44,6 +45,7 @@ export class TablaEmpleadosComponent implements OnInit {
               this.activo=false;
               break;
           }
+       
         }
 
       },

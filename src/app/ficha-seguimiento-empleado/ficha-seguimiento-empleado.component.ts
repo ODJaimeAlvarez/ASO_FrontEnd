@@ -5,8 +5,7 @@ import { SeguimientoEmpleadoService } from '../service/seguimiento-empleado.serv
 import { ActivatedRoute } from '@angular/router';
 import { Jornadas } from '../models/jornadas';
 import { DatePipe, getLocaleTimeFormat } from '@angular/common';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
+import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
@@ -18,6 +17,10 @@ export class SeguimientoEmpleadoComponent implements OnInit {
 
   empleados:Empleados;
   jornadas:Jornadas[];
+  page_size: number = 5;
+  page_number: number =1;
+  pageSizeOptions = [5, 10, 20];
+
   constructor(
     private listaService: SeguimientoEmpleadoService,
     private router: ActivatedRoute,
@@ -30,6 +33,12 @@ export class SeguimientoEmpleadoComponent implements OnInit {
     this.listaJornada();
     
   }
+
+  handlePage(e: PageEvent) {
+    this.page_size =e.pageSize;
+    this.page_number =e.pageIndex+1; //paginator empieza por 0
+  }
+  
   listaJornada() {
     
     

@@ -7,7 +7,7 @@
   <h3 class="text-muted">Datos del empleado</h3>
 
   <!--Datos del empleado genérico-->
-  <div *ngIf="empleados" class="col-md-8 table-responsive datosEmpleado">
+  <div *ngIf="empleados" class="col-md-6 table-responsive datosEmpleado">
     <table class="table tablaEmpleado">
       <tbody>
         <tr>
@@ -45,8 +45,8 @@
       </tr>
     </thead>
     <tbody >
-      <tr *ngFor="let jornada of jornadas">
-        <th scope="row">{{jornada.formato}}</th>
+      <tr *ngFor="let jornada of jornadas | paginate:page_size:page_number">
+        <td>{{jornada.formato}}</td>
         <td>{{jornada.hora_inicio}}</td>
         <td>{{jornada.hora_fin}}</td>
         <td>{{jornada.total}}</td>
@@ -54,7 +54,6 @@
       
     </tbody>
   </table>
-  <!--ARREGLAR PAGINATOR-->
-  <!--<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
--->
+  <mat-paginator [length]="jornadas.length" [pageSize]="page_size" [pageSizeOptions]="pageSizeOptions" 
+  showFirstLastButtons (page)="handlePage($event)"></mat-paginator>
 </div>
