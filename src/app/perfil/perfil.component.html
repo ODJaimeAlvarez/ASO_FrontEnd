@@ -1,0 +1,228 @@
+<app-nav class="nav"></app-nav>
+<app-menuhamburguer></app-menuhamburguer>
+
+
+
+
+<div class="container-fluid profile perfilContainer">
+    <div class="card seamus">
+      <div class="card-top"></div>
+      <div class="card-profile">
+        <div class="profile-image">
+        </div>
+      </div>
+    </div>
+</div>
+
+    
+<main class="container-fluid contenedorCards">
+
+  <div class="row profile">
+<!--CARD EDITAR-->
+  <div class="col-lg-3 col-md-6 col-sm-6 ">
+  <div class="my-3 p-3 bg-body rounded shadow-sm cards">
+    <h4 class="pb-2 mb-0">Información del perfil</h4>
+    <div class="d-flex  pt-3">
+      <p class="pb-3 mb-0 small lh-sm text-muted border-bottom">
+        Desarrollador de aplicaciones, licenciado en howargts, destruí al elegido. Pero como soy programador me echaron de allí y ahora estoy en accenture sin dar palo al agua.
+      </p>
+    </div>
+    <div class="d-flex  pt-3">
+      <p class="pb-3 mb-0 small lh-sm text-muted d-flex">
+        <strong class="d-block text-gray-dark">Nombre completo:</strong>
+        <label class=ml-2>Salma Pelayo Mellas</label>
+      </p>
+    </div>
+    <p class="pb-3 mb-0 small text-muted lh-sm  d-flex">
+      <strong class="d-block text-gray-dark">Teléfono:</strong>
+      <label class=ml-2>666666666</label>
+    </p>
+    <p class="pb-3 mb-0 small lh-sm text-muted d-flex">
+      <strong class="d-block text-gray-dark">Correo electrónico:</strong>
+      <label class=ml-2>salma@aso.codes</label>
+    </p>
+    <p class="pb-3 mb-0 small lh-sm text-muted d-flex">
+      <strong class="d-block text-gray-dark">Dirección:</strong>
+      <label class=ml-2>Callejón Diagon</label>
+    </p>
+    <small class="d-block text-end mt-3">
+      <a href="" data-toggle="modal" data-target="#confirmacionModal">Editar</a>
+	</small>
+	<br>
+  </div>
+  </div>
+
+<!--MODAL EDITAR-->
+<div class="modal fade" id="confirmacionModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title" id="exampleModalLabel">Editar perfil</h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #f="ngForm" novalidate>
+        <div class="row">
+          <div class="col-md-4 pr-1">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Company"
+                value="ss" required>
+            </div>
+          </div>
+          <div class="col-md-4 px-1">
+            <div class="form-group">
+              <label for="apellido1">Primer apellido</label>
+              <input type="text" name="apellido1" id="apellido1" class="form-control" placeholder="Username" value="Perez">
+            </div>
+          </div>
+          <div class="col-md-4 pl-1">
+            <div class="form-group">
+              <label for="apellido2">Segundo apellido</label>
+              <input type="text" name="apellido2" id="apellido2" class="form-control" placeholder="Pepito">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label for="cargo">Cargo</label>
+              <input type="text" name="cargo" id="cargo" class="form-control" placeholder="Desarrollador de Aplicaciones" value="Mike" disabled="">
+            </div>
+          </div>
+          <div class="col-md-6 pl-1">
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="number" name="telefono" id="telefono" class="form-control" placeholder="666666666" value="Andrew">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 pr-1">
+            <div class="form-group">
+              <label for="pais">País</label>
+              <input type="text" name="pais" id="pais" class="form-control" placeholder="City" value="Mike">
+            </div>
+          </div>
+          <div class="col-md-4 px-1">
+            <div class="form-group">
+              <label for="ciudad">Ciudad</label>
+              <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Country" value="Andrew">
+            </div>
+          </div>
+          <div class="col-md-4 pl-1">
+            <div class="form-group">
+              <label for="cp">Código Postal</label>
+              <input type="number" name="cp" id="cp" class="form-control" placeholder="ZIP Code">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="descripcion">A cerca de mi</label>
+              <textarea rows="4" cols="80" name="descripcion" id="descripcion" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light botonesEditar" data-dismiss="modal">Cancelar</button>
+      <button type="button" class="btn btn-success botonesEditar" data-dismiss="modal"
+        routerLink="/seguimiento">Guardar</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--CARD NOTAS-->
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class=" my-3 p-3 bg-body rounded-sm shadow-sm cardNotas">
+      <h4 class="pb-2 mb-0">Notas rápidas</h4>
+      <div class="d-flex text-muted pt-3">
+        <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+  
+        <p class="pb-3 mb-0 small lh-sm border-bottom">
+          <strong class="d-block text-gray-dark">Nota 1</strong>
+          Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+        </p>
+      </div>
+      <div class="d-flex text-muted pt-3">
+        <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+  
+        <p class="pb-3 mb-0 small lh-sm border-bottom">
+          <strong class="d-block text-gray-dark">Nota 2</strong>
+          Some more representative placeholder content, related to this other user. Another status update, perhaps.
+        </p>
+      </div>
+      <div class="d-flex text-muted pt-3">
+        <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+  
+        <p class="pb-3 mb-0 small lh-sm border-bottom">
+          <strong class="d-block text-gray-dark">Nota 3</strong>
+          This user also gets some representative placeholder content. Maybe they did something interesting, and you really want to highlight this in the recent updates.
+        </p>
+      </div>
+      <div class="d-flex text-muted pt-3">
+        <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+  
+        <p class="pb-3 mb-0 small lh-sm border-bottom">
+          <strong class="d-block text-gray-dark">Nota 4</strong>
+          This user also gets some representative placeholder content. Maybe they did something interesting, and you really want to highlight this in the recent updates.
+        </p>
+      </div>
+      <small class="d-block text-end mt-3">
+        <a href="#">Nueva nota</a>
+      </small>
+    </div>
+    </div>
+
+<!--CALENDARIO-->
+    <div class="col-lg-3 col-md-6 col-sm-6 ">
+      <div class="my-3 p-3 bg-body rounded-sm shadow-sm cards">
+        <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
+        <div class="d-flex text-muted pt-3">
+          <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+    
+          <p class="pb-3 mb-0 small lh-sm border-bottom">
+            <strong class="d-block text-gray-dark">@username</strong>
+            Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+          </p>
+        </div>
+        <div class="d-flex text-muted pt-3">
+          <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+    
+          <p class="pb-3 mb-0 small lh-sm border-bottom">
+            <strong class="d-block text-gray-dark">@username</strong>
+            Some more representative placeholder content, related to this other user. Another status update, perhaps.
+          </p>
+        </div>
+        <div class="d-flex text-muted pt-3">
+          <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+    
+          <p class="pb-3 mb-0 small lh-sm border-bottom">
+            <strong class="d-block text-gray-dark">@username</strong>
+            This user also gets some representative placeholder content. Maybe they did something interesting, and you really want to highlight this in the recent updates.
+          </p>
+        </div>
+        <small class="d-block text-end mt-3">
+          <a href="#">All updates</a>
+        </small>
+      </div>
+      </div>
+</div>
+  
+</main>

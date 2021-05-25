@@ -13,8 +13,6 @@ export class TablaEmpleadosService {
   constructor(private httpClient: HttpClient) { }
 
   empleados(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.listaURL + 'api/usuarios');
+    return this.httpClient.get<any[]>(this.listaURL + 'api/empleados');
   }
-
-  
 }

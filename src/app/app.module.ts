@@ -51,6 +51,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
 import { GuiaPortalComponent } from './guia-portal/guia-portal.component';
 import { PaginatePipe } from './pipe/paginate.pipe';
+import { PerfilComponent } from './perfil/perfil.component';
+import { ToastrModule } from 'ngx-toastr';
+import { RegistroComponent } from './auth/registro.component';
 
 
 @NgModule({
@@ -69,7 +72,9 @@ import { PaginatePipe } from './pipe/paginate.pipe';
     SeguimientoEmpleadoComponent,
     JornadaComponent,
     GuiaPortalComponent,
-    PaginatePipe
+    PaginatePipe,
+    PerfilComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +102,8 @@ import { PaginatePipe } from './pipe/paginate.pipe';
     MatSelectModule,
     NgbModule,
     NgxPaginationModule,
-    RouterLinkDelayModule
+    RouterLinkDelayModule,
+    ToastrModule.forRoot()
   ],
   providers: [ CookieService, interceptorProvider, DatePipe],
   bootstrap: [AppComponent]

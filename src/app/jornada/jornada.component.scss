@@ -1,4 +1,4 @@
-//MENU
+///MENU
 .menu {
   position: fixed;
   top: 0px;
@@ -117,7 +117,7 @@
   height: 100%;
 }
 
-//FONDO
+//FONDO E ICONO: CERRAR SESIÓN
 .fondo {
   position: fixed;
   width: 100%;
@@ -126,6 +126,30 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.header {
+  background-color:transparent;
+  z-index: 200;
+  width: 100%;
+  position: fixed;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.icon {
+  background-color: #3C85FC;
+}
+
+.icon:hover {
+  background-color: white;
+}
+
+.cerrarSesion {
+  color:gray;
+ 
 }
 
 //CONTENIDO

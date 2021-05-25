@@ -1,0 +1,149 @@
+.perfilContainer {
+	margin-top: 120px;
+}
+
+.cards {
+  font-size: 18px;
+}
+
+.cardNotas {
+	font-size: 18px;
+	overflow-y: hidden;
+	height: 73.5%;
+}
+
+.cardNotas:hover{
+	overflow-y: auto;
+}
+.cardNotas::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.cardNotas::-webkit-scrollbar:vertical {
+    width:8px;
+}
+
+.cardNotas::-webkit-scrollbar-button:increment,.cardNotas::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.cardNotas::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.cardNotas::-webkit-scrollbar-thumb {
+    background-color: #b9b7b7;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.cardNotas::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+.contenedorCards {
+	margin-top: 40px;
+}
+
+.botonesEditar {
+	font-size: 14px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+@media (max-width: 991.98px) {
+  .offcanvas-collapse {
+    position: fixed;
+    top: 56px; /* Height of navbar */
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    overflow-y: auto;
+    visibility: hidden;
+    background-color: #343a40;
+    transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+  }
+  .offcanvas-collapse.open {
+    visibility: visible;
+    transform: translateX(-100%);
+  }
+}
+
+
+.text-white-50 { color: rgba(255, 255, 255, .5); }
+
+.bg-purple { background-color: #6f42c1; }
+
+
+
+
+$bg: darken(white, 10%);
+$shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$shadow1: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+
+.profile {
+  display: flex;
+  justify-content: center;
+}
+
+.card{
+	width:1300px;
+	max-width:100%;
+	min-height:70px;
+	overflow:hidden;
+	border-radius:4px;
+	box-shadow:$shadow;
+	background-color:transparent;
+	position:relative;	
+	display: -webkit-box; 
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex; 
+	display: flex;
+	flex-direction:column;
+	.card-top{
+		-webkit-flex-basis:155px;
+		flex-basis:120px;
+		flex-shrink:1;	
+		background-position:center;
+		background-size:cover;	
+	}
+	.card-profile{
+		flex-basis:0px;
+    flex-shrink:1;
+   
+		.profile-image{
+			overflow:hidden;
+			border-radius:20%;
+			position:absolute;
+			left:calc(8% - 75px);
+			top:calc(141% - 155px);
+			width:90px;
+			height:90px;			
+			background-size:cover;
+			background-position:center;
+		}
+	}
+
+}
+
+.card.seamus{
+	
+	.profile-image{
+		background-image: url(https://images.unsplash.com/photo-1507120878965-54b2d3939100?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=57f3676a7820564424855d5e5c6b09e7);
+	}
+}
+
+
+//MODAL EDITAR
+.modal-header {
+	height: 55px;
+}
+

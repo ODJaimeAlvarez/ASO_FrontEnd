@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/co
 import { Jornadas } from '../models/jornadas';
 import { ListaJornadaService } from './jornada.service';
 import { TokenService } from '../service/token.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-jornada',
@@ -18,22 +19,23 @@ export class JornadaComponent implements OnInit {
   roles: string[];
   verSeguimiento: boolean;
   isIniciada: Jornadas;
-  constructor(private renderer: Renderer2,
-    private listaService: ListaJornadaService,private tokenService: TokenService) { }
+  constructor(
+    private renderer: Renderer2,
+    private listaService: ListaJornadaService,
+    private tokenService: TokenService,
+    private toastr: ToastrService) { }
 
-  ngOnInit(): void {
-    
-    this.roles= this.tokenService.getAuthorities();
-    this.roles.forEach(rol=> {
-      if(rol === 'DIRECTOR') {
-        this.verSeguimiento= true;
-      }
-    });
-    this.jornadainiciada();
-  }
+    ngOnInit(): void {
+      this.roles= this.tokenService.getAuthorities();
+      this.roles.forEach(rol=> {
+        if(rol === 'DIRECTOR') {
+          this.verSeguimiento= true;
+        }
+      });
+      this.jornadaIniciada();
+    }
 
-  jornadainiciada() {
-
+  jornadaIniciada() {
     this.listaService.isIniciada().subscribe(data => {
       this.isIniciada = data;
       if(this.isIniciada){
@@ -42,28 +44,37 @@ export class JornadaComponent implements OnInit {
         this.visibilidad=false;
       }
      console.log(data);
-           
     },
     err => {
       console.log(err);
     });
-
-
   }
 
   jornadaManager() {
+    this.visibilidad=!this.visibilidad;
+    this.listaService.jornadas().subscribe(
+      data => {
+       this.jornada = data;
+       if(data.horafin === "-") {
+       this.toastr.info('Has iniciado tu jornada a las: ' + data.horaInicio, data.fecha, {
+        timeOut: 3000, positionClass: 'toast-top-right'
+      });} else {
+        this.toastr.info('Has finalizado tu jornada a las: ' + data.horafin, data.fecha, {
+          timeOut: 3000, positionClass: 'toast-top-right'
+        });
+      }
 
-      this.visibilidad=!this.visibilidad;
-      this.listaService.jornadas().subscribe(
-        data => {
-          this.jornada = data;
-         console.log(data);
-               
-        },
-        err => {
-          console.log(err);
-        }
-      );
-  }  
+       console.log(data);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+}
+  
+  onLogOut(): void {
+    this.tokenService.logOut();
+    window.location.reload();
+  }
 
 }

@@ -12,12 +12,15 @@ import { SeguimientoEmpleadoComponent } from '../ficha-seguimiento-empleado/fich
 import { JornadaComponent } from '../jornada/jornada.component';
 import { RolesGuardGuard as guardRoles} from '../guards/roles-guard.guard';
 import { GuiaPortalComponent } from '../guia-portal/guia-portal.component';
+import { PerfilComponent } from '../perfil/perfil.component';
+import { RegistroComponent } from '../auth/registro.component';
 
 
 
 const appRoutes = [
     { path: '', component: PagInicioComponent},
     { path: 'login', component: LoginComponent},
+    { path: 'registro', component: RegistroComponent},
     { path: 'catalogo', canActivate: [AuthGuardGuard], component: CatalogoComponent},
     { path: 'proyectos', canActivate: [AuthGuardGuard],  component: ProyectosComponent},
     { path: 'proyectos', canActivate: [AuthGuardGuard], component: ListaProyectosComponent},
@@ -26,6 +29,7 @@ const appRoutes = [
     { path: 'seguimiento/empleado/:id', canActivate: [AuthGuardGuard, guardRoles], component: SeguimientoEmpleadoComponent, data: {expectedRol: ['director']}},
     { path: 'jornada', canActivate: [AuthGuardGuard, guardRoles], component: JornadaComponent, data: {expectedRol: ['empleado', 'director']}},
     { path: 'conoce-el-portal', canActivate: [AuthGuardGuard], component: GuiaPortalComponent},
+    { path: 'perfil', canActivate: [AuthGuardGuard], component: PerfilComponent},
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

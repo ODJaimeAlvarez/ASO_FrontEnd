@@ -17,6 +17,8 @@ export class SeguimientoEmpleadoComponent implements OnInit {
 
   empleados:Empleados;
   jornadas:Jornadas[];
+  visibilidad: boolean;
+
   page_size: number = 5;
   page_number: number =1;
   pageSizeOptions = [5, 10, 20];
@@ -78,6 +80,43 @@ export class SeguimientoEmpleadoComponent implements OnInit {
     
   }//listaProyectos
 
-  
+   bajaEmpleado(): void {
+    this.visibilidad= true;
+    let id = this.router.snapshot.paramMap.get("id");
+    
+    this.listaService.baja(id).subscribe(
+      data => {
+            console.log(data);
+            window.location.reload();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    
+  }//bajaEmpleado
+
+  visible() {
+    this.visibilidad= true;
+  }
+
+  invisible() {
+    this.visibilidad= false;
+  }
+  altaEmpleado(): void {
+    this.visibilidad= false;
+    let id = this.router.snapshot.paramMap.get("id");
+    
+    this.listaService.alta(id).subscribe(
+      data => {
+            console.log(data);
+            window.location.reload();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    
+  }//altaEmpleado
 
 }
