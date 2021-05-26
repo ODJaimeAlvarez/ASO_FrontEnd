@@ -1,0 +1,110 @@
+<app-nav class="nav"></app-nav>
+<app-menuhamburguer></app-menuhamburguer>
+<div class="container">
+  <div class="container border rounded">
+    <div class="d-flex mt-3">
+      <h1><i class="far fa-file-powerpoint iconoAlta"></i> Dar de alta</h1>
+    </div>
+
+
+    <!--FORMULARIO-->
+
+    <form class="formulario justify-content-around align-items-center" #f="ngForm"  novalidate>
+
+      <div class="form-group row">
+        <label for="nombre" class="col-sm-2 col-form-label col-form-label-lg">Nombre</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-lg" id="nombre" name="nombre" placeholder="Nombre del empleado"
+            [(ngModel)]="nombre" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="apellido1" class="col-sm-2 col-form-label col-form-label-lg">Primer apellido</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-lg" id="apellido1" name="apellido1" placeholder="Primer apellido del empleado"
+          [(ngModel)]="apellido1" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="apellido2" class="col-sm-2 col-form-label col-form-label-lg">Segundo apellido</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-lg" id="apellido2" name="apellido2" placeholder="Segundo apellido del empleado"
+          [(ngModel)]="apellido2" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="correo" class="col-sm-2 col-form-label col-form-label-lg">Correo</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control form-control-lg" name="correo" id="correo" placeholder="Correo del empleado"
+          [(ngModel)]="correo">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="password" class="col-sm-2 col-form-label col-form-label-lg">Contraseña</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-lg" id="password" name="password" placeholder="Puesto que tendrá el empleado"
+          [(ngModel)]="password" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="cargo" class="col-sm-2 col-form-label col-form-label-lg">Cargo</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-lg" id="cargo" name="cargo" placeholder="Puesto que tendrá el empleado"
+          [(ngModel)]="cargo" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="telefono" class="col-sm-2 col-form-label col-form-label-lg">Telefono</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-lg" id="telefono" name="telefono" placeholder="Puesto que tendrá el empleado"
+          [(ngModel)]="telefono" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="rol" class="col-sm-2 col-form-label col-form-label-lg">Rol</label>
+        <div class="col-sm-10">
+          <select [(ngModel)]="rol" name="rol"  class="form-control form-control-lg" id="rol" >
+            <option *ngFor="let rols of Roles" [ngValue]="rols" >{{rols.rol}}</option>
+          </select>
+        </div>
+
+        <div>
+          <button class="btn btn btn-danger float-right btn_aceptar" data-toggle="modal"
+            data-target="#confirmacionModal" [disabled]="!f.valid">Aceptar</button>    
+        </div>
+      </div>
+
+      
+
+    </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmacionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Dar de alta</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ¿Desea dar de alta al empleado?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light botonBaja" data-dismiss="modal">Cancelar</button>
+            <button type="submit" (click)="crearEmpleado()" class="btn btn-danger botonBaja"
+              data-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

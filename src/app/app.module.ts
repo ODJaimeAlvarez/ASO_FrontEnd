@@ -51,6 +51,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
 import { GuiaPortalComponent } from './guia-portal/guia-portal.component';
 import { PaginatePipe } from './pipe/paginate.pipe';
+import { DarAltaComponent } from './dar-alta/dar-alta.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RegistroComponent } from './auth/registro.component';
@@ -73,6 +74,7 @@ import { RegistroComponent } from './auth/registro.component';
     JornadaComponent,
     GuiaPortalComponent,
     PaginatePipe,
+    DarAltaComponent,
     PerfilComponent,
     RegistroComponent
   ],
