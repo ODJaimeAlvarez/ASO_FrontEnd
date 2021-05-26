@@ -4,23 +4,36 @@
 
 .cards {
   font-size: 18px;
+  height: 73.5%;
+}
+
+.tituloCards {
+	display: flex;
+	justify-content: space-between;
+}
+
+.botonEliminar {
+	border:none;
+	background-color: transparent;
+	color: red;
 }
 
 .cardNotas {
 	font-size: 18px;
-	overflow-y: hidden;
+	overflow-y: auto;
 	height: 73.5%;
 }
 
-.cardNotas:hover{
-	overflow-y: auto;
+.iconoPapelera {
+	display: flex;
+	justify-content: space-between;
 }
 .cardNotas::-webkit-scrollbar {
     -webkit-appearance: none;
 }
 
 .cardNotas::-webkit-scrollbar:vertical {
-    width:8px;
+    width:5px;
 }
 
 .cardNotas::-webkit-scrollbar-button:increment,.cardNotas::-webkit-scrollbar-button {
@@ -114,12 +127,21 @@ $shadow1: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 		flex-shrink:1;	
 		background-position:center;
 		background-size:cover;	
+
+		.editarImagen {
+			display: inline-block;
+			position: absolute;
+			margin-left: 100px;
+			margin-top: 90px;
+		}
 	}
 	.card-profile{
+		display: inline-block;
 		flex-basis:0px;
     flex-shrink:1;
    
 		.profile-image{
+			
 			overflow:hidden;
 			border-radius:20%;
 			position:absolute;
@@ -146,4 +168,5 @@ $shadow1: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 .modal-header {
 	height: 55px;
 }
+
 
