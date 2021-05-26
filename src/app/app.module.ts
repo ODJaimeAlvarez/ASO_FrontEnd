@@ -52,6 +52,9 @@ import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
 import { GuiaPortalComponent } from './guia-portal/guia-portal.component';
 import { PaginatePipe } from './pipe/paginate.pipe';
 import { DarAltaComponent } from './dar-alta/dar-alta.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { ToastrModule } from 'ngx-toastr';
+import { RegistroComponent } from './auth/registro.component';
 
 
 @NgModule({
@@ -71,7 +74,9 @@ import { DarAltaComponent } from './dar-alta/dar-alta.component';
     JornadaComponent,
     GuiaPortalComponent,
     PaginatePipe,
-    DarAltaComponent
+    DarAltaComponent,
+    PerfilComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +104,8 @@ import { DarAltaComponent } from './dar-alta/dar-alta.component';
     MatSelectModule,
     NgbModule,
     NgxPaginationModule,
-    RouterLinkDelayModule
+    RouterLinkDelayModule,
+    ToastrModule.forRoot()
   ],
   providers: [ CookieService, interceptorProvider, DatePipe],
   bootstrap: [AppComponent]

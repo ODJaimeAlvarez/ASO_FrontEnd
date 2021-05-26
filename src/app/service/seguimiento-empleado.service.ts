@@ -26,4 +26,12 @@ export class SeguimientoEmpleadoService {
     return this.httpClient.get<any[]>(this.listaURL + 'api/jornada/'+id);
   }
 
+  
+  baja(id:string): Observable<any[]> {
+    return this.httpClient.put<any[]>(this.listaURL + 'api/empleados/baja/'+id, null);
+  }
+
+  alta(id:string): Observable<any[]> {
+    return this.httpClient.put<any[]>(this.listaURL + 'api/empleados/alta/'+id, null);
+  }
 }

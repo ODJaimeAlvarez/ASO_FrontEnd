@@ -35,8 +35,8 @@
           <td>{{empleado.apellido1}}</td>
           <td>{{empleado.apellido2}}</td>
           <td>{{empleado.correo}}</td>
-          <td><i *ngIf="activo" class="far fa-check-circle activo" style="color:#00b347;"></i>
-            <i *ngIf="!activo" class="far fa-times-circle activo" style="color: red;"></i></td>
+          <td><i *ngIf="empleado.activo" class="far fa-check-circle activo" style="color:#00b347;"></i>
+            <i *ngIf="!empleado.activo" class="far fa-times-circle activo" style="color: red;"></i></td>
         </tr>
 
       </tbody>

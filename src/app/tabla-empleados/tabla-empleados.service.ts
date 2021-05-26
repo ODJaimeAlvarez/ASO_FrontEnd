@@ -15,6 +15,4 @@ export class TablaEmpleadosService {
   empleados(): Observable<any[]> {
     return this.httpClient.get<any[]>(this.listaURL + 'api/empleados');
   }
-
-  
 }
