@@ -51,6 +51,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
 import { GuiaPortalComponent } from './guia-portal/guia-portal.component';
 import { PaginatePipe } from './pipe/paginate.pipe';
+import { DarAltaComponent } from './dar-alta/dar-alta.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { PaginatePipe } from './pipe/paginate.pipe';
     SeguimientoEmpleadoComponent,
     JornadaComponent,
     GuiaPortalComponent,
-    PaginatePipe
+    PaginatePipe,
+    DarAltaComponent
   ],
   imports: [
     BrowserModule,
