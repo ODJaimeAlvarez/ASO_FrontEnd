@@ -33,8 +33,9 @@ export class ContactoComponent implements OnInit {
         asunto:this.asunto,
         mensaje:this.mensaje
       }
-
       
+      
+
       this.listaService.enviarCorreo(this.contacto).subscribe(
         data => {
 
@@ -45,6 +46,7 @@ export class ContactoComponent implements OnInit {
           console.log(err);
         }
       ); 
+      
     }//enviarCorreo
 
     

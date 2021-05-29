@@ -42,8 +42,6 @@ export class SeguimientoEmpleadoComponent implements OnInit {
   }
   
   listaJornada() {
-    
-    
     let id = this.router.snapshot.paramMap.get("id");
     
     this.listaService.jornadas(id).subscribe(
@@ -51,16 +49,12 @@ export class SeguimientoEmpleadoComponent implements OnInit {
         this.jornadas = data;
         for(let i=0;i<this.jornadas.length;i++){
           this.jornadas[i].formato=this.datepipe.transform(this.jornadas[i].fecha_jornada,'yyyy-MM-dd');
-         
         }  
-             
       },
       err => {
         console.log(err);
       }
     );
-
-    
 
   }
   
@@ -96,13 +90,6 @@ export class SeguimientoEmpleadoComponent implements OnInit {
     
   }//bajaEmpleado
 
-  visible() {
-    this.visibilidad= true;
-  }
-
-  invisible() {
-    this.visibilidad= false;
-  }
   altaEmpleado(): void {
     this.visibilidad= false;
     let id = this.router.snapshot.paramMap.get("id");

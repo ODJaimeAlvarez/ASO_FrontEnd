@@ -40,7 +40,8 @@ h1 {
     background-color: #245380;
     border: none;
     margin-bottom: 6px;
-    height: 35px;
+    height: 33px;
+    font-size: 15px;
 }
 
 span {
@@ -49,6 +50,10 @@ span {
     border-bottom-right-radius: 0%;
 }
 
+.botones {
+    margin-left: 3px;
+    margin-right: -12px;
+}
 .botonBuscar {
     background-color: transparent;
     border:none;
@@ -61,7 +66,10 @@ span {
 
 .iconoEditarDescargar {
     color:  #245380;
-    font-weight: bold;
+}
+
+.iconoEditarDescargar {
+    font-size: 18px;
 }
 
 //MEDIAQUERIES
