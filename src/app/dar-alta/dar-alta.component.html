@@ -9,7 +9,7 @@
 
     <!--FORMULARIO-->
 
-    <form class="formulario justify-content-around align-items-center" #f="ngForm"  novalidate>
+    <form #heroForm="ngForm" class="formulario justify-content-around align-items-center" #f="ngForm" novalidate >
 
       <div class="form-group row">
         <label for="nombre" class="col-sm-2 col-form-label col-form-label-lg">Nombre</label>
@@ -67,7 +67,7 @@
       <div class="form-group row">
         <label for="rol" class="col-sm-2 col-form-label col-form-label-lg">Rol</label>
         <div class="col-sm-10">
-          <select [(ngModel)]="rol" name="rol"  class="form-control form-control-lg" id="rol" >
+          <select [(ngModel)]="rol" name="rol"  class="form-control form-control-lg" id="rol" required >
             <option *ngFor="let rols of Roles" [ngValue]="rols" >{{rols.rol}}</option>
           </select>
         </div>
@@ -78,32 +78,32 @@
         </div>
       </div>
 
-      
-
-    </form>
-
-    <!-- Modal -->
+      <!-- Modal -->
     <div class="modal fade" id="confirmacionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Dar de alta</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ¿Desea dar de alta al empleado?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-light botonBaja" data-dismiss="modal">Cancelar</button>
-            <button type="submit" (click)="crearEmpleado()" class="btn btn-danger botonBaja"
-              data-dismiss="modal">Aceptar</button>
-          </div>
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dar de alta</h5>
+          <button type="button" class="close" data-dismiss="modal"  aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Desea dar de alta al empleado?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light botonBaja" data-dismiss="modal" >Cancelar</button>
+          <button type="submit" (click)="crearEmpleado();heroForm.resetForm();" class="btn btn-danger botonBaja"
+            data-dismiss="modal">Aceptar</button>
         </div>
       </div>
     </div>
+  </div>
+
+    </form>
+
+    
 
   </div>
 

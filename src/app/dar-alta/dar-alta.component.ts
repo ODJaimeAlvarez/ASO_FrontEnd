@@ -50,6 +50,7 @@ export class DarAltaComponent implements OnInit {
       this.listaService.darAlta(this.Empleado).subscribe((data)=>{
         console.log(data);
         
+       
       })
 
   }
