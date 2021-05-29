@@ -20,8 +20,8 @@ export class DarAltaService {
     
 
 
-  darAlta(Empleado: NewEmpleado): Observable<any> {
-    return this.httpClient.post<any>(this.listaURL + 'api/empleados/register',Empleado);
+  darAlta(Empleado: NewEmpleado): Observable<any[]> {
+    return this.httpClient.post<any[]>(this.listaURL + 'api/empleados/register',Empleado);
   }
 
   

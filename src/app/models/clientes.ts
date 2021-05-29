@@ -1,11 +1,11 @@
-export class Empleados {
+export class Clientes {
     id?: string;
     nombre: string;
     apellido1: string;
     apellido2: string;
     correo: string;
     activo: boolean;
-    cargo: string;
+    empresa: string;
     telefono: string;
     direccion: string;
     descripcion: string;
@@ -14,14 +14,14 @@ export class Empleados {
     CP: string;
     //fotoUsuario
 
-    constructor(nombre: string, apellido1: string, apellido2: string, correo: string, activo: boolean, cargo: string, 
+    constructor(nombre: string, apellido1: string, apellido2: string, correo: string, activo: boolean, empresa: string, 
         telefono: string, direccion: string, descripcion: string, pais: string, ciudad: string, CP: string) {
        this.nombre = nombre;
        this.apellido1 = apellido1;
        this.apellido2 = apellido2;
        this.correo = correo;
        this.activo = activo;
-       this.cargo = cargo;
+       this.empresa = empresa;
        this.telefono = telefono;
        this.direccion = direccion;
        this.descripcion = descripcion;
@@ -30,4 +30,3 @@ export class Empleados {
        this.CP = CP;
     }
 }
-

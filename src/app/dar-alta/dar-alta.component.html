@@ -3,108 +3,142 @@
 <div class="container">
   <div class="container border rounded">
     <div class="d-flex mt-3">
-      <h1><i class="far fa-file-powerpoint iconoAlta"></i> Dar de alta</h1>
+      <h1><i class="fas fa-user-check iconoAlta"></i> Dar de alta</h1>
     </div>
+    <h3 class="text-muted">Dar de alta a un empleado</h3>
 
-
-    <!--FORMULARIO-->
-
-    <form class="formulario justify-content-around align-items-center" #f="ngForm"  novalidate>
-
-      <div class="form-group row">
-        <label for="nombre" class="col-sm-2 col-form-label col-form-label-lg">Nombre</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control form-control-lg" id="nombre" name="nombre" placeholder="Nombre del empleado"
-            [(ngModel)]="nombre" required>
+    <!--FORUMULARIO PRUEBA-->
+    <form class="formulario justify-content-around align-items-center" #f="ngForm" novalidate>
+      <div class="row">
+        <div class="col-md-4 ">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" [(ngModel)]="nombre"
+              required>
+          </div>
+        </div>
+        <div class="col-md-4 ">
+          <div class="form-group">
+            <label for="apellido1">Primer apellido</label>
+            <input type="text" name="apellido1" id="apellido1" class="form-control" placeholder="Primer apellido"
+              [(ngModel)]="apellido1" required>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="apellido2">Segundo apellido</label>
+            <input type="text" name="apellido2" id="apellido2" class="form-control" placeholder="Segundo apellido"
+              [(ngModel)]="apellido2" required>
+          </div>
         </div>
       </div>
-      <div class="form-group row">
-        <label for="apellido1" class="col-sm-2 col-form-label col-form-label-lg">Primer apellido</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control form-control-lg" id="apellido1" name="apellido1" placeholder="Primer apellido del empleado"
-          [(ngModel)]="apellido1" required>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Calle de La Posada"
+              [(ngModel)]="direccion" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="text" name="telefono" id="telefono" class="form-control" placeholder="675674231"
+              [(ngModel)]="telefono" required>
+          </div>
         </div>
       </div>
-      <div class="form-group row">
-        <label for="apellido2" class="col-sm-2 col-form-label col-form-label-lg">Segundo apellido</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control form-control-lg" id="apellido2" name="apellido2" placeholder="Segundo apellido del empleado"
-          [(ngModel)]="apellido2" required>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="pais">País</label>
+            <select [(ngModel)]="pais" name="pais" id="pais" class="form-select" required>
+              <option *ngFor="let pais of listaPaises" [ngValue]="pais">{{pais}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Madrid" [(ngModel)]="ciudad"
+              required>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="CP">Código Postal</label>
+            <input type="text" name="CP" id="CP" class="form-control" placeholder="28055" [(ngModel)]="CP" required>
+          </div>
         </div>
       </div>
-      <div class="form-group row">
-        <label for="correo" class="col-sm-2 col-form-label col-form-label-lg">Correo</label>
-        <div class="col-sm-10">
-          <input type="email" class="form-control form-control-lg" name="correo" id="correo" placeholder="Correo del empleado"
-          [(ngModel)]="correo">
+      <div class="row">
+
+        <div class="col-md-6 ">
+          <div class="form-group">
+            <label for="cargo">Cargo</label>
+            <select [(ngModel)]="cargo" name="cargo" id="cargo" class="form-select" required>
+              <option *ngFor="let cargo of listaCargos" [ngValue]="cargo">{{cargo}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6 rol">
+          <div class="form-group">
+            <label for="formato">Rol</label>
+            <select [(ngModel)]="formato" name="formato" id="formato" class="form-select" required>
+              <option *ngFor="let rols of formatoRoles" [ngValue]="rols">{{rols}}</option>
+            </select>
+          </div>
         </div>
       </div>
-
-      <div class="form-group row">
-        <label for="password" class="col-sm-2 col-form-label col-form-label-lg">Contraseña</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control form-control-lg" id="password" name="password" placeholder="Puesto que tendrá el empleado"
-          [(ngModel)]="password" required>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="correo">Correo electrónico</label>
+            <input type="text" name="correo" id="correo" class="form-control" placeholder="empleado@aso.codes"
+              [(ngModel)]="correo" required>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password" required>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="password">Confirmar contraseña</label>
+            <input type="password" name="password" id="password" class="form-control">
+          </div>
         </div>
       </div>
-
-      <div class="form-group row">
-        <label for="cargo" class="col-sm-2 col-form-label col-form-label-lg">Cargo</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control form-control-lg" id="cargo" name="cargo" placeholder="Puesto que tendrá el empleado"
-          [(ngModel)]="cargo" required>
-        </div>
+      <div class="clearfix">
+        <button class="btn btn btn-primary float-right btn_aceptar" data-toggle="modal" data-target="#altaModal"
+          [disabled]="!f.valid">Aceptar</button>
       </div>
-
-      <div class="form-group row">
-        <label for="telefono" class="col-sm-2 col-form-label col-form-label-lg">Telefono</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control form-control-lg" id="telefono" name="telefono" placeholder="Puesto que tendrá el empleado"
-          [(ngModel)]="telefono" required>
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="rol" class="col-sm-2 col-form-label col-form-label-lg">Rol</label>
-        <div class="col-sm-10">
-          <select [(ngModel)]="rol" name="rol"  class="form-control form-control-lg" id="rol" >
-            <option *ngFor="let rols of Roles" [ngValue]="rols" >{{rols.rol}}</option>
-          </select>
-        </div>
-
-        <div>
-          <button class="btn btn btn-danger float-right btn_aceptar" data-toggle="modal"
-            data-target="#confirmacionModal" [disabled]="!f.valid">Aceptar</button>    
-        </div>
-      </div>
-
-      
-
     </form>
+  </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="confirmacionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Dar de alta</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ¿Desea dar de alta al empleado?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-light botonBaja" data-dismiss="modal">Cancelar</button>
-            <button type="submit" (click)="crearEmpleado()" class="btn btn-danger botonBaja"
-              data-dismiss="modal">Aceptar</button>
-          </div>
+  <!-- Modal -->
+  <div class="modal fade" id="altaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dar de alta</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Desea dar de alta al empleado?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light botonesAlta" data-dismiss="modal">Cancelar</button>
+          <button type="submit" (click)="crearEmpleado()" class="btn btn-primary botonesAlta"
+            data-dismiss="modal">Aceptar</button>
         </div>
       </div>
     </div>
-
   </div>
 
 </div>

@@ -3,11 +3,11 @@
 <div class="container border rounded table-responsive">
   <div class="d-flex mt-3">
     <h1><i class="fas fa-user-tie iconoEmpleado" *ngIf="empleados"></i> ID: {{empleados.id}}</h1>
-    <div class="divBotonBaja icon-block">
-      <button *ngIf="!visibilidad" [style.visibility]="hidden" type="button" class="btn btn-danger botonBaja" data-toggle="modal" data-target="#confirmacionModal">Inhabilitar usuario</button>
+    <div *ngIf="empleados" class="divBotonBaja icon-block">
+      <button *ngIf="empleados.activo" [style.visibility]="hidden" type="button" class="btn btn-danger botonBaja" data-toggle="modal" data-target="#inhabilitarEmpleado">Inhabilitar empleado</button>
     </div>
-    <div class="divBotonAlta">
-      <button *ngIf="visibilidad" [style.visibility]="visible" type="button" (click)="altaEmpleado()" class="btn btn-success botonAlta">Habilitar usuario</button>
+    <div>
+      <button *ngIf="!empleados.activo" [style.visibility]="visible" type="button" data-toggle="modal" data-target="#habilitarEmpleado" class="btn btn-success botonAlta">Habilitar empleado</button>
     </div>
   </div>
   <h3 class="text-muted">Datos del empleado</h3>
@@ -40,24 +40,47 @@
     </table>
   </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="confirmacionModal" tabindex="-1" role="dialog"
+  <!-- Modal inhabilitar empleado -->
+  <div class="modal fade" id="inhabilitarEmpleado" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Dar de baja</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Inhabilitar empleado</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ¿Desea dar de baja al empleado?
+          ¿Desea inhabilitar al empleado?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-light botonBaja" data-dismiss="modal">Cancelar</button>
           <button *ngIf="!visibilidad" type="button" class="btn btn-danger botonBaja" data-dismiss="modal"
             routerLink="/seguimiento" (click)="bajaEmpleado()">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal habilitar empleado-->
+  <div class="modal fade" id="habilitarEmpleado" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Habilitar empleado</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Desea habilitar al empleado?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light botonBaja" data-dismiss="modal">Cancelar</button>
+          <button *ngIf="!visibilidad" type="button" class="btn btn-success botonBaja" data-dismiss="modal"
+            routerLink="/seguimiento" (click)="altaEmpleado()">Aceptar</button>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 export class MenuhamburguerComponent implements OnInit {
 
   roles: string[];
-  verSeguimiento: boolean;
+  visibilidadDirector: boolean;
 
   constructor(
     private tokenService: TokenService
@@ -20,7 +20,7 @@ export class MenuhamburguerComponent implements OnInit {
     this.roles= this.tokenService.getAuthorities();
     this.roles.forEach(rol=> {
       if(rol === 'DIRECTOR') {
-        this.verSeguimiento= true;
+        this.visibilidadDirector= true;
       }
     });
   }

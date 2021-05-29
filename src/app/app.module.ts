@@ -55,6 +55,7 @@ import { DarAltaComponent } from './dar-alta/dar-alta.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RegistroComponent } from './auth/registro.component';
+import { ContactanosComponent } from './contactanos/contactanos.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { RegistroComponent } from './auth/registro.component';
     PaginatePipe,
     DarAltaComponent,
     PerfilComponent,
-    RegistroComponent
+    RegistroComponent,
+    ContactanosComponent
   ],
   imports: [
     BrowserModule,

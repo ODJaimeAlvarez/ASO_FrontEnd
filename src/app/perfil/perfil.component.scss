@@ -4,7 +4,7 @@
 
 .cards {
   font-size: 18px;
-  height: 73.5%;
+  height: 88%;
 }
 
 .tituloCards {
@@ -21,12 +21,17 @@
 .cardNotas {
 	font-size: 18px;
 	overflow-y: auto;
-	height: 73.5%;
+	height: 88%;
 }
 
 .iconoPapelera {
 	display: flex;
 	justify-content: space-between;
+
+}
+
+.nota {
+	width: 100%;
 }
 .cardNotas::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -138,10 +143,9 @@ $shadow1: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 	.card-profile{
 		display: inline-block;
 		flex-basis:0px;
-    flex-shrink:1;
+    	flex-shrink:1;
    
 		.profile-image{
-			
 			overflow:hidden;
 			border-radius:20%;
 			position:absolute;
@@ -156,12 +160,16 @@ $shadow1: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
 }
 
-.card.seamus{
-	
 	.profile-image{
 		background-image: url(https://images.unsplash.com/photo-1507120878965-54b2d3939100?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=57f3676a7820564424855d5e5c6b09e7);
 	}
-}
+
+	.card-top{
+		background-image: url(https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=b0aa3fbba9c018e93499effa49dd8e83);
+		//background-image: url(https://images.unsplash.com/photo-1470063819038-51ab7ad86ab6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+		//background-image: linear-gradient(310deg,#7928ca,#ff0080);
+		//background-image: linear-gradient(310deg,#245380,#8F2F7E);
+	}
 
 
 //MODAL EDITAR
@@ -169,4 +177,17 @@ $shadow1: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 	height: 55px;
 }
 
+//CARD PERFIL
 
+.botonEditarFoto {
+	border-radius:30%;
+	border-color: transparent;
+	margin-top: 60px;
+	position: absolute;
+	margin-top: -35px;
+	margin-left: 105px;
+}
+
+.iconoEditar {
+	font-size: 10px;
+}

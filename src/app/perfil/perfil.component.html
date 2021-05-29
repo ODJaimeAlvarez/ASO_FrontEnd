@@ -4,14 +4,12 @@
 <div class="container-fluid profile perfilContainer">
   <div class="card seamus">
     <div class="card-top">
-      <div class="editarImagen"><button><i class="fas fa-pen"></i></button></div>
     </div>
     <div class="card-profile">
-      <div class="profile-image">
+      <div class="profile-image">    
       </div>
-
+      <button class="botonEditarFoto bg-light"><i class="fas fa-pen iconoEditar"></i></button>
     </div>
-
   </div>
 </div>
 
@@ -22,46 +20,48 @@
   <div class="row profile">
     <!--CARD EDITAR-->
     <div class="col-lg-3 col-md-6 col-sm-6">
-      <div class="my-3 p-3 bg-body rounded shadow-sm cards">
+      <div *ngIf="usuarios" class="my-3 p-3 bg-body rounded shadow-sm cards">
         <div class="d-flex tituloCards">
           <h4 class="pb-2 mb-0">Información del perfil</h4>
-          <a href="" data-toggle="modal" data-target="#confirmacionModal"><i class="fas fa-user-edit"></i></a>
+          <a href="" data-toggle="modal" data-target="#modalPerfil"><i class="fas fa-user-edit"></i></a>
         </div>
-        <div class="d-flex  pt-3">
-          <p class="pb-3 mb-0 small lh-sm text-muted border-bottom">
-            Desarrollador de aplicaciones, licenciado en howargts, destruí al elegido. Pero como soy programador me
-            echaron de allí y ahora estoy en accenture sin dar palo al agua.
+        <div class="d-flex border-bottom pt-3">
+          <p class="pb-3 mb-0 small lh-sm text-muted">
+            {{usuarios.descripcion}}
           </p>
         </div>
-        <div class="d-flex  pt-3 border-bottom">
+        <div class="d-flex  pt-3 ">
           <p class="pb-3 mb-0 small lh-sm text-muted d-flex ">
             <strong class="d-block text-gray-dark">Nombre completo:</strong>
-            <label class=ml-2>Salma Pelayo Mellas</label>
+            <label class=ml-2>{{usuarios.nombre}} {{usuarios.apellido1}} {{usuarios.apellido2}}</label>
           </p>
+          
         </div>
-        <div class="d-flex  pt-3 border-bottom">
-          <p class="pb-3 mb-0 small lh-sm text-muted d-flex ">
-            <strong class="d-block text-gray-dark">Teléfono:</strong>
-            <label class=ml-2>666666666</label>
-          </p>
-        </div>
-        <div class="d-flex  pt-3 border-bottom">
-          <p class="pb-3 mb-0 small lh-sm text-muted d-flex ">
-            <strong class="d-block text-gray-dark">Correo electrónico:</strong>
-            <label class=ml-2>salma@aso.codes</label>
-          </p>
-        </div>
-        <div class="d-flex  pt-3">
-          <p class="pb-3 mb-0 small lh-sm text-muted d-flex ">
-            <strong class="d-block text-gray-dark">Dirección:</strong>
-            <label class=ml-2>Callejón Diagon</label>
-          </p>
-        </div>
+        <p class="pb-3 mb-0 small lh-sm text-muted d-flex ">
+          <strong class="d-block text-gray-dark">Teléfono:</strong>
+          <label class=ml-2>{{usuarios.telefono}}</label>
+        </p>
+        <p class="pb-3 mb-0 small lh-sm text-muted d-flex ">
+          <strong class="d-block text-gray-dark">Correo electrónico:</strong>
+          <label class=ml-2>{{usuarios.correo}}</label>
+        </p>
+        <p class="pb-3 mb-0 small lh-sm text-muted d-flex ">
+          <strong class="d-block text-gray-dark">Dirección:</strong>
+          <label class=ml-2>{{usuarios.direccion}}</label>
+        </p>
+        <p class="pb-3 mb-0 small lh-sm text-muted d-flex ">
+          <strong class="d-block text-gray-dark">País:</strong>
+          <label class=ml-2>{{usuarios.pais}}</label>
+          <strong class="d-block text-gray-dark ml-5">Ciudad:</strong>
+          <label class=ml-2>{{usuarios.ciudad}}</label>
+          <strong class="d-block text-gray-dark ml-5">Código Postal:</strong>
+          <label class=ml-2>{{usuarios.CP}}</label>
+        </p>
       </div>
     </div>
 
     <!--MODAL EDITAR-->
-    <div class="modal fade" id="confirmacionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="modalPerfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -72,42 +72,52 @@
             </button>
           </div>
           <div class="modal-body">
-            <form #f="ngForm" novalidate>
+            <form *ngIf="usuarios" #f="ngForm" (ngSubmit)="editarEmpleado()" novalidate>
               <div class="row">
                 <div class="col-md-4 pr-1">
                   <div class="form-group">
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Company" value="ss"
-                      required>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre"
+                      value="{{usuarios.nombre}}" [(ngModel)]="nombre" required>
                   </div>
                 </div>
                 <div class="col-md-4 px-1">
                   <div class="form-group">
                     <label for="apellido1">Primer apellido</label>
-                    <input type="text" name="apellido1" id="apellido1" class="form-control" placeholder="Username"
-                      value="Perez">
+                    <input type="text" name="apellido1" id="apellido1" class="form-control" placeholder="Primer apellido"
+                      [(ngModel)]="apellido1" value="{{usuarios.apellido1}}">
                   </div>
                 </div>
                 <div class="col-md-4 pl-1">
                   <div class="form-group">
                     <label for="apellido2">Segundo apellido</label>
-                    <input type="text" name="apellido2" id="apellido2" class="form-control" placeholder="Pepito">
+                    <input type="text" name="apellido2" id="apellido2" class="form-control" [(ngModel)]="apellido2"
+                      placeholder="Segundo apellido" value="{{usuarios.apellido2}}">
                   </div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6 pr-1">
+                <div *ngIf="usuarios.cargo" class="col-md-6 pr-1">
                   <div class="form-group">
                     <label for="cargo">Cargo</label>
                     <input type="text" name="cargo" id="cargo" class="form-control"
-                      placeholder="Desarrollador de Aplicaciones" value="Mike" disabled="">
+                      placeholder="Analista" [(ngModel)]="cargo" value="{{usuarios.cargo}}"
+                      disabled="">
+                  </div>
+                </div>
+                <div *ngIf="usuarios.empresa" class="col-md-6 pr-1">
+                  <div class="form-group">
+                    <label for="empresa">Empresa</label>
+                    <input type="text" name="empresa" id="empresa" class="form-control"
+                      placeholder="ASO" [(ngModel)]="empresa" value="{{usuarios.empresa}}"
+                      disabled="">
                   </div>
                 </div>
                 <div class="col-md-6 pl-1">
                   <div class="form-group">
                     <label for="telefono">Teléfono</label>
-                    <input type="number" name="telefono" id="telefono" class="form-control" placeholder="666666666"
-                      value="Andrew">
+                    <input type="number" name="telefono" id="telefono" class="form-control" placeholder="675674231"
+                      [(ngModel)]="telefono" value="{{usuarios.telefono}}">
                   </div>
                 </div>
               </div>
@@ -115,8 +125,8 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="direccion">Dirección</label>
-                    <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Home Address"
-                      value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                    <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Calle de La Posada"
+                      [(ngModel)]="direccion" value="{{usuarios.direccion}}">
                   </div>
                 </div>
               </div>
@@ -124,20 +134,22 @@
                 <div class="col-md-4 pr-1">
                   <div class="form-group">
                     <label for="pais">País</label>
-                    <input type="text" name="pais" id="pais" class="form-control" placeholder="City" value="Mike">
+                    <input type="text" name="pais" id="pais" class="form-control" [(ngModel)]="pais" placeholder="España"
+                      value="{{usuarios.pais}}">
                   </div>
                 </div>
                 <div class="col-md-4 px-1">
                   <div class="form-group">
                     <label for="ciudad">Ciudad</label>
-                    <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Country"
-                      value="Andrew">
+                    <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Madrid"
+                      [(ngModel)]="ciudad" value="{{usuarios.ciudad}}">
                   </div>
                 </div>
                 <div class="col-md-4 pl-1">
                   <div class="form-group">
                     <label for="cp">Código Postal</label>
-                    <input type="number" name="cp" id="cp" class="form-control" placeholder="ZIP Code">
+                    <input type="number" name="cp" id="cp" class="form-control" [(ngModel)]="CP" placeholder="28055"
+                      value="{{usuarios.CP}}">
                   </div>
                 </div>
               </div>
@@ -146,8 +158,8 @@
                   <div class="form-group">
                     <label for="descripcion">A cerca de mi</label>
                     <textarea rows="4" cols="80" name="descripcion" id="descripcion" class="form-control"
-                      placeholder="Here can be your description"
-                      value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                      placeholder="Añade tu descripción aquí" [(ngModel)]="descripcion"
+                      value="{{usuarios.descripcion}}">{{usuarios.descripcion}}</textarea>
                   </div>
                 </div>
               </div>
@@ -156,8 +168,10 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-light botonesEditar" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary botonesEditar" data-dismiss="modal"
-              routerLink="/seguimiento">Guardar</button>
+            <button type="button" *ngIf="usuarios.cargo" (click)="editarEmpleado()"
+              class="btn btn-primary botonesEditar" data-dismiss="modal">Guardar</button>
+            <button type="button" *ngIf="usuarios.empresa" (click)="editarCliente()"
+              class="btn btn-primary botonesEditar" data-dismiss="modal">Salvar</button>
           </div>
         </div>
       </div>
@@ -166,74 +180,27 @@
     <!--CARD NOTAS-->
     <div class="col-lg-3 col-md-6 col-sm-6">
       <div class=" my-3 p-3 bg-body rounded-sm shadow-sm cardNotas">
-        <div class="d-flex tituloCards iconoPapelera">
+        <div class="d-flex tituloCards">
           <h4 class="pb-2 mb-0">Notas rápidas</h4>
           <a href="" data-toggle="modal" data-target="#editarNotas"><i class="fas fa-plus-circle"></i></a>
         </div>
-        <div class="d-flex text-muted pt-3">
-          <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="20" height="20"
-            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%" fill="#007bff"
-              dy=".3em">32x32</text>
-          </svg>
-
-          <p class="pb-3 mb-0 small lh-sm border-bottom">
-            <strong class="d-block text-gray-dark">Nota 1 </strong>
-            Some representative placeholder content, with some information about this user. Imagine this being some sort
-            of status update, perhaps?
-            <button class="botonEliminar"><i class="fas fa-trash-alt"></i></button>
-          </p>
-
-        </div>
-        <div class="d-flex text-muted pt-3">
-          <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="20" height="20"
-            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#e83e8c" /><text x="50%" y="50%" fill="#e83e8c"
-              dy=".3em">32x32</text>
-          </svg>
-
-          <p class="pb-3 mb-0 small lh-sm border-bottom">
-            <strong class="d-block text-gray-dark">Nota 2</strong>
-            Some more representative placeholder content, related to this other user. Another status update, perhaps.
-            <button class="botonEliminar"><i class="far fa-trash-alt"></i></button>
-          </p>
-        </div>
-        <div class="d-flex text-muted pt-3">
-          <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="20" height="20"
-            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#6f42c1" /><text x="50%" y="50%" fill="#6f42c1"
-              dy=".3em">32x32</text>
-          </svg>
-
-          <p class="pb-3 mb-0 small lh-sm border-bottom">
-            <strong class="d-block text-gray-dark">Nota 3 <button class="botonEliminar"><i
-                  class="fas fa-trash"></i></button></strong>
-            This user also gets some representative placeholder content. Maybe they did something interesting, and you
-            really want to highlight this in the recent updates.
-
-          </p>
-        </div>
-        <div class="d-flex text-muted pt-3">
-          <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="20" height="20"
-            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#6f42c1" /><text x="50%" y="50%" fill="#6f42c1"
-              dy=".3em">32x32</text>
-          </svg>
-
-          <p class="pb-3 mb-0 small lh-sm border-bottom">
-            <strong class="d-block text-gray-dark">Nota 4 <button class="botonEliminar"><i
-                  class="far fa-trash-alt"></i></button></strong>
-            This user also gets some representative placeholder content. Maybe they did something interesting, and you
-            really want to highlight this in the recent updates.
-          </p>
+        <div *ngFor="let nota of notas">
+          <div class="d-flex text-muted pt-3 border-bottom">
+            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="20" height="20"
+              xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+              preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%" fill="#007bff"
+                dy=".3em">32x32</text>
+            </svg>
+            <div class="pb-3 mb-0 small lh-sm nota">
+              <div class="d-flex iconoPapelera">
+                <strong class="d-block text-gray-dark">{{nota.nombre}}</strong>
+                <button (click)="eliminarNota(nota.id)" class="botonEliminar"><i class="fas fa-trash"></i></button>
+              </div>
+              {{nota.nota}}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -255,8 +222,8 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Company"
-                      value="Nota x" required>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre de la nota"
+                      [(ngModel)]="nombreNota" required>
                   </div>
                 </div>
               </div>
@@ -265,8 +232,7 @@
                   <div class="form-group">
                     <label for="descripcion">Nota:</label>
                     <textarea rows="4" cols="80" name="descripcion" id="descripcion" class="form-control"
-                      placeholder="Here can be your description"
-                      value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                      placeholder="Detalla tu nota" [(ngModel)]="nota" required></textarea>
                   </div>
                 </div>
               </div>
@@ -276,11 +242,12 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-light botonesEditar" data-dismiss="modal">Cancelar</button>
             <button type="button" class="btn btn-primary botonesEditar" data-dismiss="modal"
-              routerLink="/seguimiento">Guardar</button>
+              (click)="anadirNota()">Guardar</button>
           </div>
         </div>
       </div>
     </div>
+
     <!--CALENDARIO-->
     <div class="col-lg-3 col-md-6 col-sm-6 ">
       <div class="my-3 p-3 bg-body rounded-sm shadow-sm cards">
