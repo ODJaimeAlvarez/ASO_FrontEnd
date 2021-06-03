@@ -55,7 +55,6 @@ import { DarAltaComponent } from './dar-alta/dar-alta.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RegistroComponent } from './auth/registro.component';
-import { ContactanosComponent } from './contactanos/contactanos.component';
 import { CalendarioComponent } from './calendario/calendario.component';
 
 
@@ -65,6 +64,7 @@ import { GraficoComponent } from './grafico/grafico.component';
 import { ChartsModule } from 'ng2-charts';
 import { VerificarRegistroComponent } from './verificar-registro/verificar-registro.component';
 import { GraficoUsuariosComponent } from './grafico-usuarios/grafico-usuarios.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 
 @NgModule({
@@ -87,11 +87,11 @@ import { GraficoUsuariosComponent } from './grafico-usuarios/grafico-usuarios.co
     DarAltaComponent,
     PerfilComponent,
     RegistroComponent,
-    ContactanosComponent,
-    CalendarioComponent,
+    ContactoComponent,
     GraficoComponent,
+    GraficoUsuariosComponent,
     VerificarRegistroComponent,
-    GraficoUsuariosComponent
+    CalendarioComponent
   ],
   imports: [
     BrowserModule,
