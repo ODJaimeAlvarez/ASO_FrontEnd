@@ -1,0 +1,31 @@
+<div class="row text-center">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    <h4>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h4>
+  </div>
+  <div class="col-md-4">
+    <div class="btn-group">
+      <div class="btn btn-primary botonesIzquierda" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      <div class="btn btn-outline-secondary botonesIzquierda" mwlCalendarToday [(viewDate)]="viewDate">
+        Today
+      </div>
+      <div class="btn btn-primary botonesIzquierda" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+        (viewDateChange)="closeOpenMonthViewDay()">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div [ngSwitch]="view">
+  <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [refresh]="refresh">
+  </mwl-calendar-month-view>
+  <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [refresh]="refresh">
+  </mwl-calendar-week-view>
+  <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [refresh]="refresh">
+  </mwl-calendar-day-view>
+</div>

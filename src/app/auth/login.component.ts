@@ -9,6 +9,7 @@ import { LoginUsuario } from '../models/login-usuario';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
   isLogged= false;
@@ -39,7 +40,6 @@ export class LoginComponent implements OnInit {
       data => {
         this.isLogged=true;
         this.isLoginFail=false;
-
         this.tokenService.setToken(data.jwToken);
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
@@ -55,10 +55,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }//onLogin
-
-  //EN EL BOTON O DONDE SEA PONER: *ngIf="isLogged; else loggedOut"
-  //usar despues: <ng-template #loggedOut>
-  // ???????????</ng-template>
-  
-  
 }

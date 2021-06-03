@@ -22,15 +22,15 @@ export class PerfilService {
 
   editarUsuario(id: string, usuario: Empleados): Observable<any> {
     return this.httpClient.put<any>(this.listaURL + 'api/empleados/'+id, usuario);
-  }//usuario
+  }//editarUsuario
 
   cliente(): Observable<any> {
     return this.httpClient.get<any>(this.listaURL + 'api/cliente/perfil');
-  }//usuario
+  }//cliente
 
   editarCliente(id:string, cliente: Clientes): Observable<any> {
     return this.httpClient.put<any>(this.listaURL + 'api/cliente/'+id, cliente);
-  }//usuario
+  }//editarCliente
 
   notas(): Observable<any[]> {
     return this.httpClient.get<any[]>(this.listaURL + 'api/notas');
@@ -38,10 +38,34 @@ export class PerfilService {
 
   guardarNota(nota: Notas): Observable<any[]> {
     return this.httpClient.post<any[]>(this.listaURL + 'api/notas', nota);
-  }//usuario
+  }//guardarNota
 
   eliminarNota(id: string): Observable<any[]> {
     return this.httpClient.delete<any[]>(this.listaURL + 'api/notas/'+id);
-  }//usuario
+  }//eliminarNota
+
+  subirFoto(id: string, fichero:File): Observable<any[]> {
+    const formData: FormData = new FormData();
+
+    formData.append('file', fichero);
+
+    return this.httpClient.put<any[]>(this.listaURL + 'api/empleados/cambiarFoto/'+id, formData);
+  }//subirFoto
+
+  subirFotoCliente(id: string, fichero:File): Observable<any[]> {
+    const formData: FormData = new FormData();
+
+    formData.append('file', fichero);
+
+    return this.httpClient.put<any[]>(this.listaURL + 'api/cliente/cambiarFoto/'+id, formData);
+  }//subirFotoCliente
+
+  descargar(id: string) {
+    return this.httpClient.get(`${this.listaURL}api/files/fotoUsuario/${id}`, {
+      
+      responseType: 'blob',
+      observe: 'response'
+    });
+  }
 
 }

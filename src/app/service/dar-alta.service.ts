@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Empleados } from '../models/empleados';
-import { NewEmpleado } from '../models/new_empleado';
+import { NuevoEmpleado } from '../models/nuevo_empleado';
 
 
 @Injectable({
@@ -17,13 +17,8 @@ export class DarAltaService {
     private httpClient: HttpClient
     ) { }
 
-    
-
-
-  darAlta(Empleado: NewEmpleado): Observable<any[]> {
+  darAlta(Empleado: NuevoEmpleado): Observable<any[]> {
     return this.httpClient.post<any[]>(this.listaURL + 'api/empleados/register',Empleado);
   }
-
-  
 
 }

@@ -56,6 +56,15 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RegistroComponent } from './auth/registro.component';
 import { ContactanosComponent } from './contactanos/contactanos.component';
+import { CalendarioComponent } from './calendario/calendario.component';
+
+
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { GraficoComponent } from './grafico/grafico.component';
+import { ChartsModule } from 'ng2-charts';
+import { VerificarRegistroComponent } from './verificar-registro/verificar-registro.component';
+import { GraficoUsuariosComponent } from './grafico-usuarios/grafico-usuarios.component';
 
 
 @NgModule({
@@ -78,7 +87,11 @@ import { ContactanosComponent } from './contactanos/contactanos.component';
     DarAltaComponent,
     PerfilComponent,
     RegistroComponent,
-    ContactanosComponent
+    ContactanosComponent,
+    CalendarioComponent,
+    GraficoComponent,
+    VerificarRegistroComponent,
+    GraficoUsuariosComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +120,9 @@ import { ContactanosComponent } from './contactanos/contactanos.component';
     NgbModule,
     NgxPaginationModule,
     RouterLinkDelayModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    CalendarModule.forRoot({provide: DateAdapter, useFactory: adapterFactory}),
+    ChartsModule
   ],
   providers: [ CookieService, interceptorProvider, DatePipe],
   bootstrap: [AppComponent]

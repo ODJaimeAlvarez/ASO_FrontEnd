@@ -75,8 +75,6 @@ export class ListaFicherosComponent implements OnInit {
     this.editarArchivos(id);
     
   }
-  
-
 
   subirArchivo() {
     this.currentFileUpload = this.selectedFiles.item(0);

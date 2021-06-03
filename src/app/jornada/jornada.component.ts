@@ -10,15 +10,14 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./jornada.component.scss']
 })
 
-
 export class JornadaComponent implements OnInit {
 
   visibilidad: boolean;
-
   jornada :string;
   roles: string[];
-  verSeguimiento: boolean;
+  visibilidadDirector: boolean;
   isIniciada: Jornadas;
+
   constructor(
     private renderer: Renderer2,
     private listaService: ListaJornadaService,
@@ -29,7 +28,7 @@ export class JornadaComponent implements OnInit {
       this.roles= this.tokenService.getAuthorities();
       this.roles.forEach(rol=> {
         if(rol === 'DIRECTOR') {
-          this.verSeguimiento= true;
+          this.visibilidadDirector= true;
         }
       });
       this.jornadaIniciada();

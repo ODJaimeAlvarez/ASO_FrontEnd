@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewEmpleado } from '../models/new_empleado';
+import { NuevoEmpleado } from '../models/nuevo_empleado';
 import { Rol, Rol_director, Rol_empleado } from '../models/rol';
 import { DarAltaService } from '../service/dar-alta.service';
 
@@ -20,7 +20,7 @@ export class DarAltaComponent implements OnInit {
   roles: Rol[] = [new Rol_director, new Rol_empleado];
   rol: Rol;
   formatoRoles: string[] = ["Director", "Empleado"];
-  empleado: NewEmpleado;
+  empleado: NuevoEmpleado;
   nombre: string;
   apellido1: string;
   apellido2: string;

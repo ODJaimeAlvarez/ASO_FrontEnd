@@ -16,6 +16,8 @@ import { DarAltaComponent } from '../dar-alta/dar-alta.component';
 import { PerfilComponent } from '../perfil/perfil.component';
 import { RegistroComponent } from '../auth/registro.component';
 import { ContactanosComponent } from '../contactanos/contactanos.component';
+import { CalendarioComponent } from '../calendario/calendario.component';
+import { GraficoComponent } from '../grafico/grafico.component';
 
 
 
@@ -34,6 +36,8 @@ const appRoutes = [
     { path: 'contactanos', canActivate: [AuthGuardGuard], component: ContactanosComponent},
     { path: 'dar-alta', canActivate: [AuthGuardGuard, guardRoles], component: DarAltaComponent, data: {expectedRol: ['director']}},
     { path: 'perfil', canActivate: [AuthGuardGuard], component: PerfilComponent},
+    { path: 'calendario', canActivate: [AuthGuardGuard], component: CalendarioComponent},
+    { path: 'grafico', canActivate: [AuthGuardGuard], component: GraficoComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

@@ -1,3 +1,5 @@
+import { FotoPerfil } from './fotoPerfil';
+
 export class Clientes {
     id?: string;
     nombre: string;
@@ -12,7 +14,7 @@ export class Clientes {
     pais: string;
     ciudad: string;
     CP: string;
-    //fotoUsuario
+    fotoPerfil: FotoPerfil;
 
     constructor(nombre: string, apellido1: string, apellido2: string, correo: string, activo: boolean, empresa: string, 
         telefono: string, direccion: string, descripcion: string, pais: string, ciudad: string, CP: string) {

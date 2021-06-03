@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ListaProyectosService } from '../service/lista-proyectos.service';
-import { Busqueda } from '../models/busqueda';
 import { faCommentsDollar } from '@fortawesome/free-solid-svg-icons';
 import { TokenService } from '../service/token.service';
 import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
