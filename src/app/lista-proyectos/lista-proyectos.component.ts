@@ -23,15 +23,30 @@ export class ListaProyectosComponent implements OnInit {
   page_size: number = 5;
   page_number: number =1;
   pageSizeOptions = [5, 10, 20];
-
+  roles: string[];
+  visibilidadDirector: boolean;
   constructor(
     private listaService: ListaProyectosService,
-    private router: Router
+    private router: Router,
+    private tokenService: TokenService
+  
   ) { }
 
   ngOnInit() {
     this.listaProyectos();
+    this.roles= this.tokenService.getAuthorities();
+    this.roles.forEach(rol=> {
+      if(rol === 'DIRECTOR') {
+        this.visibilidadDirector= true;
+      }
+    });
+   
   }
+
+  agregarProyecto(){
+    this.router.navigate(["/crearProyecto"]);
+  }
+  
 
   handlePage(e: PageEvent) {
     this.page_size =e.pageSize;
@@ -73,5 +88,11 @@ export class ListaProyectosComponent implements OnInit {
       }
     );
   }//listaProyectos
+
+
+  editarProyecto(proyecto:Proyectos){
+    console.log(proyecto);
+    this.router.navigate(["/editarProyecto",proyecto.id]);
+  }
 
 }

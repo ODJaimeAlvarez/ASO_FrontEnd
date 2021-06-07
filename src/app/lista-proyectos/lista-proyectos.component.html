@@ -3,6 +3,12 @@
     <h1><i class="far fa-file-powerpoint iconoProyecto"></i> Proyectos</h1>
   </div>
   <h3 class="text-muted">Listado de proyectos</h3>
+  <button *ngIf="visibilidadDirector" type="button" class="btn btn-primary botonAnadir" (click)="agregarProyecto();">
+    <label style="cursor:pointer;" >
+      Añadir <i class="fas fa-cloud-upload-alt"></i>  
+    </label>
+
+  </button>
   <mat-form-field class="example-full-width">
     <form class="d-flex">
       <textarea matInput placeholder="Ej. Proyecto ASO" [(ngModel)]="filterPosts" class="form-control"
@@ -23,13 +29,21 @@
           </ngb-progressbar>
           <ngb-progressbar [value]="proyecto.valor" *ngIf="!proyecto.completado">{{proyecto.valor}}%</ngb-progressbar>
         </h5>
-        <button style="cursor:pointer;" routerLink="/perfil" class="botonEditar"><i
-            class="iconoEditar fas fa-pen"></i></button>
+        <button style="cursor:pointer;" routerLink="/editarProyecto/:id" (click)="editarProyecto(proyecto)" class="botonEditar"><i
+          class="iconoEditar fas fa-pen"></i></button>
       </div>
     </div>
+    
+
+    
   </div>
 
   <mat-paginator [length]="proyectos.length" [pageSize]="page_size" [pageSizeOptions]="pageSizeOptions"
     showFirstLastButtons (page)="handlePage($event)"></mat-paginator>
 
+
+
 </div>
+
+
+

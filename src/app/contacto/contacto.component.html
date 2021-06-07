@@ -2,12 +2,15 @@
 <app-menuhamburguer></app-menuhamburguer>
 
 <div class="content">
+  <form novalidate #f="ngForm">
+
+  
     <div class="col-lg-11 col-md-6 col-sm-6">
         <div class="card card-stats">
             <div class="card-body">
                 <div class="row">
                     <div class="iconoInfo"></div>
-
+                  
                     <div class="col-7 col-md-10">
                         <div class="contenidoFila1">
                             <p class="card-title">Contáctanos</p>
@@ -42,10 +45,10 @@
                             <div class="form-group">
                                 <label for="nombre">Mensaje</label>
                                 <textarea rows="15" cols="80" type="text" name="nombre" id="nombre" class="form-control"
-                                  required [(ngModel)]="mensaje"></textarea>
+                                  required [(ngModel)]="mensaje" minlength="2"></textarea>
                               </div>
                               <div class="botonEnviar">
-                              <button type="button" class="btn btn-primary enviar" (click)="enviarCorreo()" >Enviar</button>
+                              <button type="button"  [disabled]="!f.valid" class="btn btn-primary enviar" (click)="enviarCorreo(); f.reset();" >Enviar</button>
                             </div>
                         </div>
                     </div>
@@ -53,5 +56,6 @@
             </div>
         </div>
     </div>
+  </form>
 </div>
 

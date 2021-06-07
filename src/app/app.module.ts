@@ -56,6 +56,8 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RegistroComponent } from './auth/registro.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { CrearProyectoComponent } from './crear-proyecto/crear-proyecto.component';
+import { EditarProyectoComponent } from './editar-proyecto/editar-proyecto.component';
 
 
 @NgModule({
@@ -78,7 +80,9 @@ import { ContactoComponent } from './contacto/contacto.component';
     DarAltaComponent,
     PerfilComponent,
     RegistroComponent,
-    ContactoComponent
+    ContactoComponent,
+    CrearProyectoComponent,
+    EditarProyectoComponent
   ],
   imports: [
     BrowserModule,

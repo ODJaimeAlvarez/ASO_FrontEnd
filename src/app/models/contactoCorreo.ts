@@ -1,4 +1,4 @@
-export interface contactUsMail{
+export interface contactoCorreo{
 
 
     correo:string
