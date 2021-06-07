@@ -47,8 +47,8 @@ export class RegistroComponent implements OnInit {
       this.isRegisterFail = false;
       console.log(data.jwToken);
       this.router.navigate(['login']);
-      this.toastr.info('Confirma tu registro desde tu cuenta de correo electrónico personal ', '', {
-        timeOut: 10000, positionClass: 'toast-top-center'
+      this.toastr.info('¡El registro se ha realizado con éxito! ', '', {
+        timeOut: 5000, positionClass: 'toast-top-center'
       });
     },
       err => {

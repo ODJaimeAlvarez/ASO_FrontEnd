@@ -12,6 +12,3 @@ export class Rol_director extends Rol{
     id:number=1
     rol:string= "DIRECTOR"
 }
-
-
-

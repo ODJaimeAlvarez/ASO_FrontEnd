@@ -1,19 +1,66 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 //CARDS DE INFORMACIÓN
+
 .content {
   width: 80%;
   margin: auto;
-  margin-top: 120px;
+  margin-top: 60px;
 }
 
-.card-title {
-  font-size: 25px;
-  text-align: right;
-  color: black;
+.introduccion {
+  //background-image: url("https://www.smartinsights.com/wp-content/uploads/2020/08/Boost-x2.png");
+  //background-color: #245380;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  //background: linear-gradient(310deg,#7928ca,#ff0080);
+  //background-image: linear-gradient(white, 80%,#8F1D8B);
+  box-shadow: 1px 1px 2px #245380;
 }
 
-.iconoUsuario {
-  color: pink;
+.cohete {
+  //background-color: black;
+  position: absolute;
+  background-image: url("../../assets/codigo4.jpg");
+  width: 1000px;
+  height: 800px;
+  margin-left: 40px;
+  margin-top: 7.2%;
+  background-size: cover;
+  background-position: center;
+}
+
+.textoIntroduccion {
+  position: absolute;
+  //background-color: gray;
+  width: 600px;
+  //height: 200px;
+  margin-top: 20%;
+  margin-left: 60%;
+  text-align: center;
+}
+
+.bienvenida {
+  letter-spacing: .3em;
+  font-family: Open Sans;
+  color: #245380;
+  font-weight: 600;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.comienza {
+  font-size: 20px;
+}
+
+.comienza1 {
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.botonComenzar {
+  background-color:#245380;
+  color: white;
 }
 
 .card{
@@ -32,20 +79,6 @@
       text-align: right;
       color:	#a9a9a9;
     }
-
-    .card-footer{
-        background-color: transparent;
-        border: 0;
-      
-        .stats{
-            i{
-                margin-right: 5px;
-                position: relative;
-                top: 0px;
-                
-            }
-        }
-    }
 }
 
 .grafico2 {
@@ -57,33 +90,122 @@
   //justify-content: space-between;
 }
 
-.ejemplo1 {
-  background-image: url("https://media.istockphoto.com/photos/blue-background-picture-id996078816?k=6&m=996078816&s=170667a&w=0&h=C3L7Pw5mKT1R9hvrZinXMvMGVBOxoaQKiAemkigPnKc=");
-  height: 300px;
+.card2 {
+  background-image: url("https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2018/08/fondos-pantalla-full-hd_2.jpg?itok=yvUcOhaY");
+  height: 250px;
 }
 
 .card1 {
-  height: 300px;
+  height: 250px;
+  //background-color: #333;
+  //background-image: url("https://ipaderos.com/wp-content/uploads/2018/02/fondoamiga500.jpg");
 }
 
 .imagenCard1 {
-  background-image: url("https://thumbs.dreamstime.com/b/fondo-bonito-de-la-primavera-con-flor-cerezo-blanca-en-el-del-rosa-colores-pastel-bokeh-soleado-114532537.jpg");
+  background-image: url("https://i.blogs.es/a1cfb4/xataka-basics-imagen/450_1000.png");
   //background-color: black;
-  height: 200px;
+  height: 190px;
   border-radius: 20px;
-  margin-top: 42px;
-  margin-left: 90px;
-  margin-right: -30px;
+  margin-top: 25px;
+  margin-left: 30px;
+  margin-right: 20px;
+  background-size: cover;
+  background-position: center;
 }
 
 .infoCard1 {
   margin-left: 15px;
+  margin-top: -6px;
+  color: black;
+}
+
+.infoCard2 {
+  margin-left: 15px;
+  margin-top: 84px;
+  color: white;
 }
 
 .iconoFlecha {
   margin-left: 3px;
 }
 
-.infoCard2 {
-  margin-top: 158px;
+.textoCard2 {
+  margin-top:20px;
+  color: white;
+}
+
+p {
+  font-family: Open Sans;
+  font-size: 15px;
+}
+
+h4 {
+  font-family: Open Sans;
+}
+
+h6 {
+  font-family: Open Sans;
+}
+
+.parrafoCard2{
+  margin-top:30px;
+}
+
+.tituloXataka {
+  font-weight: 700;
+  font-size: 19px;
+  margin-top:20px;
+}
+
+.tituloSeguridad {
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.imagenSpring {
+  background-image: url("https://i.morioh.com/200628/59d6bda2.jpg");
+  height: 100px;
+  width: 250px;
+  margin-left: 50px;
+  background-size: cover;
+  background-position: center;
+}
+
+.imagenAngular {
+  background-image: url("https://i1.wp.com/blog.enriqueoriol.com/wp-content/uploads/2018/01/AngularLogo.jpg?fit=1200%2C675");
+  height: 100px;
+  width: 100px;
+  margin-left: 60px;
+  background-size: cover;
+  background-position: center;
+}
+
+.imagenMariaDB {
+  background-image: url("http://siliconangle.com/files/2013/09/mariadb-logo.png");
+  height: 100px;
+  width: 100px;
+  margin-left: 40px;
+  margin-top: 20px;
+  background-size: cover;
+  background-position: center;
+}
+
+.divtecnologias {
+  text-align: center;
+}
+
+.filaMariaDB {
+  display: flex;
+  justify-content: center;
+}
+
+.textoSpring {
+  width: 170px;
+  margin-left: 95px;
+}
+
+h2 {
+    color: #245380;
+    font-weight: bold;
+    font-family: Open Sans;
 }

@@ -5,23 +5,48 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { routing } from './routing/app.routing';
 import { DatePipe } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
+import { ChartsModule } from 'ng2-charts';
 
-import { FontAwesomeModule, FaIconLibrary  } from '@fortawesome/angular-fontawesome'
-import { faCircle,faSquare } from '@fortawesome/free-solid-svg-icons';
-import { faCircle as farCircle,faSquare as farSquare } from '@fortawesome/free-regular-svg-icons';
-import { faStackOverflow, faGithub, faMedium } from '@fortawesome/free-brands-svg-icons';
-
+//COMPONENTES
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login.component';
 import { NavComponent } from './nav/nav.component';
-
-
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ListaProyectosComponent } from './lista-proyectos/lista-proyectos.component';
 import { PagInicioComponent } from './pag-inicio/pag-inicio.component';
+import { MenuhamburguerComponent } from './menuhamburguer/menuhamburguer.component';
+import { ListaFicherosComponent } from './lista-ficheros/lista-ficheros.component';
+import { TablaEmpleadosComponent } from './tabla-empleados/tabla-empleados.component';
+import { SeguimientoEmpleadoComponent } from './ficha-seguimiento-empleado/ficha-seguimiento-empleado.component';
+import { GuiaPortalComponent } from './guia-portal/guia-portal.component';
+import { JornadaComponent } from './jornada/jornada.component';
+import { DarAltaComponent } from './dar-alta/dar-alta.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { RegistroComponent } from './auth/registro.component';
+import { CalendarioComponent } from './calendario/calendario.component';
+import { GraficoComponent } from './graficoProyectos/grafico-proyectos.component';
+import { GraficoUsuariosComponent } from './grafico-log-usuarios/grafico-log-usuarios.component';
+import { ContactoComponent } from './contacto/contacto.component';
+import { GraficoContadorUsuariosComponent } from './grafico-contador-usuarios/grafico-contador-usuarios.component';
+
+//INTERCEPTORES
 import { interceptorProvider } from './interceptors/proyectos-interceptor.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//TUBERÍAS
+import { FilterPipe } from './pipe/filter.pipe';
+import { PaginatePipe } from './pipe/paginate.pipe';
+
+//MATERIAL, BOOTSTRAP Y FONTAWESOME
+import { FontAwesomeModule, FaIconLibrary  } from '@fortawesome/angular-fontawesome'
+import { faCircle,faSquare } from '@fortawesome/free-solid-svg-icons';
+import { faCircle as farCircle,faSquare as farSquare } from '@fortawesome/free-regular-svg-icons';
+import { faStackOverflow, faGithub, faMedium } from '@fortawesome/free-brands-svg-icons';
 import { MatSliderModule } from "@angular/material/slider";
 import {  MatListModule } from "@angular/material/list";
 import {  MatCardModule } from "@angular/material/card";
@@ -39,33 +64,8 @@ import {  MatCheckboxModule } from "@angular/material/checkbox";
 import {  MatSortModule } from "@angular/material/sort";
 import {  MatPaginatorModule } from "@angular/material/paginator";
 import {  MatSelectModule } from "@angular/material/select";
-import {  MatPaginatorIntl } from "@angular/material/paginator";
-import { MenuhamburguerComponent } from './menuhamburguer/menuhamburguer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FilterPipe } from './pipe/filter.pipe';
-import { ListaFicherosComponent } from './lista-ficheros/lista-ficheros.component';
-import { TablaEmpleadosComponent } from './tabla-empleados/tabla-empleados.component';
-import { SeguimientoEmpleadoComponent } from './ficha-seguimiento-empleado/ficha-seguimiento-empleado.component';
-import { JornadaComponent } from './jornada/jornada.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
-import { GuiaPortalComponent } from './guia-portal/guia-portal.component';
-import { PaginatePipe } from './pipe/paginate.pipe';
-import { DarAltaComponent } from './dar-alta/dar-alta.component';
-import { PerfilComponent } from './perfil/perfil.component';
-import { ToastrModule } from 'ngx-toastr';
-import { RegistroComponent } from './auth/registro.component';
-import { CalendarioComponent } from './calendario/calendario.component';
-
-
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { GraficoComponent } from './grafico/grafico.component';
-import { ChartsModule } from 'ng2-charts';
-import { VerificarRegistroComponent } from './verificar-registro/verificar-registro.component';
-import { GraficoUsuariosComponent } from './grafico-usuarios/grafico-usuarios.component';
-import { ContactoComponent } from './contacto/contacto.component';
-
 
 @NgModule({
   declarations: [
@@ -90,8 +90,8 @@ import { ContactoComponent } from './contacto/contacto.component';
     ContactoComponent,
     GraficoComponent,
     GraficoUsuariosComponent,
-    VerificarRegistroComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    GraficoContadorUsuariosComponent
   ],
   imports: [
     BrowserModule,

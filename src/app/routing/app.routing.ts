@@ -1,5 +1,4 @@
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from '../app.component';
 import { LoginComponent } from '../auth/login.component';
 import { CatalogoComponent } from '../catalogo/catalogo.component';
 import { ProyectosComponent } from '../proyectos/proyectos.component';
@@ -16,10 +15,7 @@ import { DarAltaComponent } from '../dar-alta/dar-alta.component';
 import { PerfilComponent } from '../perfil/perfil.component';
 import { RegistroComponent } from '../auth/registro.component';
 import { CalendarioComponent } from '../calendario/calendario.component';
-import { GraficoComponent } from '../grafico/grafico.component';
 import { ContactoComponent } from '../contacto/contacto.component';
-
-
 
 const appRoutes = [
     { path: '', component: PagInicioComponent},
@@ -36,8 +32,7 @@ const appRoutes = [
     { path: 'contactanos', canActivate: [AuthGuardGuard], component: ContactoComponent},
     { path: 'dar-alta', canActivate: [AuthGuardGuard, guardRoles], component: DarAltaComponent, data: {expectedRol: ['director']}},
     { path: 'perfil', canActivate: [AuthGuardGuard], component: PerfilComponent},
-    { path: 'calendario', canActivate: [AuthGuardGuard], component: CalendarioComponent},
-    { path: 'grafico', canActivate: [AuthGuardGuard], component: GraficoComponent}
+    { path: 'calendario', canActivate: [AuthGuardGuard], component: CalendarioComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

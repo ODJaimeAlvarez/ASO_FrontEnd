@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { contactUsMail } from '../models/contactUs_mail';
+import { URLServidor } from '../models/url-servidor';
 
 
 @Injectable({
@@ -11,7 +12,8 @@ import { contactUsMail } from '../models/contactUs_mail';
 
 export class ContactoService {
 
-  listaURL = 'http://localhost:8080/';
+  rutaLocal = 'http://localhost:8080/';
+  rutaServidor: URLServidor;
 
   constructor(
     private httpClient: HttpClient
@@ -19,7 +21,7 @@ export class ContactoService {
 
     
   enviarCorreo(correo: contactUsMail): Observable<any> {
-    return this.httpClient.post<any>(this.listaURL + 'api/contacto',correo);
+    return this.httpClient.post<any>(this.rutaLocal + 'api/contacto',correo);
   }
  
 

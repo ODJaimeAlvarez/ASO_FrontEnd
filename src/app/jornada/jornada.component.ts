@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Jornadas } from '../models/jornadas';
-import { ListaJornadaService } from './jornada.service';
+import { ListaJornadaService } from '../service/jornada.service';
 import { TokenService } from '../service/token.service';
 import { ToastrService } from 'ngx-toastr';
 
