@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-import { contactUsMail } from '../models/contactUs_mail';
 import { URLServidor } from '../models/url-servidor';
+import { contactoCorreo } from '../models/contactoCorreo';
 
 
 @Injectable({
@@ -20,7 +19,7 @@ export class ContactoService {
     ) { }
 
     
-  enviarCorreo(correo: contactUsMail): Observable<any> {
+  enviarCorreo(correo: contactoCorreo): Observable<any> {
     return this.httpClient.post<any>(this.rutaLocal + 'api/contacto',correo);
   }
  

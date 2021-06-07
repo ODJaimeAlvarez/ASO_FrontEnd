@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { contactUsMail } from '../models/contactUs_mail';
+import { contactoCorreo } from '../models/contactoCorreo';
 import { ContactoService } from '../service/contacto.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class ContactoComponent implements OnInit {
   asunto:string=""
   mensaje:string=""
 
-  contacto :contactUsMail;
+  contacto :contactoCorreo;
 
 
   ngOnInit(): void {

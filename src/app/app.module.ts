@@ -34,6 +34,8 @@ import { GraficoComponent } from './graficoProyectos/grafico-proyectos.component
 import { GraficoUsuariosComponent } from './grafico-log-usuarios/grafico-log-usuarios.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { GraficoContadorUsuariosComponent } from './grafico-contador-usuarios/grafico-contador-usuarios.component';
+import { CrearProyectoComponent } from './crear-proyecto/crear-proyecto.component';
+import { EditarProyectoComponent } from './editar-proyecto/editar-proyecto.component';
 
 //INTERCEPTORES
 import { interceptorProvider } from './interceptors/proyectos-interceptor.service';
@@ -91,7 +93,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     GraficoComponent,
     GraficoUsuariosComponent,
     CalendarioComponent,
-    GraficoContadorUsuariosComponent
+    GraficoContadorUsuariosComponent,
+    CrearProyectoComponent,
+    EditarProyectoComponent
   ],
   imports: [
     BrowserModule,
