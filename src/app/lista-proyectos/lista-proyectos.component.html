@@ -30,7 +30,7 @@
           </ngb-progressbar>
           <ngb-progressbar [value]="proyecto.valor" *ngIf="!proyecto.completado">{{proyecto.valor}}%</ngb-progressbar>
         </h5>
-        <button style="cursor:pointer;" routerLink="/editarProyecto/:id" (click)="editarProyecto(proyecto)"
+        <button *ngIf="visibilidadDirector" style="cursor:pointer;" routerLink="/editarProyecto/:id" (click)="editarProyecto(proyecto)"
           class="botonEditar"><i class="iconoEditar fas fa-pen"></i></button>
       </div>
     </div>
@@ -87,7 +87,7 @@
                 <div class="form-group">
                   <label for="descripcion">Descripción:</label>
                   <textarea rows="6" cols="100" name="descripcion" id="descripcion" class="form-control"
-                    placeholder="Añade la descripción del proyecto aquí" [(ngModel)]="descripcion" required></textarea>
+                    placeholder="Añade la descripción del proyecto aquí" minlength="4" maxLength="254" [(ngModel)]="descripcion" required></textarea>
                 </div>
               </div>
             </div>

@@ -89,6 +89,14 @@ span {
     }
 }
 
+input:focus, select:focus, select, input.form-control:focus, textarea:focus {
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
 @media screen and (min-width: 320px) and (max-width: 767px){
     
     h5 {
@@ -128,6 +136,5 @@ span {
         margin-top:-40px;
         
     }
-    
     
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Empleados } from '../models/empleados';
 import { SeguimientoEmpleadoService } from '../service/seguimiento-empleado.service';
 import { ActivatedRoute } from '@angular/router';
@@ -16,7 +15,7 @@ import { PageEvent } from '@angular/material/paginator';
 export class SeguimientoEmpleadoComponent implements OnInit {
 
   empleados: Empleados;
-  jornadas: Jornadas[];
+  jornadas: Jornadas[]=[];
   visibilidad: boolean;
   page_size: number = 5;
   page_number: number = 1;

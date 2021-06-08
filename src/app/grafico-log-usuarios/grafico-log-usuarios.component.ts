@@ -15,61 +15,71 @@ export class GraficoUsuariosComponent implements OnInit {
   @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
 
   gProyecto: GProyectos[];
+  public lineChartLabels: Array<Label> = new Array<Label>();
+
+  public lineChartData: ChartDataSets[] = [
+    { data: [], label: 'Clientes' },
+    { data: [], label: 'Empleados' }
+  ];
 
   constructor(
     private graficosService: GraficosService
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.graficoLogUsuarios();
+  }
 
-  graficoLUsuarios(): void {    
-    let variable : number[] = [];
-      this.graficosService.graficoLogUsuarios().subscribe(
-        data => {
-          this.gProyecto = data;
-          this.gProyecto.forEach(ejemplo => {
-            variable.push(ejemplo.valor);
-            //this.barChartLabels.push(ejemplo.nombre);  
+  graficoLogUsuarios(): void {
+    let variable: number[] = [];
+    let variable1: number[] = [];
+    this.graficosService.graficoLogEmpleados().subscribe(
+      data => {
+        this.gProyecto = data;
+        this.gProyecto.forEach(ejemplo => {
+          variable.push(ejemplo.valor);
+          this.lineChartLabels.push(ejemplo.nombre);
         });
-        /*this.barChartData = 
-          {data: variable, label: 'Estado'};
-          console.log(this.barChartData);*/
-        },
-        err => {
-          console.log(err);
-        }
-      );
-  }//graficoLUsuarios
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.graficosService.graficoLogClientes().subscribe(
+      data => {
+        this.gProyecto = data;
+        this.gProyecto.forEach(ejemplo => {
+          variable1.push(ejemplo.valor);
+        });
+        this.lineChartData =
+          [{ data: variable, label: 'Empleados' },
+          { data: variable1, label: 'Clientes' }];
+        console.log(this.lineChartData);
+      },
+      err => {
+        console.log(err);
+      });
+  }//graficoLogUsuarios
 
-  public lineChartData: ChartDataSets[] = [
-    { data: [28, 48, 40, 19, 46, 27, 50], label: 'Series B' },
-    { data: [180, 180, 770, 90, 100, 170, 100], label: 'Series C', yAxisID: 'y-axis-1' }
-  ];
-
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     maintainAspectRatio: false,
     scales: {
-      // We use this empty structure as a placeholder for dynamic theming.
       xAxes: [{}],
       yAxes: [
         {
-          id: 'y-axis-0',
-          position: 'left',
-        },
-        {
           id: 'y-axis-1',
-          position: 'right',
+          position: 'left',
           gridLines: {
           },
           ticks: {
-            
+            stepSize: 1,
+            min: 0,
+            max: 10
           }
         }
       ]
     },
     annotation: {
-
     },
   };
 

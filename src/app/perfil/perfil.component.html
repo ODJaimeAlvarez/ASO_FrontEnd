@@ -160,7 +160,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="descripcion">A cerca de mi</label>
-                    <textarea rows="4" cols="80" name="descripcion" id="descripcion" class="form-control"
+                    <textarea rows="4" cols="80" name="descripcion" minlength="4" maxLength="54" id="descripcion" class="form-control"
                       placeholder="Añade tu descripción aquí" [(ngModel)]="descripcion"
                       value="{{usuarios.descripcion}}">{{usuarios.descripcion}}</textarea>
                   </div>
@@ -235,7 +235,7 @@
                   <div class="form-group">
                     <label for="descripcion">Nota:</label>
                     <textarea rows="4" cols="80" name="descripcion" id="descripcion" class="form-control"
-                      placeholder="Detalla tu nota" [(ngModel)]="nota" required></textarea>
+                      placeholder="Detalla tu nota" minlength="4" maxLength="254" [(ngModel)]="nota" required></textarea>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 <app-nav class="nav"></app-nav>
 <app-menuhamburguer></app-menuhamburguer>
-<div class="container border rounded table-responsive">
+<div *ngIf="empleados != null || empleados != undefined" class="container border rounded table-responsive">
   <div class="d-flex mt-3">
     <h1><i class="fas fa-user-tie iconoEmpleado" *ngIf="empleados"></i> ID: {{empleados.id}}</h1>
     <div *ngIf="empleados" class="divBotonBaja icon-block">

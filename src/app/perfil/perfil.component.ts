@@ -92,6 +92,7 @@ export class PerfilComponent implements OnInit {
     this.currentFileUpload = this.selectedFiles.item(0);
     this.perfilService.subirFotoCliente(this.usuarios.id, this.currentFileUpload).subscribe(event => {
       console.log('Cliente: Imagen cargada correctamente');
+      window.location.reload();
     });
     this.selectedFiles = undefined;
   }//nuevaFotoCliente

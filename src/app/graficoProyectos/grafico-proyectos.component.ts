@@ -22,8 +22,8 @@ export class GraficoComponent {
     scales: {
       xAxes: [{}], yAxes: [{
         ticks: {
-          stepSize: 5,
-          max: 20,
+          stepSize: 2,
+          max: 10,
           min: 0
         }
       }]

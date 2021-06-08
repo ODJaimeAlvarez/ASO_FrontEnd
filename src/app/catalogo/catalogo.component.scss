@@ -151,6 +151,22 @@ h6 {
   margin-top:30px;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  .iconoFlecha {
+    margin-left: 10px;
+  }
+}
+
+a:hover {
+  .iconoFlecha {
+    transition: margin-left 0.2s linear 0.1s;
+  }
+}
+
 .tituloXataka {
   font-weight: 700;
   font-size: 19px;

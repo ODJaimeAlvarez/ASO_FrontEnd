@@ -12,7 +12,7 @@ import { PageEvent } from '@angular/material/paginator';
 
 export class TablaEmpleadosComponent implements OnInit {
 
-  empleados: Empleados[];
+  empleados: Empleados[]=[];
   filterPosts = '';
   activo: boolean;
   page_size: number = 5;

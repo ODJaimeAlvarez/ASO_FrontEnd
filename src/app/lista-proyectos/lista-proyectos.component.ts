@@ -17,7 +17,7 @@ import { Clientes } from '../models/clientes';
 
 export class ListaProyectosComponent implements OnInit {
 
-  proyectos: Proyectos[];
+  proyectos: Proyectos[]=[];
   completado: boolean = false;
   filterPosts = '';
   page_size: number = 5;

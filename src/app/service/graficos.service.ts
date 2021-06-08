@@ -25,7 +25,12 @@ export class GraficosService {
     return this.httpClient.get<any[]>(this.URL + 'api/informe/usuarios');
   }//graficoContadorUsuarios
 
-  graficoLogUsuarios(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.URL + 'api/informe/estado');
-  }//graficoLogUsuarios
+  graficoLogClientes(): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.URL + 'api/informe/usuariosRegistrados');
+  }//graficoLogClientes
+
+  graficoLogEmpleados(): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.URL + 'api/informe/empleadosRegistrados');
+  }//graficoLogClientes
+
 }
