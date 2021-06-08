@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { URLServidor } from '../models/url-servidor';
-
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +9,19 @@ import { URLServidor } from '../models/url-servidor';
 
 export class ListaJornadaService {
 
-  rutaLocal = 'http://localhost:8080/';
-  rutaServidor: URLServidor;
+  URL: string;
 
   constructor(
     private httpClient: HttpClient
-  ) {}
+  ) {
+    this.URL = URLServidor.ruta;
+  }
 
   jornadas(): Observable<any> {
-    return this.httpClient.post<any>(this.rutaLocal + 'api/jornada/jornadaManager',{});
-  }
+    return this.httpClient.post<any>(this.URL + 'api/jornada/jornadaManager', {});
+  }//jornadas
 
-  isIniciada():Observable<any>{
-    return this.httpClient.get<any>(this.rutaLocal+ 'api/jornada/isIniciada');
-  }
+  isIniciada(): Observable<any> {
+    return this.httpClient.get<any>(this.URL + 'api/jornada/isIniciada');
+  }//isIniciada
 }

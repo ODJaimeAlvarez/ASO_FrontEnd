@@ -31,13 +31,14 @@ export class RegistroComponent implements OnInit {
     private tokenService: TokenService,
     private authService: AuthService,
     private router: Router,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
       this.isLogged = true;
     }
-  }
+  }//ngOnInit
 
   onRegister(): void {
     this.nuevoUsuario = new NuevoUsuario(this.nombre, this.apellido1, this.apellido2, this.empresa, this.telefono,

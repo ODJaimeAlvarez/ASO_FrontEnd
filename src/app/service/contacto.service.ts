@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { URLServidor } from '../models/url-servidor';
-import { contactoCorreo } from '../models/contactoCorreo';
-
+import { ContactoCorreo } from '../models/contacto-correo';
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +10,16 @@ import { contactoCorreo } from '../models/contactoCorreo';
 
 export class ContactoService {
 
-  rutaLocal = 'http://localhost:8080/';
-  rutaServidor: URLServidor;
+  URL: string;
 
   constructor(
     private httpClient: HttpClient
-    ) { }
-
-    
-  enviarCorreo(correo: contactoCorreo): Observable<any> {
-    return this.httpClient.post<any>(this.rutaLocal + 'api/contacto',correo);
+  ) {
+    this.URL = URLServidor.ruta;
   }
- 
+
+  enviarCorreo(correo: ContactoCorreo): Observable<any> {
+    return this.httpClient.post<any>(this.URL + 'api/contacto', correo);
+  }//enviarCorreo
 
 }

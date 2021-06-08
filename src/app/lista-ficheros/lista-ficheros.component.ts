@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ListaFicherosService } from '../service/lista-ficheros.service';
 import { Ficheros } from '../models/ficheros';
 import { DatePipe } from '@angular/common';
-
 import { ActivatedRoute } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { saveAs } from 'file-saver';
 import { PageEvent } from '@angular/material/paginator';
 
@@ -17,16 +16,15 @@ import { PageEvent } from '@angular/material/paginator';
 export class ListaFicherosComponent implements OnInit {
 
   ficheros: Ficheros[];
-  filterPosts='';
+  filterPosts = '';
   page_size: number = 5;
-  page_number: number =1;
+  page_number: number = 1;
   pageSizeOptions = [5, 10, 20];
-
   selectedFiles: FileList;
   currentFileUpload: File;
 
   constructor(
-    private listaService: ListaFicherosService,
+    private listaFicherosService: ListaFicherosService,
     private route: ActivatedRoute,
     public datepipe: DatePipe
   ) { }
@@ -36,60 +34,51 @@ export class ListaFicherosComponent implements OnInit {
   }
 
   handlePage(e: PageEvent) {
-    this.page_size =e.pageSize;
-    this.page_number =e.pageIndex+1; //paginator empieza por 0
-  }
+    this.page_size = e.pageSize;
+    this.page_number = e.pageIndex + 1; //paginator empieza por 0
+  }//handlePage
 
   listaFicheros(): void {
     let id = this.route.snapshot.paramMap.get("id");
-    
-    this.listaService.ficheros(id).subscribe(
+    this.listaFicherosService.ficheros(id).subscribe(
       data => {
         this.ficheros = data;
-        for(let i=0; i<this.ficheros.length; i++) {
-          this.ficheros[i].formato= this.datepipe.transform(this.ficheros[i].fecha_mod, 'yyyy-MM-dd');
+        for (let i = 0; i < this.ficheros.length; i++) {
+          this.ficheros[i].formato = this.datepipe.transform(this.ficheros[i].fecha_mod, 'yyyy-MM-dd');
         }
-        
       },
       err => {
         console.log(err);
       }
     );
-  }//listaProyectos
+  }//listaFicheros
 
   selectFile(event) {
     console.log(event.target.files);
     this.selectedFiles = event.target.files;
     console.log(event);
-    
-      this.subirArchivo();
-    
-  }
+    this.subirArchivo();
+  }//selectFile
 
   editaFile(id: string, event) {
     console.log(event.target.files);
     this.selectedFiles = event.target.files;
     console.log(event);
-    
-    
     this.editarArchivos(id);
-    
-  }
+  }//editaFile
 
   subirArchivo() {
     this.currentFileUpload = this.selectedFiles.item(0);
     let id = this.route.snapshot.paramMap.get("id");
-
-    this.listaService.subir(id, this.currentFileUpload).subscribe(event => {
-        console.log('Fichero subido correctamente');
-        window.location.reload();
+    this.listaFicherosService.subir(id, this.currentFileUpload).subscribe(event => {
+      console.log('Fichero subido correctamente');
+      window.location.reload();
     });
-
-    this.selectedFiles= undefined;
-  }//upload
+    this.selectedFiles = undefined;
+  }//subirArchivo
 
   descargarArchivo(fichero: Ficheros): void {
-    this.listaService.descargar(fichero.id).subscribe(
+    this.listaFicherosService.descargar(fichero.id).subscribe(
       event => {
         saveAs(event, fichero.nombre);
         console.log('se ha descargado');
@@ -98,17 +87,14 @@ export class ListaFicherosComponent implements OnInit {
         console.log(error);
       }
     );
-  }
+  }//descargarArchivo
 
   editarArchivos(id: string) {
     this.currentFileUpload = this.selectedFiles.item(0);
-    
-    this.listaService.editar(id, this.currentFileUpload).subscribe(event => {
-        console.log('Fichero subido correctamente');
-        window.location.reload();
+    this.listaFicherosService.editar(id, this.currentFileUpload).subscribe(event => {
+      console.log('Fichero subido correctamente');
+      window.location.reload();
     });
-
-    this.selectedFiles= undefined;
-  }
-
+    this.selectedFiles = undefined;
+  }//editarArchivos
 }

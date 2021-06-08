@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './guia-portal.component.html',
   styleUrls: ['./guia-portal.component.scss']
 })
+
 export class GuiaPortalComponent implements OnInit {
 
   constructor() { }

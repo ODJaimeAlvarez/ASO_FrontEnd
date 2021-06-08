@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenService } from './token.service';
-import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { URLServidor } from '../models/url-servidor';
+import { Proyectos } from '../models/proyectos';
+import { proyectoNuevo } from '../models/proyecto-nuevo';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +11,38 @@ import { URLServidor } from '../models/url-servidor';
 
 export class ListaProyectosService {
 
-  rutaLocal = 'http://localhost:8080/';
-  rutaServidor: URLServidor;
+  URL: string;
 
   constructor(
     private httpClient: HttpClient
-    ) { }
+  ) {
+    this.URL = URLServidor.ruta;
+  }
 
 
   proyectos(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.rutaLocal + 'api/proyecto');
-  }
+    return this.httpClient.get<any[]>(this.URL + 'api/proyecto');
+  }//proyectos
+
+  actualizarProyectos(id: string, proyecto: Proyectos) {
+    console.log(proyecto);
+    return this.httpClient.put<any>(this.URL + 'api/proyecto/' + id, proyecto);
+  }//actualizarProyectos
+
+  obtenerProyectos(id: string): Observable<any> {
+    return this.httpClient.get<any[]>(this.URL + 'api/proyecto/' + id);
+  }//obtenerProyectos
+
+  empleados(): Observable<any> {
+    return this.httpClient.get<any[]>(this.URL + 'api/empleados/empleados')
+  }//empleados
+
+  clientes(): Observable<any> {
+    return this.httpClient.get<any>(this.URL + 'api/cliente');
+  }//clientes
+
+  guardarProyecto(proyecto: proyectoNuevo) {
+    return this.httpClient.post<any>(this.URL + 'api/proyecto', proyecto)
+  }//guardarProyecto
 
 }

@@ -3,9 +3,10 @@
     <h1><i class="far fa-file-powerpoint iconoProyecto"></i> Proyectos</h1>
   </div>
   <h3 class="text-muted">Listado de proyectos</h3>
-  <button *ngIf="visibilidadDirector" type="button" class="btn btn-primary botonAnadir" (click)="agregarProyecto();">
-    <label style="cursor:pointer;" >
-      Añadir <i class="fas fa-cloud-upload-alt"></i>  
+  <button *ngIf="visibilidadDirector" type="button" class="btn btn-primary botonAnadir" data-toggle="modal"
+    data-target="#modalPerfil">
+    <label style="cursor:pointer;">
+      Añadir <i class="fas fa-cloud-upload-alt"></i>
     </label>
 
   </button>
@@ -19,24 +20,89 @@
 
   <div class="list-group mb-2"
     *ngFor="let proyecto of proyectos | filter: filterPosts | paginate:page_size:page_number">
-    <div routerLink="/ficheros/:id" class="list-group-item list-group-item-action" aria-current="true"
-      (click)="prueba(proyecto)">
+    <div class="list-group-item list-group-item-action" aria-current="true">
       <div class="d-flex w-100 justify-content-between">
-        <h5 style="cursor:pointer;" class="mt-3 nombreProyecto">{{proyecto.nombre}}</h5>
-        <h5 style="cursor:pointer;" class="mb-1 barraProgreso">
+        <h5 (click)="accesoFicheros(proyecto)" routerLink="/ficheros/:id" style="cursor:pointer;" class="mt-3 nombreProyecto">
+          {{proyecto.nombre}}</h5>
+        <h5 (click)="accesoFicheros(proyecto)" routerLink="/ficheros/:id" style="cursor:pointer;" class="mb-1 barraProgreso">
           <p>{{proyecto.formato}}</p>
           <ngb-progressbar [value]="proyecto.valor" type="success" *ngIf="proyecto.completado">{{proyecto.valor}}%
           </ngb-progressbar>
           <ngb-progressbar [value]="proyecto.valor" *ngIf="!proyecto.completado">{{proyecto.valor}}%</ngb-progressbar>
         </h5>
-        <button style="cursor:pointer;" routerLink="/editarProyecto/:id" (click)="editarProyecto(proyecto)" class="botonEditar"><i
-          class="iconoEditar fas fa-pen"></i></button>
+        <button style="cursor:pointer;" routerLink="/editarProyecto/:id" (click)="editarProyecto(proyecto)"
+          class="botonEditar"><i class="iconoEditar fas fa-pen"></i></button>
       </div>
     </div>
-    
 
-    
   </div>
+
+  <!--MODAL EDITAR-->
+  <div class="modal fade" id="modalPerfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">Nuevo Proyecto</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #f="ngForm" (ngSubmit)="crearProyecto()" novalidate>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre"
+                    [(ngModel)]="nombre" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-2 ">
+                <label for="empleado">Empleados:</label>
+                <mat-form-field class="matField">
+                  <mat-label class="matLabel">Empleados</mat-label>
+                  <mat-select required multiple>
+                    <mat-option class="opciones" *ngFor="let empleado of empleados" [value]="empleado"
+                      (click)="seleccionado(empleado)">{{empleado.nombre}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 ">
+                <label for="cliente">Clientes:</label>
+                <mat-form-field class="matField">
+                  <mat-label class="matLabel">Clientes</mat-label>
+                  <mat-select>
+                    <mat-option *ngFor="let cliente of clientes" [value]="cliente"
+                      (click)="seleccionadoCliente(cliente)">
+                      {{cliente.nombre}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="descripcion">Descripción:</label>
+                  <textarea rows="6" cols="100" name="descripcion" id="descripcion" class="form-control"
+                    placeholder="Añade la descripción del proyecto aquí" [(ngModel)]="descripcion" required></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light botonesCrear" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary botonesCrear" (click)="crearProyecto()" data-dismiss="modal"
+            [disabled]="!f.valid">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <mat-paginator [length]="proyectos.length" [pageSize]="page_size" [pageSizeOptions]="pageSizeOptions"
     showFirstLastButtons (page)="handlePage($event)"></mat-paginator>
@@ -44,6 +110,3 @@
 
 
 </div>
-
-
-

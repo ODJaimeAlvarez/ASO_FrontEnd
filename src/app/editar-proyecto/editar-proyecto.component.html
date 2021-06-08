@@ -1,34 +1,36 @@
 <app-nav class="nav"></app-nav>
 <app-menuhamburguer></app-menuhamburguer>
+<div class="container">
 <div class="container border rounded">
-    <div class="d-flex mt-3">
-      <h1><i class="far fa-file-powerpoint"></i> Editar proyecto</h1>
+    <div *ngIf="proyecto" class="d-flex mt-3">
+      <h1><i class="far fa-file-powerpoint iconoProyecto"></i> {{proyecto.nombre}}</h1>
     </div>
-    
-      <form *ngIf="proyecto">
-        
-        <div class="row">
-          <div class="col datos">
+    <h3 class="text-muted">Edita tu proyecto</h3>
+      <form *ngIf="proyecto" #f="ngForm" (ngSubmit)="editarProyecto()" novalidate>
+        <div class="row mt-4">
+          <div class="col-md-4 ml-2">
+            <label>Nombre:</label>
             <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre"
-            [(ngModel)]="proyecto.nombre"/>
-          </div>         
-          
+            [(ngModel)]="proyecto.nombre" required/>
+          </div>  
+          <div class="col-md-2  ml-2">
+            <div class="form-group">
+              <label for="formatoEstado">Estado:</label>
+              <select [(ngModel)]="formatoEstado" [(value)]="formatoEstado" name="formatoEstado" class="form-select" required>
+                <option *ngFor="let e of formatoEstados" value="{{e}}">{{e}}</option>
+              </select>
+            </div> 
+          </div> 
         </div>
-        <div >
-          <textarea class="form-control " [(ngModel)]="descripcion"  id="descripcion" name="descripcion" placeholder="Descripcion"></textarea>
+        <div class="row descripcion">
+          <div class="col-md-7 ml-2">
+            <label>Descripción:</label>
+            <textarea rows="8" cols="100" class="form-control " [(ngModel)]="descripcion"  id="descripcion" name="descripcion" placeholder="Descripcion" required></textarea>
+          </div>   
         </div>
-       
-
-        <label class="progreso">Seleccione el estado al cual quiere que se cambie</label><br/>
-        <mat-form-field appearance="fill" >
-          
-          <mat-label>Estados</mat-label>
-          <mat-select  [(value)]="proyecto.estado.estado" [(ngModel)]="proyecto.estado.estado" name="estadoSelecc">
-            <mat-option *ngFor="let e of estados" value="{{e.estado}}">{{e.estado}}</mat-option>
-          </mat-select>
-        </mat-form-field>  
-      
-        <button type="submit" class="btn btn-primary" (click)="editarProyecto()">Guardar</button>
+      <div class="clearfix">
+        <button type="button"  class="btn btn-primary botonGuardar" (click)="editarProyecto()" [disabled]="!f.valid">Guardar</button>
+      </div>
       </form>
-      
   </div>
+</div>

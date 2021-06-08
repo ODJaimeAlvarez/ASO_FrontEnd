@@ -1,27 +1,6 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  ViewChild,
-  TemplateRef,
-} from '@angular/core';
-import {
-  startOfDay,
-  endOfDay,
-  subDays,
-  addDays,
-  endOfMonth,
-  isSameDay,
-  isSameMonth,
-  addHours,
-} from 'date-fns';
+import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {
-  CalendarEvent,
-  CalendarEventAction,
-  CalendarEventTimesChangedEvent,
-  CalendarView,
-} from 'angular-calendar';
+import { CalendarView } from 'angular-calendar';
 
 const colors: any = {
   red: {
@@ -44,24 +23,21 @@ const colors: any = {
   styleUrls: ['./calendario.component.scss']
 })
 
-export class CalendarioComponent  {
+export class CalendarioComponent {
+
+  constructor() { }
+
   view: CalendarView = CalendarView.Month;
-
   CalendarView = CalendarView;
-
   viewDate: Date = new Date();
-
   refresh: Subject<any> = new Subject();
-
   activeDayIsOpen: boolean = true;
-
-  constructor() {}
 
   setView(view: CalendarView) {
     this.view = view;
-  }
+  }//setView
 
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
-  }
+  }//closeOpenMonthViewDay
 }

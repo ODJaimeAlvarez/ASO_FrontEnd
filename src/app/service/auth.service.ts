@@ -9,19 +9,23 @@ import { URLServidor } from '../models/url-servidor';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
-  rutaLocal = 'http://localhost:8080/';
-  rutaServidor: URLServidor;
+  URL: string;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient,
+  ) {
+    this.URL = URLServidor.ruta;
+  }
 
   public nuevo(data: NuevoUsuario): Observable<any> {
-    return this.httpClient.post<any>(this.rutaLocal + 'api/auth/register', data);
-  }
+    return this.httpClient.post<any>(this.URL + 'api/auth/register', data);
+  }//nuevo
 
   public login(loginUsuario: LoginUsuario): Observable<any> {
-    return this.httpClient.post<LoginResponse>(this.rutaLocal + 'api/auth/login', loginUsuario);
-  }
+    return this.httpClient.post<LoginResponse>(this.URL + 'api/auth/login', loginUsuario);
+  }//login
 
 }

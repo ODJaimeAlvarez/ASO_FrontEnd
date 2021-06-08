@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenService } from './token.service';
-import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { URLServidor } from '../models/url-servidor';
 
 @Injectable({
@@ -11,28 +9,28 @@ import { URLServidor } from '../models/url-servidor';
 
 export class SeguimientoEmpleadoService {
 
-  rutaLocal = 'http://localhost:8080/';
-  rutaServidor: URLServidor;
+  URL: string;
 
   constructor(
     private httpClient: HttpClient
-    ) { }
+  ) {
+    this.URL = URLServidor.ruta;
+  }
 
 
   empleados(id: string): Observable<any> {
-    return this.httpClient.get<any>(this.rutaLocal + 'api/empleados/'+id);
-  }
+    return this.httpClient.get<any>(this.URL + 'api/empleados/' + id);
+  }//empleados
 
-  jornadas(id:string): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.rutaLocal + 'api/jornada/'+id);
-  }
+  jornadas(id: string): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.URL + 'api/jornada/' + id);
+  }//jornadas
 
-  
-  baja(id:string): Observable<any[]> {
-    return this.httpClient.put<any[]>(this.rutaLocal + 'api/empleados/baja/'+id, null);
-  }
+  baja(id: string): Observable<any[]> {
+    return this.httpClient.put<any[]>(this.URL + 'api/empleados/baja/' + id, null);
+  }//baja
 
-  alta(id:string): Observable<any[]> {
-    return this.httpClient.put<any[]>(this.rutaLocal + 'api/empleados/alta/'+id, null);
-  }
+  alta(id: string): Observable<any[]> {
+    return this.httpClient.put<any[]>(this.URL + 'api/empleados/alta/' + id, null);
+  }//alta
 }

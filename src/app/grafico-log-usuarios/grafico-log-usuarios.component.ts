@@ -2,14 +2,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import { GraficosService } from '../service/graficos.service';
-import { GProyectos } from '../models/graficoProyectos';
-
+import { GProyectos } from '../models/grafico';
 
 @Component({
   selector: 'app-grafico-usuarios',
   templateUrl: './grafico-log-usuarios.component.html',
   styleUrls: ['./grafico-log-usuarios.component.scss']
 })
+
 export class GraficoUsuariosComponent implements OnInit {
 
   @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
@@ -20,8 +20,7 @@ export class GraficoUsuariosComponent implements OnInit {
     private graficosService: GraficosService
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   graficoLUsuarios(): void {    
     let variable : number[] = [];

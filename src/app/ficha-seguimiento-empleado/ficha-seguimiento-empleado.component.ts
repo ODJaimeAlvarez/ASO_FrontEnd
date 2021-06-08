@@ -4,106 +4,93 @@ import { Empleados } from '../models/empleados';
 import { SeguimientoEmpleadoService } from '../service/seguimiento-empleado.service';
 import { ActivatedRoute } from '@angular/router';
 import { Jornadas } from '../models/jornadas';
-import { DatePipe, getLocaleTimeFormat } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { PageEvent } from '@angular/material/paginator';
-
 
 @Component({
   selector: 'app-seguimiento-empleado',
   templateUrl: './ficha-seguimiento-empleado.component.html',
   styleUrls: ['./ficha-seguimiento-empleado.component.scss']
 })
+
 export class SeguimientoEmpleadoComponent implements OnInit {
 
-  empleados:Empleados;
-  jornadas:Jornadas[];
+  empleados: Empleados;
+  jornadas: Jornadas[];
   visibilidad: boolean;
-
   page_size: number = 5;
-  page_number: number =1;
+  page_number: number = 1;
   pageSizeOptions = [5, 10, 20];
 
   constructor(
-    private listaService: SeguimientoEmpleadoService,
+    private seguimientoEmpleadoService: SeguimientoEmpleadoService,
     private router: ActivatedRoute,
-    public datepipe:DatePipe) {
-    
-   }
+    public datepipe: DatePipe
+  ) { }
 
   ngOnInit(): void {
     this.listaEmpleados();
     this.listaJornada();
-    
-  }
+  }//ngOnInit
 
   handlePage(e: PageEvent) {
-    this.page_size =e.pageSize;
-    this.page_number =e.pageIndex+1; //paginator empieza por 0
-  }
-  
+    this.page_size = e.pageSize;
+    this.page_number = e.pageIndex + 1; //paginator empieza por 0
+  }//handlePage
+
   listaJornada() {
     let id = this.router.snapshot.paramMap.get("id");
-    
-    this.listaService.jornadas(id).subscribe(
+    this.seguimientoEmpleadoService.jornadas(id).subscribe(
       data => {
         this.jornadas = data;
-        for(let i=0;i<this.jornadas.length;i++){
-          this.jornadas[i].formato=this.datepipe.transform(this.jornadas[i].fecha_jornada,'yyyy-MM-dd');
-        }  
+        for (let i = 0; i < this.jornadas.length; i++) {
+          this.jornadas[i].formato = this.datepipe.transform(this.jornadas[i].fecha_jornada, 'yyyy-MM-dd');
+        }
       },
       err => {
         console.log(err);
       }
     );
-
-  }
-  
+  }//listaJornada
 
   listaEmpleados(): void {
     let id = this.router.snapshot.paramMap.get("id");
-    
-    this.listaService.empleados(id).subscribe(
+    this.seguimientoEmpleadoService.empleados(id).subscribe(
       data => {
-        this.empleados = data;  
-              console.log(data)      ;
+        this.empleados = data;
+        console.log(data);
       },
       err => {
         console.log(err);
       }
     );
-    
-  }//listaProyectos
+  }//listaEmpleados
 
-   bajaEmpleado(): void {
-    this.visibilidad= true;
+  bajaEmpleado(): void {
+    this.visibilidad = true;
     let id = this.router.snapshot.paramMap.get("id");
-    
-    this.listaService.baja(id).subscribe(
+    this.seguimientoEmpleadoService.baja(id).subscribe(
       data => {
-            console.log(data);
-            window.location.reload();
+        console.log(data);
+        window.location.reload();
       },
       err => {
         console.log(err);
       }
     );
-    
   }//bajaEmpleado
 
   altaEmpleado(): void {
-    this.visibilidad= false;
+    this.visibilidad = false;
     let id = this.router.snapshot.paramMap.get("id");
-    
-    this.listaService.alta(id).subscribe(
+    this.seguimientoEmpleadoService.alta(id).subscribe(
       data => {
-            console.log(data);
-            window.location.reload();
+        console.log(data);
+        window.location.reload();
       },
       err => {
         console.log(err);
       }
     );
-    
   }//altaEmpleado
-
 }

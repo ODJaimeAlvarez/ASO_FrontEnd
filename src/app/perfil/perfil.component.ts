@@ -4,16 +4,6 @@ import { Empleados } from '../models/empleados';
 import { Clientes } from '../models/clientes';
 import { TokenService } from '../service/token.service';
 import { Notas } from '../models/notas';
-import { fileURLToPath } from 'url';
-
-import { Subject } from 'rxjs';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {
-  CalendarEvent,
-  CalendarEventAction,
-  CalendarEventTimesChangedEvent,
-  CalendarView,
-} from 'angular-calendar';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
@@ -61,9 +51,8 @@ export class PerfilComponent implements OnInit {
         this.listaEmpleados();
       }
     });
-
     this.listaNotas();
-  }
+  }//ngOnInit
 
   fotoPerfil(id: string) {
     let imagen;
@@ -72,8 +61,7 @@ export class PerfilComponent implements OnInit {
       this.url = this.sanitizer.bypassSecurityTrustUrl(imagen);
       console.log(this.url.toString());
     });
-
-  }
+  }//fotoPerfil
 
   selectFile(event) {
     console.log(event.target.files);
@@ -87,40 +75,30 @@ export class PerfilComponent implements OnInit {
         this.nuevaFoto();
       }
     });
-  }
+  }//selectFile
 
   nuevaFoto() {
     console.log('Imagen cargada correctamente');
     this.currentFileUpload = this.selectedFiles.item(0);
-
-    //if (this.currentFileUpload.type == "image/jpeg") {
-      this.perfilService.subirFoto(this.usuarios.id, this.currentFileUpload).subscribe(event => {
-        console.log('Imagen cargada correctamente');
-        window.location.reload();
-      });
-
-      this.selectedFiles = undefined;
-    //}
+    this.perfilService.subirFoto(this.usuarios.id, this.currentFileUpload).subscribe(event => {
+      console.log('Imagen cargada correctamente');
+      window.location.reload();
+    });
+    this.selectedFiles = undefined;
   }//nuevaFoto
 
   nuevaFotoCliente() {
     console.log('Cliente: Imagen cargada correctamente');
     this.currentFileUpload = this.selectedFiles.item(0);
-
-    //if (this.currentFileUpload.type == "image/jpeg") {
-      this.perfilService.subirFotoCliente(this.usuarios.id, this.currentFileUpload).subscribe(event => {
-        console.log('Cliente: Imagen cargada correctamente');
-        //window.location.reload();
-      });
-
-      this.selectedFiles = undefined;
-    //}
-  }//nuevaFoto
+    this.perfilService.subirFotoCliente(this.usuarios.id, this.currentFileUpload).subscribe(event => {
+      console.log('Cliente: Imagen cargada correctamente');
+    });
+    this.selectedFiles = undefined;
+  }//nuevaFotoCliente
 
   listaEmpleados(): void {
     this.usuarios = new Empleados(this.nombre, this.apellido1, this.apellido2, this.correo, this.activo, this.cargo,
       this.telefono, this.direccion, this.descripcion, this.pais, this.ciudad, this.CP);
-
     this.perfilService.usuario().subscribe(
       data => {
         this.usuarios = data;
@@ -136,7 +114,7 @@ export class PerfilComponent implements OnInit {
         this.pais = data.pais;
         this.ciudad = data.ciudad;
         this.CP = data.CP;
-        if(data.fotoPerfil != null) {
+        if (data.fotoPerfil != null) {
           console.log("Entro a metodo ");
           this.fotoPerfil(data.fotoPerfil.id);
         }
@@ -146,13 +124,11 @@ export class PerfilComponent implements OnInit {
         console.log(err);
       }
     );
-
   }//listaEmpleados
 
   editarEmpleado(): void {
     let empleado = new Empleados(this.nombre, this.apellido1, this.apellido2, this.correo, this.activo, this.cargo,
       this.telefono, this.direccion, this.descripcion, this.pais, this.ciudad, this.CP);
-
     this.perfilService.editarUsuario(this.usuarios.id, empleado).subscribe(
       data => {
         console.log(data);
@@ -174,7 +150,6 @@ export class PerfilComponent implements OnInit {
         console.log(err);
       }
     );
-
   }//listaNotas
 
   anadirNota(): void {
@@ -200,12 +175,11 @@ export class PerfilComponent implements OnInit {
         console.log(err);
       }
     )
-  }//anadirNota
+  }//eliminarNota
 
   editarCliente(): void {
     let cliente = new Clientes(this.nombre, this.apellido1, this.apellido2, this.correo, this.activo, this.empresa,
       this.telefono, this.direccion, this.descripcion, this.pais, this.ciudad, this.CP);
-
     this.perfilService.editarCliente(this.usuarios.id, cliente).subscribe(
       data => {
         console.log(data);
@@ -220,7 +194,6 @@ export class PerfilComponent implements OnInit {
   listaClientes(): void {
     this.usuarios = new Clientes(this.nombre, this.apellido1, this.apellido2, this.correo, this.activo, this.empresa,
       this.telefono, this.direccion, this.descripcion, this.pais, this.ciudad, this.CP);
-
     this.perfilService.cliente().subscribe(
       data => {
         this.usuarios = data;
@@ -236,7 +209,7 @@ export class PerfilComponent implements OnInit {
         this.pais = data.pais;
         this.ciudad = data.ciudad;
         this.CP = data.CP;
-        if(data.fotoPerfil != null) {
+        if (data.fotoPerfil != null) {
           console.log("Entro a metodo ");
           this.fotoPerfil(data.fotoPerfil.id);
         }

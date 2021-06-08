@@ -40,7 +40,7 @@ h1 {
 }
 
 .barraProgreso {
-    margin-left: 55%;
+    margin-left: 58%;
 }
 
 .botonEditar {
@@ -60,4 +60,37 @@ h1 {
     margin-bottom: 6px;
     height: 33px;
     font-size: 15px;
+}
+
+.modal-header {
+	height: 55px;
+}
+
+.matField {
+    margin-top: -7px;
+}
+
+.matLabel {
+    margin-left: 13px;
+}
+
+.botonesCrear {
+    font-size: 14px;
+}
+
+textarea {
+    font-size: 15px;
+}
+input {
+    border: none;
+    border-bottom: 1px rgb(202, 199, 199) solid;
+    font-size: 15px;
+}
+
+input:focus, select:focus, select, textarea:focus {
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
 }

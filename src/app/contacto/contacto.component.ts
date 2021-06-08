@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { contactoCorreo } from '../models/contactoCorreo';
+import { ContactoCorreo } from '../models/contacto-correo';
 import { ContactoService } from '../service/contacto.service';
 
 @Component({
@@ -10,48 +10,29 @@ import { ContactoService } from '../service/contacto.service';
 export class ContactoComponent implements OnInit {
 
   constructor(
-    private listaService: ContactoService
+    private contactoService: ContactoService
   ) { }
 
-    
-  correo:string=""
-  asunto:string=""
-  mensaje:string=""
+  ngOnInit(): void { }
 
-  contacto :contactoCorreo;
+  correo: string;
+  asunto: string;
+  mensaje: string;
+  contacto: ContactoCorreo;
 
-
-  ngOnInit(): void {
-   
-  }        
-
-    enviarCorreo(): void {
-
-      this.contacto={
-      
-        correo:this.correo,
-        asunto:this.asunto,
-        mensaje:this.mensaje
+  enviarCorreo(): void {
+    this.contacto = {
+      correo: this.correo,
+      asunto: this.asunto,
+      mensaje: this.mensaje
+    }
+    this.contactoService.enviarCorreo(this.contacto).subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
       }
-      
-      
-
-      this.listaService.enviarCorreo(this.contacto).subscribe(
-        data => {
-
-          console.log(data);
-          
-        },
-        err => {
-          console.log(err);
-        }
-      ); 
-      
-    }//enviarCorreo
-
-    
-
-  
-  
-
+    );
+  }//enviarCorreo
 }

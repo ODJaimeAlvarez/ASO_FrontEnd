@@ -1,5 +1,5 @@
 .container {
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 h1 {
@@ -7,14 +7,60 @@ h1 {
     color: #245380;
     font-weight: bold;
 }
-button{
+
+.iconoProyecto {
+    color:  #245380;
+    font-weight: bold;
+}
+
+.botonGuardar{
     float: right;
-}
-.datos{
-    padding-bottom: 30px;
-}
-
-.progreso{
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;    
 }
 
+.estado {
+    margin-top:100px;
+    position: fixed;
+}
+
+input {
+    border: none;
+    border-bottom: 1px rgb(202, 199, 199) solid;
+    font-size: 16px;
+}
+
+select {
+    border: none;
+    border-bottom: 1px rgb(202, 199, 199) solid;
+}
+
+textarea {
+    border: 1px rgb(202, 199, 199) solid;
+    
+}
+
+.descripcion {
+    margin-top:20px;
+}
+
+input:focus, select:focus, select, input.form-control:focus, textarea:focus {
+
+    outline:none !important;
+
+    outline-width: 0 !important;
+
+    box-shadow: none;
+
+    -moz-box-shadow: none;
+
+    -webkit-box-shadow: none;
+
+}
+
+select {
+    font-size: 16px;
+}
+select option {
+    font-size: 15px;
+}

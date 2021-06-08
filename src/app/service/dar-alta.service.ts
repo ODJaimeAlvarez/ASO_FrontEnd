@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Empleados } from '../models/empleados';
-import { NuevoEmpleado } from '../models/nuevo_empleado';
+import { NuevoEmpleado } from '../models/nuevo-empleado';
 import { URLServidor } from '../models/url-servidor';
-
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +10,16 @@ import { URLServidor } from '../models/url-servidor';
 
 export class DarAltaService {
 
-  rutaLocal = 'http://localhost:8080/';
-  rutaServidor: URLServidor;
+  URL: string;
 
   constructor(
     private httpClient: HttpClient
-    ) { }
+  ) {
+    this.URL = URLServidor.ruta;
+  }
 
   darAlta(Empleado: NuevoEmpleado): Observable<any[]> {
-    return this.httpClient.post<any[]>(this.rutaLocal + 'api/empleados/register',Empleado);
-  }
+    return this.httpClient.post<any[]>(this.URL + 'api/empleados/register', Empleado);
+  }//darAlta
 
 }

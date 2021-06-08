@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { routing } from './routing/app.routing';
@@ -14,7 +14,6 @@ import { ChartsModule } from 'ng2-charts';
 
 //COMPONENTES
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login.component';
 import { NavComponent } from './nav/nav.component';
 import { CatalogoComponent } from './catalogo/catalogo.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
@@ -28,17 +27,17 @@ import { GuiaPortalComponent } from './guia-portal/guia-portal.component';
 import { JornadaComponent } from './jornada/jornada.component';
 import { DarAltaComponent } from './dar-alta/dar-alta.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { RegistroComponent } from './auth/registro.component';
 import { CalendarioComponent } from './calendario/calendario.component';
 import { GraficoComponent } from './graficoProyectos/grafico-proyectos.component';
 import { GraficoUsuariosComponent } from './grafico-log-usuarios/grafico-log-usuarios.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { GraficoContadorUsuariosComponent } from './grafico-contador-usuarios/grafico-contador-usuarios.component';
-import { CrearProyectoComponent } from './crear-proyecto/crear-proyecto.component';
 import { EditarProyectoComponent } from './editar-proyecto/editar-proyecto.component';
+import { RegistroComponent } from './auth/registro.component';
+import { LoginComponent } from './auth/login.component';
 
 //INTERCEPTORES
-import { interceptorProvider } from './interceptors/proyectos-interceptor.service';
+import { interceptorProvider } from './interceptors/interceptor.service';
 
 //TUBERÍAS
 import { FilterPipe } from './pipe/filter.pipe';
@@ -94,12 +93,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
     GraficoUsuariosComponent,
     CalendarioComponent,
     GraficoContadorUsuariosComponent,
-    CrearProyectoComponent,
     EditarProyectoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     routing,
     FontAwesomeModule,
@@ -131,6 +130,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   providers: [ CookieService, interceptorProvider, DatePipe],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { 
 
   constructor(library: FaIconLibrary) {
@@ -139,4 +139,6 @@ export class AppModule {
     library.addIcons(faCircle,faSquare,farCircle,farSquare
           ,faStackOverflow,faGithub,faMedium);
   }
+
+
 }

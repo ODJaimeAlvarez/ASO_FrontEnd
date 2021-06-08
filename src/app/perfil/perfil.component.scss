@@ -93,13 +93,9 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 
-
 .text-white-50 { color: rgba(255, 255, 255, .5); }
 
 .bg-purple { background-color: #6f42c1; }
-
-
-
 
 $bg: darken(white, 10%);
 $shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -200,4 +196,29 @@ $shadow1: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
 .labelBoton {
 	height: 10px;
+}
+
+input {
+    border: none;
+    border-bottom: 1px rgb(202, 199, 199) solid;
+    font-size: 16px;
+}
+
+textarea {
+    border: 1px rgb(202, 199, 199) solid;
+    
+}
+
+input:focus, select:focus, select, input.form-control:focus, textarea:focus {
+
+    outline:none !important;
+
+    outline-width: 0 !important;
+
+    box-shadow: none;
+
+    -moz-box-shadow: none;
+
+    -webkit-box-shadow: none;
+
 }
