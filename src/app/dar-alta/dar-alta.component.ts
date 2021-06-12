@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NuevoEmpleado } from '../models/nuevo-empleado';
 import { Rol, Rol_director, Rol_empleado } from '../models/rol';
 import { DarAltaService } from '../service/dar-alta.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dar-alta',
@@ -48,7 +49,8 @@ export class DarAltaComponent implements OnInit {
   formato: string;
 
   constructor(
-    private darAltaService: DarAltaService
+    private darAltaService: DarAltaService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void { }
@@ -79,8 +81,10 @@ export class DarAltaComponent implements OnInit {
     }
     this.darAltaService.darAlta(this.empleado).subscribe(
       data => {
-        console.log(data);
-        window.location.reload();
+        setTimeout(() => window.location.reload(), 2000);
+        this.toastr.success('¡El empleado ha sido registrado con éxito! ', '', {
+          timeOut: 2000, positionClass: 'toast-top-center'
+        });
       },
       err => {
         console.log(err);

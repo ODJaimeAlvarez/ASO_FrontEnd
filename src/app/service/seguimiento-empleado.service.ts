@@ -17,7 +17,6 @@ export class SeguimientoEmpleadoService {
     this.URL = URLServidor.ruta;
   }
 
-
   empleados(id: string): Observable<any> {
     return this.httpClient.get<any>(this.URL + 'api/empleados/' + id);
   }//empleados

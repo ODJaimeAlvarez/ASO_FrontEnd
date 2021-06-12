@@ -1,4 +1,3 @@
-import { isConstructorDeclaration } from 'typescript';
 import { Estados } from './estados';
 
 export class Proyectos {
@@ -8,11 +7,11 @@ export class Proyectos {
     descripcion: string;
     valor: number;
     formato: string;
-    completado: boolean=false;
+    completado: boolean = false;
 
-    constructor(nombre:string,estado:Estados,descripcion:string){
-        this.nombre=nombre;
-        this.estado=estado;
-        this.descripcion=descripcion;
+    constructor(nombre: string, estado: Estados, descripcion: string) {
+        this.nombre = nombre;
+        this.estado = estado;
+        this.descripcion = descripcion;
     }
 }

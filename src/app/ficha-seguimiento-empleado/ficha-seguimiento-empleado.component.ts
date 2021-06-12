@@ -15,7 +15,7 @@ import { PageEvent } from '@angular/material/paginator';
 export class SeguimientoEmpleadoComponent implements OnInit {
 
   empleados: Empleados;
-  jornadas: Jornadas[]=[];
+  jornadas: Jornadas[] = [];
   visibilidad: boolean;
   page_size: number = 5;
   page_number: number = 1;
@@ -57,7 +57,6 @@ export class SeguimientoEmpleadoComponent implements OnInit {
     this.seguimientoEmpleadoService.empleados(id).subscribe(
       data => {
         this.empleados = data;
-        console.log(data);
       },
       err => {
         console.log(err);
@@ -70,7 +69,6 @@ export class SeguimientoEmpleadoComponent implements OnInit {
     let id = this.router.snapshot.paramMap.get("id");
     this.seguimientoEmpleadoService.baja(id).subscribe(
       data => {
-        console.log(data);
         window.location.reload();
       },
       err => {
@@ -84,7 +82,6 @@ export class SeguimientoEmpleadoComponent implements OnInit {
     let id = this.router.snapshot.paramMap.get("id");
     this.seguimientoEmpleadoService.alta(id).subscribe(
       data => {
-        console.log(data);
         window.location.reload();
       },
       err => {

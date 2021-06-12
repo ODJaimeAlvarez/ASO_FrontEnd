@@ -44,14 +44,12 @@ export class LoginComponent implements OnInit {
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        console.log(data.jwToken);
         this.router.navigate(['catalogo']);
       },
       err => {
         this.isLogged = false;
         this.isLoginFail = true;
         this.errMsj = err.error.Error;
-        console.log(this.errMsj);
       }
     );
   }//onLogin

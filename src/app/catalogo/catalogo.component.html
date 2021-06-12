@@ -1,12 +1,16 @@
 <app-nav class="nav"></app-nav>
 <app-menuhamburguer></app-menuhamburguer>
-<div class="content-fluid introduccion">
-  <div class="cohete"></div>
+<div class="content-fluid introduccion flex">
+  <div class="cohete">
+    <img src="../../assets/codigo4.jpg" class="imagen">
+  </div>
   <div class="textoIntroduccion">
     <h1 class="bienvenida">BIENVENIDO AL PORTAL ASO</h1>
-    <p class="comienza">Una plataforma que te va a permitir gestionar y realizar un seguimiento de tus proyectos de manera intuitiva</p>
+    <p class="comienza">Una plataforma que te va a permitir gestionar y realizar un seguimiento de tus proyectos de
+      manera intuitiva</p>
     <p class="comienza1">¡ Conoce como funciona !</p>
-    <button routerLink="/conoce-el-portal" type="button" class="btn  mt-2 botonComenzar">Comenzar</button>
+    <button data-toggle="modal" data-target="#modal1"  type="button" (click)="guia()"
+      class="btn  mt-2 botonComenzar">Comenzar</button>
   </div>
 </div>
 <div class="content">
@@ -18,7 +22,7 @@
             <div class="col-7 col-md-8 mt-1">
               <div class="icon-big  icon-warning">
                 <h4 class="tituloXataka">XATAKA</h4>
-                <p>Publicación de noticias sobre gadgets y tecnología. Últimas tecnologías en electrónica 
+                <p>Publicación de noticias sobre gadgets y tecnología. Últimas tecnologías en electrónica
                   de consumo y novedades tecnológicas en móviles, tablets, informática, ...</p>
               </div>
             </div>
@@ -27,7 +31,8 @@
               </div>
             </div>
             <div class="row">
-              <a href="https://www.xataka.com/" target="_blank" class="infoCard1">Leer más <i class="fas fa-chevron-right iconoFlecha"></i></a>
+              <a href="https://www.xataka.com/" target="_blank" class="infoCard1">Leer más <i
+                  class="fas fa-chevron-right iconoFlecha"></i></a>
             </div>
           </div>
         </div>
@@ -40,14 +45,16 @@
             <div class="col-7 col-md-12 textoCard2">
               <div>
                 <h4 class="tituloSeguridad">Aprende sobre seguridad</h4>
-                <p class="parrafoCard2">Blog personal de Chema Alonso, CDCO Telefónica, 0xWord, MyPublicInbox, sobre seguridad, hacking, hackers y Cálico Electrónico.</p>
+                <p class="parrafoCard2">Blog personal de Chema Alonso, CDCO Telefónica, 0xWord, MyPublicInbox, sobre
+                  seguridad, hacking, hackers y Cálico Electrónico.</p>
               </div>
             </div>
           </div>
           <div class="row">
-            <a href="https://www.elladodelmal.com/" target="_blank" class="infoCard2">Leer más <i class="fas fa-chevron-right iconoFlecha"></i></a>
+            <a href="https://www.elladodelmal.com/" target="_blank" class="infoCard2">Leer más <i
+                class="fas fa-chevron-right iconoFlecha"></i></a>
           </div>
-        </div> 
+        </div>
       </div>
     </div>
 
@@ -56,34 +63,32 @@
   <!--Graficos-->
   <div class="row mt-4">
     <div class="col-lg-5 mb-lg-0 mb-4 ">
-      <div class="card">
+      <div class="card graficoCirculo">
         <div class="card-body p-3">
-            <app-grafico-contador-usuarios></app-grafico-contador-usuarios>
-            <h6 class="ms-2 mt-4 mb-0">Usuarios activos</h6>
-            <p class="text-sm ms-2">Último mes</p>
-            <div class="container"></div>
+          <h2>Usuarios registrados</h2>
+          <p class="text-muted textomuted">En la plataforma</p>
+          <app-grafico-contador-usuarios></app-grafico-contador-usuarios>
         </div>
       </div>
     </div>
     <div class="col-lg-7">
-    <div class="card grafico2">
-      <div class="card-body">
-        <h6>Estados del proyecto</h6>
-        <p class="text-sm">En este mes</p>
-        <div >
-          <app-grafico class="ejemplo"></app-grafico>
+      <div class="card grafico2">
+        <div class="card-body">
+          <h2 class=" tituloGraficoProyectos">Estados del proyecto</h2>
+          <div>
+            <app-grafico class="circulo"></app-grafico>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
   <div class="row mt-4">
     <div class="col-lg-7 mb-lg-0 mb-5">
       <div class="card grafico2">
         <div class="card-body">
-          <h6>Estados del proyecto</h6>
-          <p class="text-sm">En este mes</p>
-          <div >
+          <h2>Registro usuarios</h2>
+          <p class="text-muted textomuted">Última semana</p>
+          <div>
             <app-grafico-usuarios class="ejemplo"></app-grafico-usuarios>
           </div>
         </div>
@@ -92,34 +97,52 @@
     <div class="col-lg-5">
       <div class="card grafico2">
         <div class="card-body p-3">
-            <h2>Tecnologías de desarrollo</h2>
-            <div class="row fila1">
+          <h2>Tecnologías de desarrollo</h2>
+          <div class="row fila1">
             <div class="col-7 col-md-7 divtecnologias">
               <div class="imagenSpring">
               </div>
               <div class="textoSpring">
-              <p>Spring Boot para el desarrollo del back-end</p>
-            </div>
+                <p>Spring Boot para el desarrollo del back-end</p>
+              </div>
             </div>
             <div class="col-7 col-md-5 divtecnologias">
               <div class="imagenAngular">
               </div>
+              <div>
               <p>Angular para el desarrollo del front-end</p>
             </div>
+          </div>
           </div>
           <div class="row filaMariaDB">
             <div class="col-7 col-md-4 divtecnologias">
               <div class="imagenMariaDB">
               </div>
-              <p class="mt-2">Maria DB para la gestión de la base de datos</p>
+              <p class="mt-2 textoMariaDB">Maria DB para la gestión de la base de datos</p>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </div>
+</div>
+
+<div class="modal modalGuia" tabindex="-1" id="modal1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-dismiss="modal" (click)="cerrarModal()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="infoModal1">Pestaña 'Mi perfil':
+        </p>
+        <p id="infoModal2">
+          Aquí podrás ver y editar tu información personal y gestionar tus propias anotaciones para una mejor organización
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary botonAceptar" (click)="cambiarTexto()">Aceptar</button>
+      </div>
+    </div>
   </div>
-
-
-  
-  
 </div>

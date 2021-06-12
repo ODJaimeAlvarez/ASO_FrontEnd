@@ -17,7 +17,7 @@ import { Clientes } from '../models/clientes';
 
 export class ListaProyectosComponent implements OnInit {
 
-  proyectos: Proyectos[]=[];
+  proyectos: Proyectos[] = [];
   completado: boolean = false;
   filterPosts = '';
   page_size: number = 5;
@@ -96,7 +96,6 @@ export class ListaProyectosComponent implements OnInit {
   }//listaProyectos
 
   editarProyecto(proyecto: Proyectos) {
-    console.log(proyecto);
     this.router.navigate(["/editarProyecto", proyecto.id]);
   }//editarProyecto
 
@@ -108,10 +107,8 @@ export class ListaProyectosComponent implements OnInit {
       empleados: this.empleadosAsignados,
       cliente: this.cliente
     }
-    console.log(this.Proyecto);
     this.listaProyectosService.guardarProyecto(this.Proyecto).subscribe(
       data => {
-        console.log(data);
         window.location.reload();
       },
       err => {
@@ -124,8 +121,7 @@ export class ListaProyectosComponent implements OnInit {
     this.listaProyectosService.clientes().subscribe(
       data => {
         this.clientes = data;
-      }
-      ,
+      },
       err => {
         console.log(err);
       }
@@ -136,8 +132,7 @@ export class ListaProyectosComponent implements OnInit {
     this.listaProyectosService.empleados().subscribe(
       data => {
         this.empleados = data;
-      }
-      ,
+      },
       err => {
         console.log(err);
       }
@@ -151,11 +146,9 @@ export class ListaProyectosComponent implements OnInit {
     } else {
       this.empleadosAsignados.splice(this.empleadosAsignados.indexOf(empleado));
     }
-    console.log(this.empleadosAsignados)
   }//seleccionado
 
   seleccionadoCliente(cliente: Clientes): void {
     this.cliente = cliente;
-    console.log(this.cliente)
   }//seleccionadoCliente
 }

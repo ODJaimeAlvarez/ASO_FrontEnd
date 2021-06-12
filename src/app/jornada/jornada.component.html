@@ -13,7 +13,6 @@
         <li><a style="cursor:pointer;" *ngIf="visibilidadDirector" routerLink="/seguimiento"><i class="fas fa-users"></i> &nbsp;Seguimiento</a></li>
         <li><a style="cursor:pointer;" *ngIf="visibilidadDirector" routerLink="/dar-alta"><i class="fas fa-user-check"></i> &nbsp;Dar de alta</a></li>
 		<li><a style="cursor:pointer;" routerLink="/contactanos"><i class="fas fa-at"></i> &nbsp;Contactanos</a></li>
-        <li><a style="cursor:pointer;" routerLink="/conoce-el-portal"><i class="fas fa-book-open"></i> &nbsp;Conoce el Portal</a></li>
     </ul>
 </nav>
 
@@ -43,7 +42,7 @@
                         alt="profile-sample1" class="background" />
                     <i class="fas fa-user fa-8x profile"></i>
                     <div class="card-content">
-                        <h2>Bienvenido<small>Comienza tu jornada con nosotros</small></h2>
+                        <h2>Bienvenido<small>Comienza tu jornada laboral</small></h2>
                         <div class="icon-block">
                             <button #empezar (click)="jornadaManager()" *ngIf="!visibilidad" [style.visibility]="hidden" role="button" class="btn boton"><i class="fas fa-sign-in-alt fa-7x"></i></button>
                             <button #finalizar (click)="jornadaManager()" *ngIf="visibilidad" [style.visibility]="visible" type="button" class="btn  boton"><i class="fas fa-sign-out-alt fa-7x"></i></button>

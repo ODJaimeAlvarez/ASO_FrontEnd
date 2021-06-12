@@ -74,7 +74,7 @@
                 <label for="cliente">Clientes:</label>
                 <mat-form-field class="matField">
                   <mat-label class="matLabel">Clientes</mat-label>
-                  <mat-select>
+                  <mat-select required>
                     <mat-option *ngFor="let cliente of clientes" [value]="cliente"
                       (click)="seleccionadoCliente(cliente)">
                       {{cliente.nombre}}</mat-option>

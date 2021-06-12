@@ -1,3 +1,52 @@
 .botonesIzquierda {
-    font-size: 10px;
+  font-size: 10px;
+}
+
+::ng-deep .cal-month-view .cal-header {
+  font-size: 11px;
+  margin-top: -27px;
+}
+::ng-deep .cal-month-view .cal-cell-row {
+  height: 40px;
+  width: 100%;
+}
+::ng-deep .cal-month-view .cal-day-cell.cal-today {
+  background-color: #e8fde7;
+}
+
+::ng-deep .cal-month-view .cal-day-number {
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+::ng-deep .cal-month-view .cal-day-cell {
+  min-height: 34px;
+}
+::ng-deep .cal-month-view .cal-day-number {
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+@media screen and (max-width: 1690px) {
+  #botonesCalendario {
+    margin-left: 33%;
+  }
+}
+@media screen and (max-width: 1440px) {
+  #botonesCalendario {
+    margin-left: 28%;
+  }
+}
+@media screen and (max-width: 1024px) {
+    #botonesCalendario {
+      margin-left: 18%;
+    }
+  }
+@media screen and (max-width: 988px) {
+  #botonesCalendario {
+    margin-left: 33%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #botonesCalendario {
+    margin-left: 29%;
+  }
 }

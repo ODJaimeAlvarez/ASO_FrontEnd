@@ -36,7 +36,6 @@ export class EditarProyectoComponent implements OnInit {
   formatoEstado: string;
 
   ngOnInit(): void {
-    console.log(this.estados)
     this.proyectoActual();
   }//ngOnInit
 
@@ -45,7 +44,6 @@ export class EditarProyectoComponent implements OnInit {
     this.listaProyectosService.obtenerProyectos(id).subscribe(
       data => {
         this.proyecto = data;
-        console.log(data);
         this.descripcion = data.descripcion;
         this.nombre = data.nombre;
         switch (this.proyecto.estado.estado) {
@@ -58,11 +56,10 @@ export class EditarProyectoComponent implements OnInit {
           case "ACEPTADO":
             this.formatoEstado = this.formatoEstados[2];
             break;
-          case "FINALZADO":
+          case "FINALIZADO":
             this.formatoEstado = this.formatoEstados[3];
             break;
         }
-        console.log(this.estadoSelecccionado);
       },
       err => {
         console.log(err);
@@ -87,10 +84,8 @@ export class EditarProyectoComponent implements OnInit {
         break;
     }
     let proyecto = new Proyectos(this.proyecto.nombre, estado, this.descripcion);
-    console.log(proyecto);
     this.listaProyectosService.actualizarProyectos(this.proyecto.id.toString(), proyecto).subscribe(
       data => {
-        console.log(data);
         this.route.navigate(["/proyectos"]);
       },
       err => {

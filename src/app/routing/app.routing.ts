@@ -9,7 +9,6 @@ import { TablaEmpleadosComponent } from '../tabla-empleados/tabla-empleados.comp
 import { SeguimientoEmpleadoComponent } from '../ficha-seguimiento-empleado/ficha-seguimiento-empleado.component';
 import { JornadaComponent } from '../jornada/jornada.component';
 import { RolesGuardGuard as guardRoles } from '../guards/roles-guard.guard';
-import { GuiaPortalComponent } from '../guia-portal/guia-portal.component';
 import { DarAltaComponent } from '../dar-alta/dar-alta.component';
 import { PerfilComponent } from '../perfil/perfil.component';
 import { CalendarioComponent } from '../calendario/calendario.component';
@@ -29,7 +28,6 @@ const appRoutes = [
     { path: 'seguimiento', canActivate: [AuthGuardGuard, guardRoles], component: TablaEmpleadosComponent, data: { expectedRol: ['director'] } },
     { path: 'seguimiento/empleado/:id', canActivate: [AuthGuardGuard, guardRoles], component: SeguimientoEmpleadoComponent, data: { expectedRol: ['director'] } },
     { path: 'jornada', canActivate: [AuthGuardGuard, guardRoles], component: JornadaComponent, data: { expectedRol: ['empleado', 'director'] } },
-    { path: 'conoce-el-portal', canActivate: [AuthGuardGuard], component: GuiaPortalComponent },
     { path: 'contactanos', canActivate: [AuthGuardGuard], component: ContactoComponent },
     { path: 'editarProyecto/:id', canActivate: [AuthGuardGuard], component: EditarProyectoComponent },
     { path: 'dar-alta', canActivate: [AuthGuardGuard, guardRoles], component: DarAltaComponent, data: { expectedRol: ['director'] } },

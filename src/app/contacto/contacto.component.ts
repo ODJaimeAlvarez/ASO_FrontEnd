@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactoCorreo } from '../models/contacto-correo';
 import { ContactoService } from '../service/contacto.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contacto',
@@ -10,7 +11,8 @@ import { ContactoService } from '../service/contacto.service';
 export class ContactoComponent implements OnInit {
 
   constructor(
-    private contactoService: ContactoService
+    private contactoService: ContactoService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void { }
@@ -28,7 +30,9 @@ export class ContactoComponent implements OnInit {
     }
     this.contactoService.enviarCorreo(this.contacto).subscribe(
       data => {
-        console.log(data);
+        this.toastr.success('¡El correo ha sido enviado con éxito! ', '', {
+          timeOut: 5000, positionClass: 'toast-top-center'
+        });
       },
       err => {
         console.log(err);

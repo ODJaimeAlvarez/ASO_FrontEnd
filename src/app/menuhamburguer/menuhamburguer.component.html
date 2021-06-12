@@ -1,20 +1,19 @@
 <input type="checkbox" id="menu" />
 
-<label for="menu" class="menu">
+<label for="menu" class="menu" id="menuGuia">
 	<span></span>
 	<span></span>
     <span></span>
 </label>
 
-<nav class="nav">
+<nav class="nav" id="navGuia">
 	<div class="fondo"></div>
 	<div class="color"></div>
 	<ul>
-		<li><a style="cursor:pointer;" routerLink="/catalogo"><i class="fas fa-chart-line"></i> &nbsp;Catálogo</a></li>
-		<li><a style="cursor:pointer;" routerLink="/proyectos"><i class="far fa-file-powerpoint"></i> &nbsp;Proyectos</a></li>
-		<li><a style="cursor:pointer;" *ngIf="visibilidadDirector" routerLink="/seguimiento"><i class="fas fa-user-tie iconoProyecto"></i> &nbsp;Seguimiento</a></li>
-		<li><a style="cursor:pointer;" *ngIf="visibilidadDirector" routerLink="/dar-alta"><i class="fas fa-user-check"></i> &nbsp;Dar de alta</a></li>
-		<li><a style="cursor:pointer;" routerLink="/contactanos"><i class="fas fa-at"></i> &nbsp;Contactanos</a></li>
-		<li><a style="cursor:pointer;" routerLink="/conoce-el-portal"><i class="fas fa-book-open"></i> &nbsp;Conoce el Portal</a></li>
+		<li id="catalogoGuia"><a style="cursor:pointer;" routerLink="/catalogo"><i class="fas fa-chart-line"></i> &nbsp;Catálogo</a></li>
+		<li id="proyectosGuia"><a style="cursor:pointer;" routerLink="/proyectos"><i class="far fa-file-powerpoint"></i> &nbsp;Proyectos</a></li>
+		<li id="seguimientoGuia"><a style="cursor:pointer;" *ngIf="visibilidadDirector" routerLink="/seguimiento"><i class="fas fa-user-tie iconoProyecto"></i> &nbsp;Seguimiento</a></li>
+		<li id="darAltaGuia"><a style="cursor:pointer;" *ngIf="visibilidadDirector" routerLink="/dar-alta"><i class="fas fa-user-check"></i> &nbsp;Dar de alta</a></li>
+		<li id="contactanosGuia"><a style="cursor:pointer;" routerLink="/contactanos"><i class="fas fa-at"></i> &nbsp;Contactanos</a></li>
 	</ul>
 </nav>

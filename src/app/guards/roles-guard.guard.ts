@@ -18,7 +18,6 @@ export class RolesGuardGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const expectedRol = route.data.expectedRol;
     const roles = this.tokenService.getAuthorities();
-    console.log(roles);
     this.realRol = 'director'; //cambiar variable
     roles.forEach(rol => {
       console.log(rol);

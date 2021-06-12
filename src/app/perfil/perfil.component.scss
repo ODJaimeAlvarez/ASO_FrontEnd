@@ -7,6 +7,9 @@
   height: 88%;
 }
 
+#parrafoDescripcion {
+	white-space: normal;
+}
 .tituloCards {
 	display: flex;
 	justify-content: space-between;
@@ -20,19 +23,19 @@
 
 .cardNotas {
 	font-size: 18px;
-	overflow-y: auto;
-	height: 88%;
+	overflow-y: scroll;
+	height: 376px;
 }
 
 .iconoPapelera {
 	display: flex;
 	justify-content: space-between;
-
 }
 
 .nota {
 	width: 100%;
 }
+
 .cardNotas::-webkit-scrollbar {
     -webkit-appearance: none;
 }
@@ -100,7 +103,6 @@ input[type=number]::-webkit-outer-spin-button {
 $bg: darken(white, 10%);
 $shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 $shadow1: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-
 
 .profile {
   display: flex;
@@ -206,19 +208,28 @@ input {
 
 textarea {
     border: 1px rgb(202, 199, 199) solid;
-    
 }
 
 input:focus, select:focus, select, input.form-control:focus, textarea:focus {
-
     outline:none !important;
-
     outline-width: 0 !important;
-
     box-shadow: none;
-
     -moz-box-shadow: none;
-
     -webkit-box-shadow: none;
-
 }
+
+select {
+    border: none;
+    border-bottom: 1px rgb(202, 199, 199) solid;
+}
+
+  @media screen and (max-width: 1024px) {
+		.profile-image{
+			margin-left: 2%;
+		}
+	}
+  @media screen and (max-width: 768px) {
+	.profile-image{
+		margin-left: 6%;
+	}
+  }

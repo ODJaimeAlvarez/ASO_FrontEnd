@@ -130,3 +130,23 @@
   width: 100%;
   height: 100%;  
 }
+
+.iconoFlecha {
+  margin-left: 10px;
+}
+
+.iconoFlecha {
+  animation: movimiento 2.5s linear infinite;
+}
+
+@keyframes movimiento {
+  0%{
+      transform: translateX(0);  
+  }
+  50% {
+      transform: translateX(30px);
+  }
+  100% {
+      transform: translateX(0);  
+  }
+}

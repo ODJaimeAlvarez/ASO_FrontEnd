@@ -1,4 +1,4 @@
-<mat-toolbar class="header">
+<mat-toolbar class="header" id="headerGuia">
   <mat-toolbar-row>
     <div class="start">
         <div class="logo">
@@ -7,13 +7,13 @@
       <h1 routerLink="/catalogo"><i class="fab fa-asymmetrik"></i> Portal ASO</h1>
     </div>
     <span class="spacer"></span>
-    <button *ngIf="verJornada" mat-icon-button  [matMenuTriggerFor]="more" color="basic" class="botonMore icon-display">
+    <button *ngIf="verJornada" id="jornadaGuia" mat-icon-button  [matMenuTriggerFor]="more" color="basic" class="botonMore icon-display">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #more="matMenu" >
       <button mat-menu-item routerLink="/jornada"><mat-icon>history</mat-icon> Jornada</button>
     </mat-menu>
-    <button class="icon" mat-mini-fab aria-hidden="false" [matMenuTriggerFor]="menu" color="basic">
+    <button class="icon" id="perfilGuia" mat-mini-fab aria-hidden="false" [matMenuTriggerFor]="menu" color="basic">
       <mat-icon>person</mat-icon>
     </button>
     <mat-menu #menu="matMenu">

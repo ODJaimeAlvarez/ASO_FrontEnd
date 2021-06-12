@@ -19,7 +19,6 @@ export class AuthGuardGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (window.sessionStorage.getItem("AuthToken") == null) {
-      console.log('No estás logueado');
       this.router.navigate(['']);
       return false;
     }

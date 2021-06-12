@@ -41,7 +41,6 @@ export class JornadaComponent implements OnInit {
       } else {
         this.visibilidad = false;
       }
-      console.log(data);
     },
       err => {
         console.log(err);
@@ -62,7 +61,6 @@ export class JornadaComponent implements OnInit {
             timeOut: 3000, positionClass: 'toast-top-right'
           });
         }
-        console.log(data);
       },
       err => {
         console.log(err);

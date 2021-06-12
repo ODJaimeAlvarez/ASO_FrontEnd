@@ -54,16 +54,12 @@ export class ListaFicherosComponent implements OnInit {
   }//listaFicheros
 
   selectFile(event) {
-    console.log(event.target.files);
     this.selectedFiles = event.target.files;
-    console.log(event);
     this.subirArchivo();
   }//selectFile
 
   editaFile(id: string, event) {
-    console.log(event.target.files);
     this.selectedFiles = event.target.files;
-    console.log(event);
     this.editarArchivos(id);
   }//editaFile
 
@@ -71,7 +67,6 @@ export class ListaFicherosComponent implements OnInit {
     this.currentFileUpload = this.selectedFiles.item(0);
     let id = this.route.snapshot.paramMap.get("id");
     this.listaFicherosService.subir(id, this.currentFileUpload).subscribe(event => {
-      console.log('Fichero subido correctamente');
       window.location.reload();
     });
     this.selectedFiles = undefined;
@@ -81,7 +76,6 @@ export class ListaFicherosComponent implements OnInit {
     this.listaFicherosService.descargar(fichero.id).subscribe(
       event => {
         saveAs(event, fichero.nombre);
-        console.log('se ha descargado');
       },
       (error: HttpErrorResponse) => {
         console.log(error);
@@ -92,7 +86,6 @@ export class ListaFicherosComponent implements OnInit {
   editarArchivos(id: string) {
     this.currentFileUpload = this.selectedFiles.item(0);
     this.listaFicherosService.editar(id, this.currentFileUpload).subscribe(event => {
-      console.log('Fichero subido correctamente');
       window.location.reload();
     });
     this.selectedFiles = undefined;

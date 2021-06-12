@@ -241,3 +241,16 @@ button:hover {
       margin-bottom:4px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .profile-card-1 .background {
+    transform: scale(6.3);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .profile-card-1 .background {
+    transform: scale(6.3);
+  }
+}
+

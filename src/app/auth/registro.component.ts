@@ -46,7 +46,6 @@ export class RegistroComponent implements OnInit {
     this.authService.nuevo(this.nuevoUsuario).subscribe(data => {
       this.isRegister = true;
       this.isRegisterFail = false;
-      console.log(data.jwToken);
       this.router.navigate(['login']);
       this.toastr.info('¡El registro se ha realizado con éxito! ', '', {
         timeOut: 5000, positionClass: 'toast-top-center'
@@ -56,7 +55,6 @@ export class RegistroComponent implements OnInit {
         this.isRegister = false;
         this.isRegisterFail = true;
         this.errMsj = err.error.Error;
-        console.log(this.errMsj);
       }
     );
   }//onRegister

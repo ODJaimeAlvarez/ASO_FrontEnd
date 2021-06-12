@@ -35,6 +35,20 @@ export class PerfilComponent implements OnInit {
   selectedFiles: FileList;
   currentFileUpload: File;
   url: SafeUrl;
+  listaPaises: string[] = ["Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina",
+  "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia",
+  "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile",
+  "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica",
+  "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi",
+  "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India",
+  "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati",
+  "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí",
+  "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger",
+  "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido",
+  "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa",
+  "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria",
+  "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga",
+  "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue"];
 
   constructor(
     private perfilService: PerfilService,
@@ -59,14 +73,11 @@ export class PerfilComponent implements OnInit {
     this.perfilService.descargar(id).subscribe(data => {
       imagen = URL.createObjectURL(data.body)
       this.url = this.sanitizer.bypassSecurityTrustUrl(imagen);
-      console.log(this.url.toString());
     });
   }//fotoPerfil
 
   selectFile(event) {
-    console.log(event.target.files);
     this.selectedFiles = event.target.files;
-    console.log(event);
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach(rol => {
       if (rol === 'CLIENTE') {
@@ -78,20 +89,16 @@ export class PerfilComponent implements OnInit {
   }//selectFile
 
   nuevaFoto() {
-    console.log('Imagen cargada correctamente');
     this.currentFileUpload = this.selectedFiles.item(0);
     this.perfilService.subirFoto(this.usuarios.id, this.currentFileUpload).subscribe(event => {
-      console.log('Imagen cargada correctamente');
       window.location.reload();
     });
     this.selectedFiles = undefined;
   }//nuevaFoto
 
   nuevaFotoCliente() {
-    console.log('Cliente: Imagen cargada correctamente');
     this.currentFileUpload = this.selectedFiles.item(0);
     this.perfilService.subirFotoCliente(this.usuarios.id, this.currentFileUpload).subscribe(event => {
-      console.log('Cliente: Imagen cargada correctamente');
       window.location.reload();
     });
     this.selectedFiles = undefined;
@@ -116,10 +123,8 @@ export class PerfilComponent implements OnInit {
         this.ciudad = data.ciudad;
         this.CP = data.CP;
         if (data.fotoPerfil != null) {
-          console.log("Entro a metodo ");
           this.fotoPerfil(data.fotoPerfil.id);
         }
-        console.log(data);
       },
       err => {
         console.log(err);
@@ -132,7 +137,6 @@ export class PerfilComponent implements OnInit {
       this.telefono, this.direccion, this.descripcion, this.pais, this.ciudad, this.CP);
     this.perfilService.editarUsuario(this.usuarios.id, empleado).subscribe(
       data => {
-        console.log(data);
         window.location.reload();
       },
       err => {
@@ -145,7 +149,6 @@ export class PerfilComponent implements OnInit {
     this.perfilService.notas().subscribe(
       data => {
         this.notas = data.reverse();
-        console.log(data);
       },
       err => {
         console.log(err);
@@ -157,7 +160,6 @@ export class PerfilComponent implements OnInit {
     let nuevaNota = new Notas(this.nombreNota, this.nota);
     this.perfilService.guardarNota(nuevaNota).subscribe(
       data => {
-        console.log(data);
         window.location.reload();
       },
       err => {
@@ -169,7 +171,6 @@ export class PerfilComponent implements OnInit {
   eliminarNota(id: string): void {
     this.perfilService.eliminarNota(id).subscribe(
       data => {
-        console.log(data);
         window.location.reload();
       },
       err => {
@@ -183,7 +184,6 @@ export class PerfilComponent implements OnInit {
       this.telefono, this.direccion, this.descripcion, this.pais, this.ciudad, this.CP);
     this.perfilService.editarCliente(this.usuarios.id, cliente).subscribe(
       data => {
-        console.log(data);
         window.location.reload();
       },
       err => {
@@ -211,10 +211,8 @@ export class PerfilComponent implements OnInit {
         this.ciudad = data.ciudad;
         this.CP = data.CP;
         if (data.fotoPerfil != null) {
-          console.log("Entro a metodo ");
           this.fotoPerfil(data.fotoPerfil.id);
         }
-        console.log(data);
       },
       err => {
         console.log(err);

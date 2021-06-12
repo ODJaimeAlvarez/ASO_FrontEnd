@@ -28,8 +28,8 @@
           <h4 class="pb-2 mb-0">Información del perfil</h4>
           <a href="" data-toggle="modal" data-target="#modalPerfil"><i class="fas fa-user-edit"></i></a>
         </div>
-        <div class="d-flex border-bottom pt-3">
-          <p class="pb-3 mb-0 small lh-sm text-muted">
+        <div   class="border-bottom pt-3">
+          <p id="parrafoDescripcion" class="pb-3 mb-0 small lh-sm text-muted">
             {{usuarios.descripcion}}
           </p>
         </div>
@@ -79,21 +79,21 @@
               <div class="row">
                 <div class="col-md-4 pr-1">
                   <div class="form-group">
-                    <label for="nombre">Nombre</label>
+                    <label for="nombre">Nombre:</label>
                     <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre"
                       value="{{usuarios.nombre}}" [(ngModel)]="nombre" required>
                   </div>
                 </div>
                 <div class="col-md-4 px-1">
                   <div class="form-group">
-                    <label for="apellido1">Primer apellido</label>
+                    <label for="apellido1">Primer apellido:</label>
                     <input type="text" name="apellido1" id="apellido1" class="form-control" placeholder="Primer apellido"
                       [(ngModel)]="apellido1" value="{{usuarios.apellido1}}">
                   </div>
                 </div>
                 <div class="col-md-4 pl-1">
                   <div class="form-group">
-                    <label for="apellido2">Segundo apellido</label>
+                    <label for="apellido2">Segundo apellido:</label>
                     <input type="text" name="apellido2" id="apellido2" class="form-control" [(ngModel)]="apellido2"
                       placeholder="Segundo apellido" value="{{usuarios.apellido2}}">
                   </div>
@@ -102,7 +102,7 @@
               <div class="row">
                 <div *ngIf="usuarios.cargo" class="col-md-6 pr-1">
                   <div class="form-group">
-                    <label for="cargo">Cargo</label>
+                    <label for="cargo">Cargo:</label>
                     <input type="text" name="cargo" id="cargo" class="form-control"
                       placeholder="Analista" [(ngModel)]="cargo" value="{{usuarios.cargo}}"
                       disabled="">
@@ -110,7 +110,7 @@
                 </div>
                 <div *ngIf="usuarios.empresa" class="col-md-6 pr-1">
                   <div class="form-group">
-                    <label for="empresa">Empresa</label>
+                    <label for="empresa">Empresa:</label>
                     <input type="text" name="empresa" id="empresa" class="form-control"
                       placeholder="ASO" [(ngModel)]="empresa" value="{{usuarios.empresa}}"
                       disabled="">
@@ -118,7 +118,7 @@
                 </div>
                 <div class="col-md-6 pl-1">
                   <div class="form-group">
-                    <label for="telefono">Teléfono</label>
+                    <label for="telefono">Teléfono:</label>
                     <input type="number" name="telefono" id="telefono" class="form-control" placeholder="675674231"
                       [(ngModel)]="telefono" value="{{usuarios.telefono}}">
                   </div>
@@ -127,7 +127,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="direccion">Dirección</label>
+                    <label for="direccion">Dirección:</label>
                     <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Calle de La Posada"
                       [(ngModel)]="direccion" value="{{usuarios.direccion}}">
                   </div>
@@ -136,21 +136,22 @@
               <div class="row">
                 <div class="col-md-4 pr-1">
                   <div class="form-group">
-                    <label for="pais">País</label>
-                    <input type="text" name="pais" id="pais" class="form-control" [(ngModel)]="pais" placeholder="España"
-                      value="{{usuarios.pais}}">
+                    <label for="pais">País:</label>
+                    <select [(ngModel)]="pais" name="pais" id="pais" class="form-select" required>
+                      <option *ngFor="let pais of listaPaises" [ngValue]="pais">{{pais}}</option>
+                    </select>
                   </div>
                 </div>
                 <div class="col-md-4 px-1">
                   <div class="form-group">
-                    <label for="ciudad">Ciudad</label>
+                    <label for="ciudad">Ciudad:</label>
                     <input type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Madrid"
                       [(ngModel)]="ciudad" value="{{usuarios.ciudad}}">
                   </div>
                 </div>
                 <div class="col-md-4 pl-1">
                   <div class="form-group">
-                    <label for="cp">Código Postal</label>
+                    <label for="cp">Código Postal:</label>
                     <input type="number" name="cp" id="cp" class="form-control" [(ngModel)]="CP" placeholder="28055"
                       value="{{usuarios.CP}}">
                   </div>
@@ -159,8 +160,8 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="descripcion">A cerca de mi</label>
-                    <textarea rows="4" cols="80" name="descripcion" minlength="4" maxLength="54" id="descripcion" class="form-control"
+                    <label for="descripcion">A cerca de mi:</label>
+                    <textarea rows="4" cols="80" name="descripcion" id="descripcion" class="form-control"
                       placeholder="Añade tu descripción aquí" [(ngModel)]="descripcion"
                       value="{{usuarios.descripcion}}">{{usuarios.descripcion}}</textarea>
                   </div>
@@ -234,8 +235,8 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="descripcion">Nota:</label>
-                    <textarea rows="4" cols="80" name="descripcion" id="descripcion" class="form-control"
-                      placeholder="Detalla tu nota" minlength="4" maxLength="254" [(ngModel)]="nota" required></textarea>
+                    <textarea rows="5" cols="80" name="descripcion" id="descripcion" class="form-control"
+                      placeholder="Detalla tu nota" [(ngModel)]="nota" required></textarea>
                   </div>
                 </div>
               </div>
@@ -245,7 +246,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-light botonesEditar" data-dismiss="modal">Cancelar</button>
             <button type="button" class="btn btn-primary botonesEditar" data-dismiss="modal"
-              (click)="anadirNota()">Guardar</button>
+              (click)="anadirNota()" [disabled]="!f.valid">Guardar</button>
           </div>
         </div>
       </div>

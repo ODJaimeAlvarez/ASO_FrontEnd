@@ -1,9 +1,5 @@
-export interface ContactoCorreo{
-
-
-    correo:string
-    asunto:string
-    mensaje:string
-
-
+export interface ContactoCorreo {
+    correo: string
+    asunto: string
+    mensaje: string
 }

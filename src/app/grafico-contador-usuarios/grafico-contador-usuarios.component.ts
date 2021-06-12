@@ -36,7 +36,6 @@ export class GraficoContadorUsuariosComponent implements OnInit {
           console.log(this.doughnutChartLabels);
         });
         this.doughnutChartData = [variable];
-        console.log(this.doughnutChartData);
       },
       err => {
         console.log(err);

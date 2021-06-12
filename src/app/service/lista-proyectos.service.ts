@@ -19,7 +19,6 @@ export class ListaProyectosService {
     this.URL = URLServidor.ruta;
   }
 
-
   proyectos(): Observable<any[]> {
     return this.httpClient.get<any[]>(this.URL + 'api/proyecto');
   }//proyectos

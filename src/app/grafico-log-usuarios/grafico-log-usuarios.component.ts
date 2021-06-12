@@ -54,7 +54,6 @@ export class GraficoUsuariosComponent implements OnInit {
         this.lineChartData =
           [{ data: variable, label: 'Empleados' },
           { data: variable1, label: 'Clientes' }];
-        console.log(this.lineChartData);
       },
       err => {
         console.log(err);
@@ -73,8 +72,7 @@ export class GraficoUsuariosComponent implements OnInit {
           },
           ticks: {
             stepSize: 1,
-            min: 0,
-            max: 10
+            min: 0
           }
         }
       ]

@@ -23,7 +23,6 @@ import { MenuhamburguerComponent } from './menuhamburguer/menuhamburguer.compone
 import { ListaFicherosComponent } from './lista-ficheros/lista-ficheros.component';
 import { TablaEmpleadosComponent } from './tabla-empleados/tabla-empleados.component';
 import { SeguimientoEmpleadoComponent } from './ficha-seguimiento-empleado/ficha-seguimiento-empleado.component';
-import { GuiaPortalComponent } from './guia-portal/guia-portal.component';
 import { JornadaComponent } from './jornada/jornada.component';
 import { DarAltaComponent } from './dar-alta/dar-alta.component';
 import { PerfilComponent } from './perfil/perfil.component';
@@ -83,7 +82,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TablaEmpleadosComponent,
     SeguimientoEmpleadoComponent,
     JornadaComponent,
-    GuiaPortalComponent,
     PaginatePipe,
     DarAltaComponent,
     PerfilComponent,

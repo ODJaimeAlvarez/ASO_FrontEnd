@@ -10,7 +10,7 @@ import { GProyectos } from '../models/grafico';
   styleUrls: ['./grafico-proyectos.component.scss']
 })
 
-export class GraficoComponent {
+export class GraficoComponent implements OnInit{
 
   gProyecto: GProyectos[];
   public barChartLabels: Array<Label> = new Array<Label>();
@@ -23,7 +23,7 @@ export class GraficoComponent {
       xAxes: [{}], yAxes: [{
         ticks: {
           stepSize: 2,
-          max: 10,
+
           min: 0
         }
       }]
@@ -55,7 +55,6 @@ export class GraficoComponent {
         });
         this.barChartData =
           { data: variable, label: 'Estado' };
-        console.log(this.barChartData);
       },
       err => {
         console.log(err);
