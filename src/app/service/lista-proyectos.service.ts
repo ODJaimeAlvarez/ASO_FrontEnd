@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { URLServidor } from '../models/url-servidor';
 import { Proyectos } from '../models/proyectos';
-import { proyectoNuevo } from '../models/proyecto-nuevo';
+import { ProyectoNuevo } from '../models/proyecto-nuevo';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +40,7 @@ export class ListaProyectosService {
     return this.httpClient.get<any>(this.URL + 'api/cliente');
   }//clientes
 
-  guardarProyecto(proyecto: proyectoNuevo) {
+  guardarProyecto(proyecto: ProyectoNuevo) {
     return this.httpClient.post<any>(this.URL + 'api/proyecto', proyecto)
   }//guardarProyecto
 

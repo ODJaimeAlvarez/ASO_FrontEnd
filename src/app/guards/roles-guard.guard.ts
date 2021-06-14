@@ -18,7 +18,7 @@ export class RolesGuardGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const expectedRol = route.data.expectedRol;
     const roles = this.tokenService.getAuthorities();
-    this.realRol = 'director'; //cambiar variable
+    this.realRol = 'director';
     roles.forEach(rol => {
       console.log(rol);
       if (rol === 'EMPLEADO') {
@@ -28,7 +28,7 @@ export class RolesGuardGuard implements CanActivate {
         this.realRol = 'cliente';
       }
     });
-    if (!this.tokenService.getToken() || expectedRol.indexOf(this.realRol) === -1) { //si no tenemos token o tenemos un rol no esperado
+    if (!this.tokenService.getToken() || expectedRol.indexOf(this.realRol) === -1) { 
       this.router.navigate(['/proyectos']);
       return false;
     }

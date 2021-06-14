@@ -2,7 +2,7 @@ import { Clientes } from "./clientes";
 import { Empleados } from "./empleados";
 import { Estados } from "./estados";
 
-export class proyectoNuevo {
+export class ProyectoNuevo {
     nombre: string;
     descripcion: string;
     estado: Estados;

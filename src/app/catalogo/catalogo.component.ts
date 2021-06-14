@@ -39,7 +39,7 @@ export class CatalogoComponent implements OnInit {
     }
   }
 
-  cambiarTexto() {
+  cambiar() {
     switch (this.texto) {
       case "Inicio":
         document.getElementById("infoModal1").innerHTML = "Jornada:";

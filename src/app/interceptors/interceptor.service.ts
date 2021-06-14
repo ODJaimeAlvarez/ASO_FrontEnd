@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class ProyectosInterceptorService implements HttpInterceptor {
+export class InterceptorService implements HttpInterceptor {
 
   constructor(private tokenService: TokenService) { }
 
@@ -21,4 +21,4 @@ export class ProyectosInterceptorService implements HttpInterceptor {
   }
 }
 
-export const interceptorProvider = [{ provide: HTTP_INTERCEPTORS, useClass: ProyectosInterceptorService, multi: true }];
+export const interceptorProvider = [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }];

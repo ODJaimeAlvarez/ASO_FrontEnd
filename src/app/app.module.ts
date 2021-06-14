@@ -27,7 +27,7 @@ import { JornadaComponent } from './jornada/jornada.component';
 import { DarAltaComponent } from './dar-alta/dar-alta.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { CalendarioComponent } from './calendario/calendario.component';
-import { GraficoComponent } from './graficoProyectos/grafico-proyectos.component';
+import { GraficoComponent } from './grafico-proyectos/grafico-proyectos.component';
 import { GraficoUsuariosComponent } from './grafico-log-usuarios/grafico-log-usuarios.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { GraficoContadorUsuariosComponent } from './grafico-contador-usuarios/grafico-contador-usuarios.component';

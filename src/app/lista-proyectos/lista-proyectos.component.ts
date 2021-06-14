@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 import { Estados, Estado_iniciado } from '../models/estados';
 import { Empleados } from '../models/empleados';
-import { proyectoNuevo } from '../models/proyecto-nuevo';
+import { ProyectoNuevo } from '../models/proyecto-nuevo';
 import { Clientes } from '../models/clientes';
 
 @Component({
@@ -28,7 +28,7 @@ export class ListaProyectosComponent implements OnInit {
 
   //CREAR PROYECTO
   estado: Estados;
-  Proyecto: proyectoNuevo;
+  Proyecto: ProyectoNuevo;
   empleados: Empleados[];
   nombre: string = "";
   descripcion: string = "";

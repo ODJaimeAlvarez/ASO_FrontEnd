@@ -22,10 +22,10 @@ export class GraficoContadorUsuariosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.graficoCUsuarios();
+    this.graficoContadorUsuarios();
   }
 
-  graficoCUsuarios(): void {
+  graficoContadorUsuarios(): void {
     let variable: number[] = [];
     this.graficosService.graficoContadorUsuarios().subscribe(
       data => {
@@ -33,7 +33,6 @@ export class GraficoContadorUsuariosComponent implements OnInit {
         this.gProyecto.forEach(dato => {
           variable.push(dato.valor);
           this.doughnutChartLabels.push(dato.nombre);
-          console.log(this.doughnutChartLabels);
         });
         this.doughnutChartData = [variable];
       },

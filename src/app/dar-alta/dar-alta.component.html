@@ -41,7 +41,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="telefono">Teléfono:</label>
-            <input type="text" name="telefono" id="telefono" class="form-control" placeholder="675674231"
+            <input type="text" name="telefono" maxLength="11" id="telefono" class="form-control" placeholder="675674231"
               [(ngModel)]="telefono" required>
           </div>
         </div>
@@ -65,7 +65,7 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="CP">Código Postal:</label>
-            <input type="text" name="CP" id="CP" class="form-control" placeholder="28055" [(ngModel)]="CP" required>
+            <input type="text" name="CP" id="CP" maxLength="5" class="form-control" placeholder="28055" [(ngModel)]="CP" required>
           </div>
         </div>
       </div>
